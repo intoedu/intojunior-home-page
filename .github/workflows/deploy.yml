@@ -36,6 +36,18 @@ jobs:
           node-version: 22
           cache: npm
 
+      # Pages 의 배포 방식이 "브랜치"로 되어 있으면 소스 코드가 그대로 노출되므로
+      # 매번 "GitHub Actions" 로 맞춰 둡니다. (권한이 없으면 조용히 넘어갑니다)
+      - name: Pages 배포 방식 고정
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api -X PUT "repos/${{ github.repository }}/pages" \
+            -f build_type=workflow \
+            && echo "배포 방식을 GitHub Actions 로 설정했습니다" \
+            || echo "설정 변경 권한이 없습니다 → Settings → Pages 에서 Source 를 GitHub Actions 로 바꿔주세요"
+
       - name: Pages 설정 확인
         id: pages
         uses: actions/configure-pages@v5
