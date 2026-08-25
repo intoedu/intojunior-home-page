@@ -46,7 +46,7 @@ export function ProgramsView({ lang }: { lang: Lang }) {
       </PageHero>
 
       {/* ── 과정 목록 ── */}
-      <Section size="wide" className="bg-white">
+      <Section tightTop size="wide" className="bg-white">
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {p.items.map((item, i) => (
             <Reveal as="li" key={item.no} delay={(i % 3) * 80}>

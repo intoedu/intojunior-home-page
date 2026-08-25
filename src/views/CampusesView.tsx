@@ -99,7 +99,7 @@ function CampusBlock({
                   <dd>
                     <a
                       href={telHref(campus.phone)}
-                      className="text-[1.0625rem] font-extrabold tabular-nums text-navy-900 transition-colors hover:text-brand-700"
+                      className="-my-1.5 inline-flex items-center py-1.5 text-[1.0625rem] font-extrabold tabular-nums text-navy-900 transition-colors hover:text-brand-700"
                     >
                       {campus.phone}
                     </a>
@@ -113,7 +113,7 @@ function CampusBlock({
                     <dd>
                       <a
                         href={telHref(campus.mobile)}
-                        className="text-[0.9375rem] font-bold tabular-nums text-navy-800 transition-colors hover:text-brand-700"
+                        className="-my-1.5 inline-flex items-center py-1.5 text-[0.9375rem] font-bold tabular-nums text-navy-800 transition-colors hover:text-brand-700"
                       >
                         {campus.mobile}
                       </a>
@@ -171,7 +171,7 @@ export function CampusesView({ lang }: { lang: Lang }) {
       </PageHero>
 
       {/* ── 캠퍼스별 상세 ── */}
-      <Section size="wide" className="bg-white">
+      <Section tightTop size="wide" className="bg-white">
         <div className="space-y-20 sm:space-y-24">
           {CAMPUSES.map((campus, i) => (
             <CampusBlock key={campus.id} campus={campus} lang={lang} index={i} />

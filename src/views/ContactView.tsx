@@ -49,7 +49,7 @@ export function ContactView({ lang }: { lang: Lang }) {
       </PageHero>
 
       {/* ── 연락 방법 ── */}
-      <Section size="wide" className="bg-white">
+      <Section tightTop size="wide" className="bg-white">
         <Reveal>
           <h2 className="text-[1.75rem] font-bold text-navy-900 sm:text-[2.125rem]">
             {c.channels.title}

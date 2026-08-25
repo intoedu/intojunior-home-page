@@ -80,14 +80,14 @@ export function CampusCard({
             <dd className="flex flex-wrap items-center gap-x-3 gap-y-1">
               <a
                 href={telHref(campus.phone)}
-                className="font-bold tabular-nums text-navy-900 transition-colors hover:text-brand-700"
+                className="-my-1.5 inline-flex items-center py-1.5 font-bold tabular-nums text-navy-900 transition-colors hover:text-brand-700"
               >
                 {campus.phone}
               </a>
               {campus.mobile && (
                 <a
                   href={telHref(campus.mobile)}
-                  className="text-[0.8125rem] tabular-nums text-ink-500 transition-colors hover:text-brand-700"
+                  className="-my-1.5 inline-flex items-center py-1.5 text-[0.8125rem] tabular-nums text-ink-500 transition-colors hover:text-brand-700"
                 >
                   {campus.mobile}
                 </a>

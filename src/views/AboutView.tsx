@@ -22,7 +22,7 @@ export function AboutView({ lang }: { lang: Lang }) {
       />
 
       {/* ── 원장 인사말 ── */}
-      <Section size="wide" className="bg-white">
+      <Section tightTop size="wide" className="bg-white">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <div className="lg:sticky lg:top-28">

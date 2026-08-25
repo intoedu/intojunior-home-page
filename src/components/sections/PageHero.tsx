@@ -45,7 +45,7 @@ export function PageHero({
 
       <Container
         size="wide"
-        className="relative pb-16 sm:pb-20"
+        className="relative pb-14 sm:pb-16"
         // 고정 헤더 높이만큼 여백 확보
       >
         <div style={{ paddingTop: "calc(var(--header-h) + 3.5rem)" }}>
@@ -55,7 +55,10 @@ export function PageHero({
               aria-label="breadcrumb"
               className="flex items-center gap-1.5 text-[0.75rem] font-medium text-white/45"
             >
-              <Link href={href(lang)} className="transition-colors hover:text-white">
+              <Link
+                href={href(lang)}
+                className="-my-2 inline-flex items-center py-2 transition-colors hover:text-white"
+              >
                 {t.nav[0].label}
               </Link>
               <Icon name="chevronRight" size={13} />

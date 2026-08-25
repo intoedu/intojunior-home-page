@@ -7,16 +7,25 @@ export function Section({
   className,
   containerClassName,
   size = "default",
+  /** 히어로 바로 아래에 오는 첫 섹션은 위 여백을 줄입니다 */
+  tightTop = false,
   children,
 }: {
   id?: string;
   className?: string;
   containerClassName?: string;
   size?: "default" | "narrow" | "wide";
+  tightTop?: boolean;
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className={cn("py-20 sm:py-28", className)}>
+    <section
+      id={id}
+      className={cn(
+        tightTop ? "pt-14 pb-20 sm:pt-16 sm:pb-28" : "py-20 sm:py-28",
+        className,
+      )}
+    >
       <Container size={size} className={containerClassName}>
         {children}
       </Container>

@@ -16,7 +16,7 @@ export function PrivacyView({ lang }: { lang: Lang }) {
         crumbLabel={t.footer.privacy}
       />
 
-      <Section size="narrow" className="bg-white">
+      <Section tightTop size="narrow" className="bg-white">
         <Reveal>
           <p className="text-[0.9375rem] leading-[1.95] text-ink-600">
             {p.intro}

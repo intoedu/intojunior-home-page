@@ -20,7 +20,7 @@ export function FaqView({ lang }: { lang: Lang }) {
         crumbLabel={t.nav[4].label}
       />
 
-      <Section className="bg-white">
+      <Section tightTop className="bg-white">
         <FaqList lang={lang} />
 
         <Reveal delay={100}>

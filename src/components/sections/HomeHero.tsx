@@ -29,11 +29,11 @@ export function HomeHero({ lang }: { lang: Lang }) {
 
       <Container size="wide" className="relative">
         <div
-          className="grid items-center gap-12 pb-28 lg:grid-cols-12 lg:gap-10 lg:pb-40"
+          className="grid items-center gap-12 pb-24 lg:grid-cols-12 lg:gap-10 lg:pb-28"
           style={{ paddingTop: "calc(var(--header-h) + 3rem)" }}
         >
           {/* ── 텍스트 ── */}
-          <div className="lg:col-span-7 xl:col-span-6">
+          <div className="lg:col-span-7">
             <Reveal>
               <span className="inline-flex items-center gap-2 rounded-full bg-white/8 py-1.5 pr-4 pl-1.5 text-[0.75rem] font-semibold text-white/80 ring-1 ring-white/15 backdrop-blur-sm">
                 <span className="inline-flex items-center gap-1 rounded-full bg-accent-400 px-2 py-1 text-[0.625rem] font-extrabold tracking-wide text-navy-950">
@@ -121,8 +121,8 @@ export function HomeHero({ lang }: { lang: Lang }) {
           </div>
 
           {/* ── 비주얼 ── */}
-          <div className="lg:col-span-5 xl:col-span-6">
-            <Reveal delay={160} className="relative mx-auto max-w-md lg:max-w-none lg:pl-8">
+          <div className="lg:col-span-5">
+            <Reveal delay={160} className="relative mx-auto max-w-md sm:max-w-xl lg:max-w-none lg:pl-8">
               <div className="relative">
                 {/* 메인 사진 */}
                 <PhotoSlot
@@ -137,7 +137,7 @@ export function HomeHero({ lang }: { lang: Lang }) {
                 />
 
                 {/* 떠 있는 카드 — 4대 역량 */}
-                <div className="absolute -bottom-8 -left-4 w-56 rounded-2xl bg-white p-4 shadow-lift sm:-left-8 sm:w-64">
+                <div className="absolute -bottom-8 left-0 w-56 rounded-2xl bg-white p-4 shadow-lift sm:-left-8 sm:w-64">
                   <p className="text-[0.625rem] font-bold tracking-[0.16em] text-brand-600 uppercase">
                     4 Skills
                   </p>
@@ -180,10 +180,11 @@ export function HomeHero({ lang }: { lang: Lang }) {
         </div>
       </Container>
 
-      {/* ── 하단 요약 카드 (히어로에 겹침) ── */}
-      <Container size="wide" className="relative">
+      {/* ── 하단 요약 카드 (히어로에 겹침) ──
+          어두운 그라디언트보다 위에 그려지도록 z-10 을 줍니다 */}
+      <Container size="wide" className="relative z-10">
         <Reveal delay={120}>
-          <dl className="-mb-14 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-ink-200/80 shadow-lift lg:-mb-16 lg:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-ink-200/80 shadow-lift lg:-mb-16 lg:grid-cols-4">
             {t.home.quickFacts.map((f) => (
               <div key={f.label} className="bg-white px-5 py-6 sm:px-6 sm:py-7">
                 <dt className="text-[0.6875rem] font-bold tracking-[0.14em] text-brand-600 uppercase">
@@ -200,7 +201,8 @@ export function HomeHero({ lang }: { lang: Lang }) {
           </dl>
         </Reveal>
       </Container>
-      <div className="h-14 bg-white lg:h-16" />
+      {/* 히어로가 끝나는 지점 — relative 가 없으면 위의 그라디언트가 덧칠돼 회색 띠가 생깁니다 */}
+      <div className="relative h-0 bg-white lg:h-16" />
     </section>
   );
 }

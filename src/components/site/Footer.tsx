@@ -43,7 +43,7 @@ export function Footer({ lang }: { lang: Lang }) {
                 <li key={item.slug || "home"}>
                   <Link
                     href={href(lang, item.slug)}
-                    className="text-[0.875rem] font-medium text-white/70 transition-colors hover:text-white"
+                    className="-my-1.5 inline-flex items-center py-1.5 text-[0.875rem] font-medium text-white/70 transition-colors hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -63,13 +63,13 @@ export function Footer({ lang }: { lang: Lang }) {
                 <span className="flex flex-col gap-1">
                   <a
                     href={telHref(SITE.phone.main)}
-                    className="font-bold tabular-nums text-white transition-colors hover:text-brand-200"
+                    className="-my-1.5 inline-flex items-center py-1.5 font-bold tabular-nums text-white transition-colors hover:text-brand-200"
                   >
                     {SITE.phone.main}
                   </a>
                   <a
                     href={telHref(SITE.phone.mobile)}
-                    className="tabular-nums text-white/60 transition-colors hover:text-white"
+                    className="-my-1.5 inline-flex items-center py-1.5 tabular-nums text-white/60 transition-colors hover:text-white"
                   >
                     {SITE.phone.mobile}
                   </a>
@@ -79,7 +79,7 @@ export function Footer({ lang }: { lang: Lang }) {
                 <Icon name="mail" size={17} className="mt-0.5 shrink-0 text-brand-300" />
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="break-all text-white/70 transition-colors hover:text-white"
+                  className="-my-1.5 inline-flex items-center py-1.5 break-all text-white/70 transition-colors hover:text-white"
                 >
                   {SITE.email}
                 </a>
