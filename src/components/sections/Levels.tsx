@@ -23,7 +23,7 @@ export function Levels({ lang }: { lang: Lang }) {
         tone="dark"
       />
 
-      <ol className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <ol className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {l.items.map((item, i) => (
           <Reveal as="li" key={item.step} delay={i * 80}>
             <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-white/[0.04] p-7 ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.07] hover:ring-white/20">
@@ -41,14 +41,23 @@ export function Levels({ lang }: { lang: Lang }) {
                 ))}
               </div>
 
-              <p className="mt-6 font-display text-[0.6875rem] font-extrabold tracking-[0.2em] text-brand-300">
-                {item.step}
-              </p>
+              <div className="mt-6 flex items-center gap-2">
+                <span className="font-display text-[0.6875rem] font-extrabold tracking-[0.2em] text-brand-300">
+                  {item.step}
+                </span>
+                <span className="rounded-full bg-white/10 px-2 py-0.5 text-[0.625rem] font-bold text-white/70">
+                  {item.group}
+                </span>
+              </div>
               <h3 className="mt-2 text-[1.1875rem] font-bold text-white">
                 {item.name}
               </h3>
               <p className="mt-3 text-[0.8125rem] leading-[1.8] text-white/55">
                 {item.target}
+              </p>
+              <p className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-white/8 px-2.5 py-1.5 text-[0.75rem] font-semibold tabular-nums text-mint-300 ring-1 ring-white/10">
+                <Icon name="clock" size={13} />
+                {item.schedule}
               </p>
 
               <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-6">

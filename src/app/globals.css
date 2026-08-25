@@ -17,17 +17,17 @@
   --font-display: "Pretendard Variable", Pretendard, system-ui, sans-serif;
 
   /* ---- Brand blue (주 색상) ---- */
-  --color-brand-50: #eef4ff;
-  --color-brand-100: #dae6ff;
-  --color-brand-200: #bcd3ff;
-  --color-brand-300: #8eb5ff;
-  --color-brand-400: #598cff;
-  --color-brand-500: #3465ff;
-  --color-brand-600: #1c46f5;
-  --color-brand-700: #1535dd;
-  --color-brand-800: #172db2;
-  --color-brand-900: #1a2d8c;
-  --color-brand-950: #111b55;
+  --color-brand-50: #eff3fc;
+  --color-brand-100: #dee7f9;
+  --color-brand-200: #c3d2f2;
+  --color-brand-300: #9cb3e8;
+  --color-brand-400: #6e8bd9;
+  --color-brand-500: #4d67c6;
+  --color-brand-600: #3b4fb2;
+  --color-brand-700: #2f3f9b;
+  --color-brand-800: #23378c;
+  --color-brand-900: #1f2e70;
+  --color-brand-950: #141c44;
 
   /* ---- Navy (신뢰/고급) ---- */
   --color-navy-50: #f2f6fc;
@@ -39,8 +39,8 @@
   --color-navy-600: #476bc6;
   --color-navy-700: #3d59b5;
   --color-navy-800: #364a94;
-  --color-navy-900: #0e1f4a;
-  --color-navy-950: #081228;
+  --color-navy-900: #101d4f;
+  --color-navy-950: #0a1330;
 
   /* ---- Accent (활기) ---- */
   --color-accent-50: #fff8ea;
@@ -55,11 +55,11 @@
   --color-accent-900: #7a2d0d;
 
   /* ---- Mint (보조 포인트) ---- */
-  --color-mint-100: #cdfaf1;
-  --color-mint-300: #6ee7d4;
-  --color-mint-400: #2dd4bd;
-  --color-mint-500: #14b8a3;
-  --color-mint-600: #0d9585;
+  --color-mint-100: #d2f1f8;
+  --color-mint-300: #7cdaeb;
+  --color-mint-400: #4bc9e0;
+  --color-mint-500: #29b4ca;
+  --color-mint-600: #1d93a9;
 
   /* ---- Neutral (따뜻한 회색) ---- */
   --color-ink-50: #f7f8fb;
@@ -82,13 +82,13 @@
   --radius-5xl: 2.5rem;
 
   /* ---- Shadow (블루 톤 레이어드) ---- */
-  --shadow-soft: 0 1px 2px rgba(14, 31, 74, 0.04),
-    0 8px 24px -12px rgba(14, 31, 74, 0.12);
-  --shadow-card: 0 1px 2px rgba(14, 31, 74, 0.05),
-    0 12px 32px -16px rgba(14, 31, 74, 0.18);
-  --shadow-lift: 0 2px 4px rgba(14, 31, 74, 0.05),
-    0 24px 56px -24px rgba(14, 31, 74, 0.28);
-  --shadow-glow: 0 18px 48px -18px rgba(28, 70, 245, 0.55);
+  --shadow-soft: 0 1px 2px rgba(16, 29, 79, 0.04),
+    0 8px 24px -12px rgba(16, 29, 79, 0.12);
+  --shadow-card: 0 1px 2px rgba(16, 29, 79, 0.05),
+    0 12px 32px -16px rgba(16, 29, 79, 0.18);
+  --shadow-lift: 0 2px 4px rgba(16, 29, 79, 0.05),
+    0 24px 56px -24px rgba(16, 29, 79, 0.28);
+  --shadow-glow: 0 18px 48px -18px rgba(59, 79, 178, 0.5);
 
   /* ---- Animation ---- */
   --animate-float-slow: float-slow 14s ease-in-out infinite;
@@ -212,8 +212,8 @@
 @utility text-gradient-brand {
   background-image: linear-gradient(
     100deg,
-    var(--color-brand-600) 0%,
-    var(--color-brand-500) 42%,
+    var(--color-brand-700) 0%,
+    var(--color-brand-500) 45%,
     var(--color-mint-500) 100%
   );
   background-clip: text;
@@ -227,17 +227,17 @@
   background-image:
     radial-gradient(
       60rem 40rem at 12% -10%,
-      rgba(52, 101, 255, 0.55) 0%,
+      rgba(61, 82, 184, 0.55) 0%,
       transparent 60%
     ),
     radial-gradient(
       44rem 34rem at 92% 8%,
-      rgba(20, 184, 163, 0.32) 0%,
+      rgba(41, 180, 202, 0.34) 0%,
       transparent 62%
     ),
     radial-gradient(
       38rem 30rem at 68% 108%,
-      rgba(255, 171, 36, 0.22) 0%,
+      rgba(41, 180, 202, 0.14) 0%,
       transparent 60%
     );
 }
@@ -248,12 +248,12 @@
   background-image:
     radial-gradient(
       42rem 26rem at 6% 0%,
-      rgba(52, 101, 255, 0.09) 0%,
+      rgba(61, 82, 184, 0.10) 0%,
       transparent 58%
     ),
     radial-gradient(
       38rem 24rem at 100% 22%,
-      rgba(20, 184, 163, 0.09) 0%,
+      rgba(41, 180, 202, 0.10) 0%,
       transparent 60%
     );
 }

@@ -66,7 +66,7 @@ export type Campus = {
 export const CAMPUSES: Campus[] = [
   {
     id: "daejeon-doan",
-    nameKo: "대전도안점",
+    nameKo: "대전 도안점",
     nameEn: "Daejeon Doan",
     regionKo: "대전 유성구",
     regionEn: "Yuseong-gu, Daejeon",
@@ -81,23 +81,38 @@ export const CAMPUSES: Campus[] = [
     hours: HOURS,
     comingSoon: false,
   },
-  // TODO: 운영 중인 캠퍼스가 더 있으면 아래 형식으로 추가해 주세요.
-  // {
-  //   id: "second-campus",
-  //   nameKo: "OO점",
-  //   nameEn: "OO",
-  //   regionKo: "OO시 OO구",
-  //   regionEn: "OO-gu, OO",
-  //   addressKo: "…",
-  //   addressEn: "…",
-  //   query: "…",
-  //   phone: "000-0000-0000",
-  //   mobile: "",
-  //   isHq: false,
-  //   photo: "",
-  //   hours: HOURS,
-  //   comingSoon: false,
-  // },
+  {
+    id: "yongin-myeongji",
+    nameKo: "용인 명지점",
+    nameEn: "Yongin Myeongji",
+    regionKo: "경기 용인시",
+    regionEn: "Yongin, Gyeonggi",
+    addressKo: "", // TODO: 주소를 알려주시면 채워 넣겠습니다
+    addressEn: "",
+    query: "용인 명지대학교",
+    phone: "", // TODO: 캠퍼스 대표번호
+    mobile: "",
+    isHq: false,
+    photo: "",
+    hours: HOURS,
+    comingSoon: false,
+  },
+  {
+    id: "gyeryong-eomsa",
+    nameKo: "계룡 엄사점",
+    nameEn: "Gyeryong Eomsa",
+    regionKo: "충남 계룡시",
+    regionEn: "Gyeryong, Chungnam",
+    addressKo: "", // TODO: 주소를 알려주시면 채워 넣겠습니다
+    addressEn: "",
+    query: "계룡시 엄사면",
+    phone: "", // TODO: 캠퍼스 대표번호
+    mobile: "",
+    isHq: false,
+    photo: "",
+    hours: HOURS,
+    comingSoon: false,
+  },
 ];
 
 /** 본사로 표시할 캠퍼스 (없으면 첫 번째) */
@@ -116,8 +131,8 @@ export const SITE = {
     ko: "인투주니어학원",
     en: "INTO JUNIOR",
     /** 로고 아래 작은 글씨 */
-    taglineKo: "주니어 영어교육",
-    taglineEn: "English for Juniors",
+    taglineKo: "영어유창성 + 학습코칭",
+    taglineEn: "Fluency + Learning Coaching",
     fullKo: "인투주니어학원",
     fullEn: "INTO JUNIOR English Academy",
   },

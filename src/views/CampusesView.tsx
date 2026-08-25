@@ -25,6 +25,7 @@ function CampusBlock({
   const name = lang === "ko" ? campus.nameKo : campus.nameEn;
   const region = lang === "ko" ? campus.regionKo : campus.regionEn;
   const address = lang === "ko" ? campus.addressKo : campus.addressEn;
+  const ready = address.trim().length > 0 && campus.phone.trim().length > 0;
 
   return (
     <article id={campus.id} className="scroll-mt-28">
@@ -52,6 +53,31 @@ function CampusBlock({
         </p>
       </Reveal>
 
+      {!ready && (
+        <Reveal>
+          <div className="mt-8 flex flex-col gap-5 rounded-3xl bg-ink-50 p-8 ring-1 ring-ink-100 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-[1.0625rem] font-bold text-navy-900">
+                {L.preparing}
+              </p>
+              <p className="mt-2 max-w-xl text-[0.875rem] leading-[1.85] text-ink-600">
+                {L.askHq}
+              </p>
+            </div>
+            <Button
+              href={telHref(SITE.phone.main)}
+              external
+              icon="phone"
+              iconPosition="left"
+              className="shrink-0"
+            >
+              {SITE.phone.main}
+            </Button>
+          </div>
+        </Reveal>
+      )}
+
+      {ready && (
       <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:gap-10">
         <Reveal className="lg:col-span-7">
           <MapEmbed
@@ -133,6 +159,7 @@ function CampusBlock({
           </div>
         </Reveal>
       </div>
+      )}
     </article>
   );
 }

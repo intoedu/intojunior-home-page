@@ -1,8 +1,4 @@
-import {
-  type Campus,
-  campusMapLinks,
-  telHref,
-} from "@/config/site";
+import { SITE, type Campus, campusMapLinks, telHref } from "@/config/site";
 import { getDict, type Lang } from "@/content";
 import { cn } from "@/lib/utils";
 import { Icon } from "@/components/ui/Icon";
@@ -26,6 +22,8 @@ export function CampusCard({
   const name = lang === "ko" ? campus.nameKo : campus.nameEn;
   const region = lang === "ko" ? campus.regionKo : campus.regionEn;
   const address = lang === "ko" ? campus.addressKo : campus.addressEn;
+  /** 주소·전화가 아직 없는 캠퍼스는 본사 안내로 대체합니다 */
+  const ready = address.trim().length > 0 && campus.phone.trim().length > 0;
 
   return (
     <article
@@ -64,6 +62,14 @@ export function CampusCard({
 
         <h3 className="mt-2 text-[1.25rem] font-bold text-navy-900">{name}</h3>
 
+        {!ready && (
+          <p className="mt-5 rounded-xl bg-ink-50 px-4 py-3 text-[0.8125rem] leading-relaxed text-ink-600 ring-1 ring-ink-100">
+            <span className="font-bold text-navy-900">{L.preparing}</span>{" "}
+            {L.askHq}
+          </p>
+        )}
+
+        {ready && (
         <dl className="mt-5 space-y-3 text-[0.875rem]">
           <div className="flex gap-3">
             <dt className="mt-0.5 shrink-0 text-brand-500">
@@ -95,15 +101,17 @@ export function CampusCard({
             </dd>
           </div>
         </dl>
+        )}
 
         <div className="mt-auto flex flex-wrap gap-2 pt-6">
           <a
-            href={telHref(campus.phone)}
+            href={telHref(ready ? campus.phone : SITE.phone.main)}
             className="inline-flex h-11 flex-1 items-center justify-center gap-1.5 rounded-xl bg-brand-600 px-4 text-[0.8125rem] font-bold text-white transition-colors hover:bg-brand-700"
           >
             <Icon name="phone" size={15} />
-            {L.callCampus}
+            {ready ? L.callCampus : SITE.phone.main}
           </a>
+          {ready && (
           <a
             href={links.naver}
             target="_blank"
@@ -113,6 +121,7 @@ export function CampusCard({
             <Icon name="mapPin" size={15} />
             {L.viewOnMap}
           </a>
+          )}
         </div>
       </div>
     </article>

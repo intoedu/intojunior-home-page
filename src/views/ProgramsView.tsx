@@ -59,48 +59,120 @@ export function ProgramsView({ lang }: { lang: Lang }) {
       {/* ── 성장 단계 ── */}
       <Levels lang={lang} />
 
-      {/* ── 수업 요일·시간 ── */}
+      {/* ── 연간 커리큘럼 · 수업 시간 ── */}
       <Section size="wide" className="bg-soft-mesh">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <Reveal className="lg:col-span-7">
-            <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-white text-brand-600 shadow-soft ring-1 ring-ink-100">
-              <Icon name="calendar" size={22} />
-            </span>
-            <h2 className="mt-6 text-[1.75rem] font-bold text-navy-900 sm:text-[2.125rem]">
-              {p.scheduleNote.title}
-            </h2>
-            <p className="mt-5 max-w-xl text-[0.9375rem] leading-[1.9] text-ink-600">
-              {p.scheduleNote.description}
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button
-                href={telHref(SITE.phone.main)}
-                external
-                icon="phone"
-                iconPosition="left"
-              >
-                {SITE.phone.main}
-              </Button>
-              <Button
-                href={href(lang, "contact")}
-                variant="secondary"
-                icon="arrowRight"
-              >
-                {t.common.contact}
-              </Button>
+        <Reveal>
+          <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-white text-brand-600 shadow-soft ring-1 ring-ink-100">
+            <Icon name="calendar" size={22} />
+          </span>
+          <h2 className="mt-6 text-[1.75rem] font-bold text-navy-900 sm:text-[2.125rem]">
+            {p.scheduleNote.title}
+          </h2>
+          <p className="mt-5 max-w-2xl text-[0.9375rem] leading-[1.9] text-ink-600">
+            {p.scheduleNote.description}
+          </p>
+        </Reveal>
+
+        {/* 연간 로테이션 표 */}
+        <Reveal delay={80}>
+          <div className="mt-10 overflow-x-auto rounded-3xl bg-white shadow-card ring-1 ring-ink-100">
+            <table className="w-full min-w-[34rem] border-collapse text-left">
+              <thead>
+                <tr className="bg-navy-950 text-white">
+                  {p.scheduleNote.columns.map((c) => (
+                    <th
+                      key={c}
+                      className="px-6 py-4 text-[0.8125rem] font-bold tracking-wide"
+                    >
+                      {c}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {p.scheduleNote.rows.map((row) => (
+                  <tr key={row.period} className="border-t border-ink-100">
+                    <td className="px-6 py-4 text-[0.875rem] font-bold whitespace-nowrap text-navy-900">
+                      {row.period}
+                    </td>
+                    <td className="px-6 py-4 text-[0.875rem] font-semibold text-brand-700">
+                      {row.regular}
+                    </td>
+                    <td className="px-6 py-4 text-[0.875rem] text-ink-600">
+                      {row.special}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-[0.8125rem] text-ink-500">
+            {p.scheduleNote.note}
+          </p>
+        </Reveal>
+
+        {/* 수업 시간 + 운영시간 */}
+        <div className="mt-10 grid gap-6 lg:grid-cols-12">
+          <Reveal delay={120} className="lg:col-span-7">
+            <div className="h-full rounded-3xl bg-white p-7 shadow-card ring-1 ring-ink-100">
+              <h3 className="flex items-center gap-2 text-[0.8125rem] font-bold tracking-wide text-navy-900 uppercase">
+                <Icon name="clock" size={16} className="text-brand-500" />
+                {p.scheduleNote.timesTitle}
+              </h3>
+              <ul className="mt-5 space-y-3">
+                {p.scheduleNote.classTimes.map((c) => (
+                  <li
+                    key={c.course}
+                    className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-2xl bg-ink-50 px-5 py-4 ring-1 ring-ink-100"
+                  >
+                    <span className="text-[0.9375rem] font-bold text-navy-900">
+                      {c.course}
+                      <span className="ml-2 text-[0.75rem] font-semibold text-brand-600">
+                        {c.classes}
+                      </span>
+                    </span>
+                    <span className="text-[0.8125rem] text-ink-600">
+                      {c.days}
+                      <span className="ml-2 font-bold tabular-nums text-navy-900">
+                        {c.time}
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </Reveal>
 
-          <Reveal delay={100} className="lg:col-span-5">
-            <div className="rounded-[1.75rem] bg-white p-7 shadow-card ring-1 ring-ink-100">
+          <Reveal delay={160} className="lg:col-span-5">
+            <div className="rounded-3xl bg-white p-7 shadow-card ring-1 ring-ink-100">
               <h3 className="flex items-center gap-2 text-[0.8125rem] font-bold tracking-wide text-navy-900 uppercase">
                 <Icon name="clock" size={16} className="text-brand-500" />
                 {p.scheduleNote.hoursTitle}
               </h3>
-              <OpeningHours lang={lang} className="mt-5" />
+              <OpeningHours lang={lang} compact className="mt-5" />
             </div>
           </Reveal>
         </div>
+
+        <Reveal delay={200}>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button
+              href={telHref(SITE.phone.main)}
+              external
+              icon="phone"
+              iconPosition="left"
+            >
+              {SITE.phone.main}
+            </Button>
+            <Button
+              href={href(lang, "contact")}
+              variant="secondary"
+              icon="arrowRight"
+            >
+              {t.common.contact}
+            </Button>
+          </div>
+        </Reveal>
       </Section>
 
       <CtaBand lang={lang} />
