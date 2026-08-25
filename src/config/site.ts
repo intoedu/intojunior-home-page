@@ -1,8 +1,8 @@
 /* ==========================================================================
- * 인투주니어학원 대전도안점 — 사이트 기본 정보
+ * 인투주니어학원 — 사이트 기본 정보 (본사 / 브랜드 홈페이지)
  * --------------------------------------------------------------------------
- * ⚙️  이 파일 하나만 고치면 사이트 전체(헤더·푸터·오시는 길·문의)에 반영됩니다.
- *     TODO 표시가 있는 항목은 원장님 확인 후 값을 채워주세요.
+ * ⚙️  이 파일 하나만 고치면 사이트 전체(헤더·푸터·캠퍼스 안내·문의)에 반영됩니다.
+ *     TODO 표시가 있는 항목은 확인 후 값을 채워주세요.
  * ========================================================================== */
 
 /**
@@ -20,6 +20,89 @@ export const asset = (path: string) =>
 /** 미리보기 주소에서는 검색엔진이 수집하지 않도록 합니다. */
 export const NOINDEX = process.env.NEXT_PUBLIC_NOINDEX === "1";
 
+/**
+ * 표준 운영시간 — day: 0(일) ~ 6(토)
+ * closed: true 이면 정기휴무
+ */
+const HOURS = [
+  { day: 1, ko: "월요일", en: "Monday", open: "13:00", close: "20:30", closed: false },
+  { day: 2, ko: "화요일", en: "Tuesday", open: "13:00", close: "20:30", closed: false },
+  { day: 3, ko: "수요일", en: "Wednesday", open: "", close: "", closed: true },
+  { day: 4, ko: "목요일", en: "Thursday", open: "13:00", close: "20:30", closed: false },
+  { day: 5, ko: "금요일", en: "Friday", open: "13:00", close: "20:30", closed: false },
+  { day: 6, ko: "토요일", en: "Saturday", open: "14:00", close: "16:00", closed: false },
+  { day: 0, ko: "일요일", en: "Sunday", open: "", close: "", closed: true },
+] as const;
+
+export type Campus = {
+  /** 주소창·앵커에 쓰이는 영문 식별자 */
+  id: string;
+  nameKo: string;
+  nameEn: string;
+  /** 지역 표기 (목록 카드 상단) */
+  regionKo: string;
+  regionEn: string;
+  addressKo: string;
+  addressEn: string;
+  /** 지도 검색어 */
+  query: string;
+  phone: string;
+  mobile: string;
+  /** 이 캠퍼스가 본사인지 */
+  isHq: boolean;
+  /** 캠퍼스 사진 (public/photos/… 경로). 비우면 자리 표시가 나옵니다 */
+  photo: string;
+  hours: typeof HOURS;
+  /** 준비 중인 캠퍼스면 true — "오픈 예정" 배지가 붙습니다 */
+  comingSoon: boolean;
+};
+
+/* ==========================================================================
+ * 캠퍼스 목록
+ * --------------------------------------------------------------------------
+ * 캠퍼스를 추가하려면 아래 배열에 같은 모양으로 하나 더 넣으면 됩니다.
+ * 홈·캠퍼스 안내·푸터에 자동으로 반영됩니다.
+ * ========================================================================== */
+export const CAMPUSES: Campus[] = [
+  {
+    id: "daejeon-doan",
+    nameKo: "대전도안점",
+    nameEn: "Daejeon Doan",
+    regionKo: "대전 유성구",
+    regionEn: "Yuseong-gu, Daejeon",
+    addressKo: "대전광역시 유성구 동서대로 691 (원신흥동) 흥도빌딩 3층 302호",
+    addressEn:
+      "3F #302, Heungdo Bldg, 691 Dongseo-daero, Yuseong-gu, Daejeon, Korea",
+    query: "대전광역시 유성구 동서대로 691",
+    phone: "042-822-0509",
+    mobile: "010-3454-9482",
+    isHq: true,
+    photo: "", // TODO: 캠퍼스 사진 (예: "/photos/daejeon-doan.jpg")
+    hours: HOURS,
+    comingSoon: false,
+  },
+  // TODO: 운영 중인 캠퍼스가 더 있으면 아래 형식으로 추가해 주세요.
+  // {
+  //   id: "second-campus",
+  //   nameKo: "OO점",
+  //   nameEn: "OO",
+  //   regionKo: "OO시 OO구",
+  //   regionEn: "OO-gu, OO",
+  //   addressKo: "…",
+  //   addressEn: "…",
+  //   query: "…",
+  //   phone: "000-0000-0000",
+  //   mobile: "",
+  //   isHq: false,
+  //   photo: "",
+  //   hours: HOURS,
+  //   comingSoon: false,
+  // },
+];
+
+/** 본사로 표시할 캠퍼스 (없으면 첫 번째) */
+export const HQ_CAMPUS = CAMPUSES.find((c) => c.isHq) ?? CAMPUSES[0];
+
 export const SITE = {
   /**
    * 배포 주소. 도메인을 연결하면 이 값을 실제 주소로 바꿔주세요.
@@ -32,47 +115,40 @@ export const SITE = {
   brand: {
     ko: "인투주니어학원",
     en: "INTO JUNIOR",
-    branchKo: "대전도안점",
-    branchEn: "Daejeon Doan",
-    fullKo: "인투주니어학원 대전도안점",
-    fullEn: "INTO JUNIOR English Academy · Daejeon Doan",
+    /** 로고 아래 작은 글씨 */
+    taglineKo: "주니어 영어교육",
+    taglineEn: "English for Juniors",
+    fullKo: "인투주니어학원",
+    fullEn: "INTO JUNIOR English Academy",
   },
 
   /** 대표자 */
   ceo: "박정경",
 
-  /** 연락처 */
+  /**
+   * 본사 대표 연락처
+   * TODO: 본사 번호가 대전도안점과 다르면 이 값을 바꿔주세요.
+   */
   phone: {
-    /** 학원 대표번호 */
-    main: "042-822-0509",
-    /** 원장님 휴대전화 */
-    mobile: "010-3454-9482",
+    main: HQ_CAMPUS.phone,
+    mobile: HQ_CAMPUS.mobile,
   },
 
   email: "angelpark3401@gmail.com",
 
+  /**
+   * 본사 주소
+   * TODO: 본사 주소가 대전도안점과 다르면 이 값을 바꿔주세요.
+   */
   address: {
-    ko: "대전광역시 유성구 동서대로 691 (원신흥동) 흥도빌딩 3층 302호",
+    ko: HQ_CAMPUS.addressKo,
     koShort: "대전 유성구 동서대로 691, 3층 302호",
-    en: "3F #302, Heungdo Bldg, 691 Dongseo-daero, Yuseong-gu, Daejeon, Korea",
-    /** 지도 검색용 키워드 */
-    query: "대전광역시 유성구 동서대로 691",
+    en: HQ_CAMPUS.addressEn,
+    query: HQ_CAMPUS.query,
     postalCode: "34155", // TODO: 우편번호 확인
   },
 
-  /**
-   * 운영시간 — day: 0(일) ~ 6(토)
-   * closed: true 이면 정기휴무
-   */
-  hours: [
-    { day: 1, ko: "월요일", en: "Monday", open: "13:00", close: "20:30", closed: false },
-    { day: 2, ko: "화요일", en: "Tuesday", open: "13:00", close: "20:30", closed: false },
-    { day: 3, ko: "수요일", en: "Wednesday", open: "", close: "", closed: true },
-    { day: 4, ko: "목요일", en: "Thursday", open: "13:00", close: "20:30", closed: false },
-    { day: 5, ko: "금요일", en: "Friday", open: "13:00", close: "20:30", closed: false },
-    { day: 6, ko: "토요일", en: "Saturday", open: "14:00", close: "16:00", closed: false },
-    { day: 0, ko: "일요일", en: "Sunday", open: "", close: "", closed: true },
-  ] as const,
+  hours: HOURS,
 
   /**
    * SNS / 외부 채널 — 주소를 넣으면 헤더·푸터에 자동으로 아이콘이 나타납니다.
@@ -97,7 +173,7 @@ export const SITE = {
 
   /** 사업자 정보 (푸터 표기) */
   business: {
-    name: "인투주니어학원 대전도안점",
+    name: "인투주니어학원",
     registrationNo: "", // TODO: 사업자등록번호
     academyNo: "", // TODO: 학원설립·운영등록번호 (학원법상 표기 권장)
   },
@@ -106,18 +182,21 @@ export const SITE = {
 /** 전화 걸기용 tel: 링크 */
 export const telHref = (num: string) => `tel:${num.replace(/[^0-9+]/g, "")}`;
 
-/** 지도 바로가기 링크 */
-export const MAP_LINKS = {
-  naver: `https://map.naver.com/p/search/${encodeURIComponent(
-    SITE.address.query,
-  )}`,
-  kakao: `https://map.kakao.com/?q=${encodeURIComponent(SITE.address.query)}`,
+const mapLinksFor = (query: string) => ({
+  naver: `https://map.naver.com/p/search/${encodeURIComponent(query)}`,
+  kakao: `https://map.kakao.com/?q=${encodeURIComponent(query)}`,
   google: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    SITE.address.query,
+    query,
   )}`,
   /** API 키 없이 동작하는 임베드용 주소 */
   embed: (lang: "ko" | "en") =>
     `https://www.google.com/maps?q=${encodeURIComponent(
-      SITE.address.query,
+      query,
     )}&hl=${lang}&z=17&output=embed`,
-};
+});
+
+/** 캠퍼스별 지도 링크 */
+export const campusMapLinks = (campus: Campus) => mapLinksFor(campus.query);
+
+/** 본사 기준 지도 링크 */
+export const MAP_LINKS = mapLinksFor(SITE.address.query);

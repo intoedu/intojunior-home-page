@@ -3,7 +3,7 @@ import { SITE } from "@/config/site";
 
 export const dynamic = "force-static";
 
-const SLUGS = ["", "about", "programs", "location", "faq", "contact", "privacy"];
+const SLUGS = ["", "about", "programs", "campuses", "faq", "contact", "privacy"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];

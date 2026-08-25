@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE } from "@/config/site";
+import { CAMPUSES, SITE } from "@/config/site";
 import { getDict, type Lang } from "@/content";
 
 type MetaKey = keyof ReturnType<typeof getDict>["meta"];
@@ -92,6 +92,17 @@ export function schoolJsonLd(lang: Lang) {
         closes: h.close,
       })),
     sameAs: Object.values(SITE.social).filter((v) => v.length > 0),
+    /** 캠퍼스(지점) 목록 */
+    department: CAMPUSES.map((campus) => ({
+      "@type": "EducationalOrganization",
+      name: `${SITE.brand.ko} ${campus.nameKo}`,
+      telephone: campus.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: campus.addressKo,
+        addressCountry: "KR",
+      },
+    })),
   };
 }
 

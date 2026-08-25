@@ -6,7 +6,7 @@ import { Process } from "@/components/sections/Process";
 import { Levels } from "@/components/sections/Levels";
 import { VideoSection } from "@/components/sections/VideoSection";
 import { Gallery } from "@/components/sections/Gallery";
-import { LocationPreview } from "@/components/sections/LocationPreview";
+import { CampusesPreview } from "@/components/sections/CampusesPreview";
 import { CtaBand } from "@/components/sections/CtaBand";
 
 export function HomeView({ lang }: { lang: Lang }) {
@@ -19,7 +19,7 @@ export function HomeView({ lang }: { lang: Lang }) {
       <Levels lang={lang} />
       <VideoSection lang={lang} />
       <Gallery lang={lang} />
-      <LocationPreview lang={lang} />
+      <CampusesPreview lang={lang} />
       <CtaBand lang={lang} />
     </>
   );

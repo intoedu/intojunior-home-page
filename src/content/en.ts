@@ -9,39 +9,39 @@ export const en: Dict = {
   /* --------------------------------------------------------------- meta */
   meta: {
     home: {
-      title: "INTO JUNIOR Daejeon Doan | English Academy for Elementary & Middle School",
+      title: "INTO JUNIOR | English Academy for Elementary & Middle School",
       description:
-        "Read it, say it, prove it. INTO JUNIOR Daejeon Doan is an English academy in Yuseong-gu, Daejeon for elementary and middle school students. Book a level test: +82-42-822-0509",
+        "Read it, say it, prove it. INTO JUNIOR is an English academy for elementary and middle school students, tying reading, speaking and school results into one path. Enquiries: +82-42-822-0509",
     },
     about: {
-      title: "About & Greeting | INTO JUNIOR Daejeon Doan",
+      title: "About & Greeting | INTO JUNIOR",
       description:
-        "English that doesn't stop at the textbook. Meet the philosophy and the director behind INTO JUNIOR Daejeon Doan.",
+        "English that doesn't stop at the textbook. Meet the philosophy and the founder behind INTO JUNIOR.",
     },
     programs: {
-      title: "Programs | INTO JUNIOR Daejeon Doan",
+      title: "Programs | INTO JUNIOR",
       description:
         "Elementary reading & writing, speaking, middle school prep, school exam intensive, grammar & vocabulary clinic, and speech projects.",
     },
-    location: {
-      title: "Location | INTO JUNIOR Daejeon Doan",
+    campuses: {
+      title: "Campuses | INTO JUNIOR",
       description:
-        "3F #302, Heungdo Bldg, 691 Dongseo-daero, Yuseong-gu, Daejeon. Find directions and opening hours.",
+        "Find your nearest INTO JUNIOR campus — address, phone and opening hours.",
     },
     contact: {
-      title: "Contact | INTO JUNIOR Daejeon Doan",
+      title: "Contact | INTO JUNIOR",
       description:
         "Leave us a message and we'll get back to you quickly. Call +82-42-822-0509 or +82-10-3454-9482.",
     },
     faq: {
-      title: "FAQ | INTO JUNIOR Daejeon Doan",
+      title: "FAQ | INTO JUNIOR",
       description:
         "Answers to the questions parents ask us most — classes, placement, and consultations.",
     },
     privacy: {
-      title: "Privacy Policy | INTO JUNIOR Daejeon Doan",
+      title: "Privacy Policy | INTO JUNIOR",
       description:
-        "How INTO JUNIOR Daejeon Doan collects and uses personal information.",
+        "How INTO JUNIOR collects and uses personal information.",
     },
   },
 
@@ -50,7 +50,7 @@ export const en: Dict = {
     { slug: "", label: "Home" },
     { slug: "about", label: "About" },
     { slug: "programs", label: "Programs" },
-    { slug: "location", label: "Location" },
+    { slug: "campuses", label: "Campuses" },
     { slug: "faq", label: "FAQ" },
     { slug: "contact", label: "Contact" },
   ],
@@ -66,7 +66,11 @@ export const en: Dict = {
     contact: "Contact",
     viewMore: "Learn more",
     viewPrograms: "View all programs",
+    viewCampuses: "View all campuses",
     directions: "Get directions",
+    hqBadge: "Head office",
+    comingSoon: "Opening soon",
+    campusCountSuffix: " campuses",
     menu: "Menu",
     close: "Close",
     openNow: "Open now",
@@ -82,23 +86,23 @@ export const en: Dict = {
   /* ---------------------------------------------------------------- home */
   home: {
     hero: {
-      eyebrow: "Doan, Yuseong-gu, Daejeon · Elementary & Middle School English",
+      eyebrow: "English for elementary & middle school",
       titleLead: "Read it, say it,",
       titleAccent: "prove it in class",
       titleTail: "and beyond",
       description:
-        "Learning shouldn't end at the worksheet. At INTO JUNIOR Daejeon Doan we connect reading, speaking and school exam preparation into one path — and give every student a stage to actually use it.",
+        "Learning shouldn't end at the worksheet. At INTO JUNIOR we connect reading, speaking and school exam preparation into one path — and give every student a stage to actually use it.",
       badges: ["Small classes", "1:1 diagnosis", "School exam support", "Speech & projects"],
       primaryCta: "Call to book",
       secondaryCta: "See our programs",
-      photoCaption: "Inside INTO JUNIOR Daejeon Doan",
+      photoCaption: "Inside INTO JUNIOR",
     },
 
     quickFacts: [
       { label: "Students", value: "Elementary · Middle", sub: "Placed by level, not just grade" },
       { label: "Weekdays", value: "1:00 – 8:30 PM", sub: "Mon · Tue · Thu · Fri" },
       { label: "Saturday", value: "2:00 – 4:00 PM", sub: "Closed Wed & Sun" },
-      { label: "Where", value: "Doan, Wonsinheung-dong", sub: "Heungdo Bldg, 3F #302" },
+      { label: "Campus", value: "Doan, Daejeon", sub: "Call your nearest campus" },
     ],
 
     pillars: {
@@ -230,7 +234,7 @@ export const en: Dict = {
       eyebrow: "VIDEO",
       title: "Curious about our classes?\nSee them for yourself",
       description:
-        "A look inside INTO JUNIOR Daejeon Doan — how our lessons run and how our students present.",
+        "A look inside INTO JUNIOR — how our lessons run and how our students present.",
     },
 
     gallery: {
@@ -248,11 +252,11 @@ export const en: Dict = {
       ],
     },
 
-    locationPreview: {
-      eyebrow: "LOCATION",
-      title: "Find us in Doan New Town",
+    campuses: {
+      eyebrow: "CAMPUS",
+      title: "Meet us at your\nnearest campus",
       description:
-        "691 Dongseo-daero, Yuseong-gu — 3rd floor of the Heungdo Building. Book ahead and you won't have to wait.",
+        "Every campus runs the same curriculum to the same standards. Call ahead for a visit and you won't have to wait.",
     },
 
     cta: {
@@ -274,12 +278,12 @@ export const en: Dict = {
 
     greeting: {
       eyebrow: "GREETING",
-      title: "A word from the director",
-      signature: "Director, INTO JUNIOR Daejeon Doan",
+      title: "A word from the founder",
+      signature: "Founder, INTO JUNIOR",
       name: "Park Jeong-kyung",
-      photoCaption: "Director Park Jeong-kyung",
+      photoCaption: "Park Jeong-kyung, Founder",
       paragraphs: [
-        "Hello, and welcome. I'm Park Jeong-kyung, director of INTO JUNIOR Daejeon Doan.",
+        "Hello, and welcome. I'm Park Jeong-kyung, founder of INTO JUNIOR.",
         "Many children study English for years. They memorise words, solve problems, sit exams. And yet the moment you ask, \"Can you say that in English?\" the room goes quiet. The hours are long; the usable English is short.",
         "Closing that gap is what an academy is for. Explaining what you read in your own words. Actually using the expressions you learned. And seeing that ability show up in your school results too. That is why we never separate reading from speaking, or real skill from exam scores.",
         "Above all, I won't forget that every child moves at their own pace. For the fast learner, room to go further. For the one who needs time, someone beside them so they don't give up.",
@@ -339,7 +343,7 @@ export const en: Dict = {
       eyebrow: "TEACHERS",
       title: "The people beside your child",
       description:
-        "The quality of a lesson comes down to the person teaching it. Meet the teachers of INTO JUNIOR Daejeon Doan.",
+        "The quality of a lesson comes down to the person teaching it. Meet the teachers across INTO JUNIOR campuses.",
       note: "※ Full teacher profiles are being prepared.",
     },
 
@@ -357,7 +361,7 @@ export const en: Dict = {
       eyebrow: "PROGRAMS",
       title: "Start with the course\nyour child needs now",
       description:
-        "From elementary to middle school, our courses cover reading, speaking, school exams and real experience. We combine them based on what the level test shows.",
+        "From elementary to middle school, our courses cover reading, speaking, school exams and real experience. Every campus runs the same curriculum, combined to fit what the level test shows.",
     },
     scheduleNote: {
       title: "Class days & times",
@@ -459,13 +463,13 @@ export const en: Dict = {
     ],
   },
 
-  /* ------------------------------------------------------------ location */
-  location: {
+  /* ------------------------------------------------------------ campuses */
+  campuses: {
     hero: {
-      eyebrow: "LOCATION",
-      title: "How to find us",
+      eyebrow: "CAMPUS",
+      title: "Our campuses",
       description:
-        "3F #302, Heungdo Building, 691 Dongseo-daero, Yuseong-gu, Daejeon. Book your visit ahead and we'll be ready for you.",
+        "Every INTO JUNIOR campus runs the same curriculum to the same learning-management standards. Call whichever is closest to you.",
     },
     labels: {
       address: "Address",
@@ -480,30 +484,38 @@ export const en: Dict = {
       mapGoogle: "Google Maps",
       mainLine: "Main line",
       mobileLine: "Mobile",
+      viewOnMap: "View on map",
+      callCampus: "Call this campus",
     },
     transport: [
       {
         icon: "bus",
         title: "By bus",
         description:
-          "Get off at a stop toward Wonsinheung-dong in Doan New Town and walk a short distance. Call us for exact routes.",
+          "Get off at a stop near the campus and walk a short distance. Call us for exact routes.",
       },
       {
         icon: "car",
         title: "By car",
         description:
-          "Search for \"691 Dongseo-daero, Yuseong-gu, Daejeon\" or \"Heungdo Building\" in your navigation app.",
+          "Search the campus address in your navigation app, or use the map buttons below.",
       },
       {
         icon: "building",
         title: "In the building",
         description:
-          "We're on the 3rd floor, unit 302. Take the lift to the 3rd floor and you'll see us right away.",
+          "Floors and unit numbers differ by campus — check the campus details below.",
       },
     ],
     parkingNote:
-      "Please call ahead before your visit and we'll let you know about parking.",
+      "Parking differs from campus to campus. Please call the campus before your visit and we'll let you know.",
+    expanding: {
+      title: "Campus enquiries",
+      description:
+        "For anything about INTO JUNIOR campuses, please get in touch with our head office.",
+    },
   },
+
 
   /* ------------------------------------------------------------- contact */
   contact: {
@@ -597,7 +609,7 @@ export const en: Dict = {
       {
         category: "class",
         q: "How many students are in a class?",
-        a: "We keep classes small so teachers can follow each student individually. Class sizes vary by course and are confirmed at consultation.",
+        a: "Every campus keeps classes small so teachers can follow each student individually. Class sizes vary by course and are confirmed at consultation.",
       },
       {
         category: "class",
@@ -626,8 +638,8 @@ export const en: Dict = {
       },
       {
         category: "etc",
-        q: "Are you open on Wednesdays and Sundays?",
-        a: "We're closed every Wednesday and Sunday. Monday, Tuesday, Thursday and Friday we're open 1:00–8:30 PM, and Saturday 2:00–4:00 PM.",
+        q: "What are your opening hours?",
+        a: "Monday, Tuesday, Thursday and Friday 1:00–8:30 PM, Saturday 2:00–4:00 PM, closed Wednesday and Sunday. Hours can differ by campus, so please check the Campuses page.",
       },
       {
         category: "etc",
@@ -637,12 +649,12 @@ export const en: Dict = {
       {
         category: "etc",
         q: "Is there a shuttle bus?",
-        a: "Please call us and we'll let you know about shuttle availability and routes.",
+        a: "Shuttle availability and routes differ by campus. Call the campus you're interested in and we'll let you know.",
       },
       {
         category: "etc",
         q: "Is parking available?",
-        a: "Give us a call before your visit and we'll advise you on parking.",
+        a: "Parking differs by campus. Call the campus before your visit and we'll advise you.",
       },
     ],
     stillCurious: {
@@ -661,7 +673,7 @@ export const en: Dict = {
     ceoLabel: "Director",
     addressLabel: "Address",
     privacy: "Privacy policy",
-    copyright: "INTO JUNIOR Daejeon Doan. All rights reserved.",
+    copyright: "INTO JUNIOR. All rights reserved.",
     holidayNote: "Closed every Wednesday and Sunday",
   },
 
@@ -670,7 +682,7 @@ export const en: Dict = {
     title: "Privacy Policy",
     updated: "Effective: 1 January 2026",
     intro:
-      "INTO JUNIOR Daejeon Doan (\"the Academy\") takes your privacy seriously. This page explains how personal information is handled on this website.",
+      "INTO JUNIOR (\"the Academy\") takes your privacy seriously. This page explains how personal information is handled on this website.",
     sections: [
       {
         title: "1. This website does not collect personal information",

@@ -1,4 +1,4 @@
-import { SITE, telHref } from "@/config/site";
+import { CAMPUSES, SITE, telHref } from "@/config/site";
 import { getDict, href, type Lang } from "@/content";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -160,9 +160,17 @@ export function HomeHero({ lang }: { lang: Lang }) {
                 <div className="absolute -top-4 -right-2 hidden items-center gap-2 rounded-2xl bg-navy-900/85 px-4 py-3 shadow-lift ring-1 ring-white/15 backdrop-blur-md sm:flex lg:-right-4">
                   <Icon name="mapPin" size={16} className="text-mint-300" />
                   <span className="text-[0.75rem] leading-tight font-semibold text-white">
-                    {lang === "ko" ? "대전 유성구 도안" : "Doan, Daejeon"}
+                    {CAMPUSES.length > 1
+                      ? `${CAMPUSES.length}${t.common.campusCountSuffix}`
+                      : lang === "ko"
+                        ? CAMPUSES[0].regionKo
+                        : CAMPUSES[0].regionEn}
                     <span className="block text-[0.6875rem] font-medium text-white/55">
-                      {lang === "ko" ? "흥도빌딩 3층" : "Heungdo Bldg 3F"}
+                      {CAMPUSES.length > 1
+                        ? t.common.viewCampuses
+                        : lang === "ko"
+                          ? CAMPUSES[0].nameKo
+                          : CAMPUSES[0].nameEn}
                     </span>
                   </span>
                 </div>

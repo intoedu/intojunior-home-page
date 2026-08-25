@@ -59,7 +59,7 @@ export function Logo({
   className?: string;
 }) {
   const brand = lang === "ko" ? SITE.brand.ko : SITE.brand.en;
-  const branch = lang === "ko" ? SITE.brand.branchKo : SITE.brand.branchEn;
+  const tagline = lang === "ko" ? SITE.brand.taglineKo : SITE.brand.taglineEn;
 
   return (
     <span className={cn("flex items-center gap-2.5", className)}>
@@ -79,7 +79,7 @@ export function Logo({
             tone === "dark" ? "text-white/65" : "text-brand-600",
           )}
         >
-          {branch}
+          {tagline}
         </span>
       </span>
     </span>

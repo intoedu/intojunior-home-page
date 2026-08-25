@@ -37,7 +37,7 @@ export function ContactView({ lang }: { lang: Lang }) {
             {SITE.phone.main}
           </Button>
           <Button
-            href={href(lang, "location")}
+            href={href(lang, "campuses")}
             variant="onDark"
             size="lg"
             icon="mapPin"
@@ -239,7 +239,7 @@ export function ContactView({ lang }: { lang: Lang }) {
             <div className="rounded-[1.5rem] bg-ink-50 p-7 ring-1 ring-ink-100">
               <h2 className="flex items-center gap-2 text-[0.75rem] font-bold tracking-[0.14em] text-brand-600 uppercase">
                 <Icon name="clock" size={15} />
-                {t.location.labels.hours}
+                {t.campuses.labels.hours}
               </h2>
               <OpeningHours lang={lang} className="mt-5" />
             </div>

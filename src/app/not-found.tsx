@@ -7,7 +7,7 @@ import { Icon } from "@/components/ui/Icon";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "페이지를 찾을 수 없습니다 | 인투주니어학원 대전도안점",
+  title: "페이지를 찾을 수 없습니다 | 인투주니어학원",
   robots: { index: false, follow: true },
 };
 

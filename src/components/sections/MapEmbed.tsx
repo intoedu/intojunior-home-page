@@ -1,17 +1,24 @@
-import { MAP_LINKS, SITE } from "@/config/site";
+import { MAP_LINKS, SITE, campusMapLinks, type Campus } from "@/config/site";
 import { getDict, type Lang } from "@/content";
 import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/utils";
 
-/** 지도 (API 키 없이 동작합니다) */
+/** 지도 (API 키 없이 동작합니다). campus 를 넘기면 그 캠퍼스를 보여줍니다. */
 export function MapEmbed({
   lang,
+  campus,
   className,
 }: {
   lang: Lang;
+  campus?: Campus;
   className?: string;
 }) {
   const t = getDict(lang);
+  const links = campus ? campusMapLinks(campus) : MAP_LINKS;
+  const name = campus
+    ? `${SITE.brand.ko} ${lang === "ko" ? campus.nameKo : campus.nameEn}`
+    : SITE.brand.fullKo;
+
   return (
     <div
       className={cn(
@@ -20,8 +27,8 @@ export function MapEmbed({
       )}
     >
       <iframe
-        src={MAP_LINKS.embed(lang)}
-        title={`${SITE.brand.fullKo} ${t.location.labels.address}`}
+        src={links.embed(lang)}
+        title={`${name} ${t.campuses.labels.address}`}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         className="absolute inset-0 size-full border-0"
@@ -34,18 +41,21 @@ export function MapEmbed({
 /** 네이버 / 카카오 / 구글 지도 바로가기 */
 export function MapLinks({
   lang,
+  campus,
   className,
   tone = "light",
 }: {
   lang: Lang;
+  campus?: Campus;
   className?: string;
   tone?: "light" | "dark";
 }) {
   const t = getDict(lang);
+  const m = campus ? campusMapLinks(campus) : MAP_LINKS;
   const links = [
-    { href: MAP_LINKS.naver, label: t.location.labels.mapNaver },
-    { href: MAP_LINKS.kakao, label: t.location.labels.mapKakao },
-    { href: MAP_LINKS.google, label: t.location.labels.mapGoogle },
+    { href: m.naver, label: t.campuses.labels.mapNaver },
+    { href: m.kakao, label: t.campuses.labels.mapKakao },
+    { href: m.google, label: t.campuses.labels.mapGoogle },
   ];
 
   return (

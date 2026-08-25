@@ -36,7 +36,7 @@ export function MobileCta({ lang }: { lang: Lang }) {
           {t.common.callNow}
         </a>
         <Link
-          href={href(lang, "location")}
+          href={href(lang, "campuses")}
           className="inline-flex h-12 items-center justify-center gap-1.5 rounded-xl bg-brand-600 text-[0.875rem] font-bold text-white"
         >
           <Icon name="mapPin" size={16} />
