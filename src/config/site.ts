@@ -187,6 +187,15 @@ export const SITE = {
     id: "RFCYrbMAeVA",
   },
 
+  /**
+   * 사진 경로 — public/photos/ 에 파일을 넣고 경로만 적으면 됩니다.
+   * 비워두면 "사진 준비 중" 자리 표시가 나옵니다.
+   */
+  photos: {
+    director: "", // 예: "/photos/director.jpg"
+    hero: "", // 예: "/photos/hero.jpg"
+  },
+
   /** 사업자 정보 (푸터 표기) */
   business: {
     name: "인투주니어학원",

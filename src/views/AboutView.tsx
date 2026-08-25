@@ -27,12 +27,12 @@ export function AboutView({ lang }: { lang: Lang }) {
           <Reveal className="lg:col-span-5">
             <div className="lg:sticky lg:top-28">
               <PhotoSlot
+                src={SITE.photos.director || undefined}
                 alt={a.greeting.photoCaption}
                 caption={a.greeting.photoCaption}
                 label={t.common.photoPlaceholder}
                 icon="user"
                 className="aspect-4/5 w-full rounded-[2rem] shadow-card ring-1 ring-ink-100"
-                /* 실제 사진: src="/photos/director.jpg" */
               />
               <div className="mt-6 rounded-2xl bg-ink-50 p-5 ring-1 ring-ink-100">
                 <p className="text-[0.75rem] font-semibold text-ink-500">
@@ -95,6 +95,28 @@ export function AboutView({ lang }: { lang: Lang }) {
             </Reveal>
           </div>
         </div>
+      </Section>
+
+      {/* ── 브랜드 슬로건 ── */}
+      <Section size="wide" className="bg-navy-950 text-white">
+        <Reveal>
+          <div className="mx-auto max-w-3xl text-center">
+            <Icon
+              name="quote"
+              size={36}
+              className="mx-auto text-white/15"
+            />
+            <p className="mt-6 text-[1.5rem] leading-[1.5] font-extrabold tracking-[-0.02em] text-white sm:text-[2rem]">
+              {a.motto.line}
+            </p>
+            <p className="mx-auto mt-6 max-w-xl text-[0.9375rem] leading-[1.9] text-white/65 sm:text-[1.0625rem]">
+              {a.motto.statement}
+            </p>
+            <p className="mt-8 text-[0.75rem] font-bold tracking-[0.2em] text-brand-300 uppercase">
+              INTO JUNIOR ACADEMY
+            </p>
+          </div>
+        </Reveal>
       </Section>
 
       {/* ── 교육 철학 ── */}

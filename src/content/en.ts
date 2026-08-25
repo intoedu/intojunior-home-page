@@ -309,6 +309,13 @@ export const en: Dict = {
         "We stay with our students until they can say not \"I studied English\" but \"I can use it.\"",
     },
 
+    /** Brand motto */
+    motto: {
+      line: "The power to think · The joy of learning · A growing future",
+      statement:
+        "We find what a child is capable of, grow it, and prepare them for what comes next.",
+    },
+
     greeting: {
       eyebrow: "GREETING",
       title: "A word from the founder",
