@@ -41,6 +41,9 @@ export function AboutView({ lang }: { lang: Lang }) {
                 <p className="mt-1 text-[1.25rem] font-extrabold text-navy-900">
                   {a.greeting.name}
                 </p>
+                <p className="mt-2 text-[0.8125rem] leading-relaxed font-semibold text-brand-700">
+                  {a.greeting.credential}
+                </p>
                 <p className="mt-3 border-t border-ink-200 pt-3 text-[0.75rem] tabular-nums text-ink-500">
                   {SITE.phone.main} · {SITE.phone.mobile}
                 </p>
@@ -84,6 +87,9 @@ export function AboutView({ lang }: { lang: Lang }) {
                 </span>
                 <span className="mt-1 block text-[1.125rem] font-extrabold text-navy-900">
                   {a.greeting.name}
+                </span>
+                <span className="mt-1 block text-[0.75rem] text-ink-500">
+                  {a.greeting.credential}
                 </span>
               </p>
             </Reveal>
