@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { asset } from "@/config/site";
 import { Icon, type IconName } from "./Icon";
 
 /**
@@ -33,7 +34,7 @@ export function PhotoSlot({
       <div className={cn("relative overflow-hidden bg-ink-100", className)}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={src}
+          src={asset(src)}
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           decoding="async"

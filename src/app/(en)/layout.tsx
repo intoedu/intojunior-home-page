@@ -1,16 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import { RootHtml } from "@/components/site/RootHtml";
 import { pageMetadata } from "@/lib/metadata";
-import { SITE } from "@/config/site";
+import { SITE, asset, NOINDEX } from "@/config/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   ...pageMetadata("en", "home"),
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    apple: "/apple-icon.png",
+    icon: [{ url: asset("/icon.svg"), type: "image/svg+xml" }],
+    apple: asset("/apple-icon.png"),
   },
-  robots: { index: true, follow: true },
+  robots: NOINDEX
+    ? { index: false, follow: false }
+    : { index: true, follow: true },
   other: { "format-detection": "telephone=no" },
 };
 

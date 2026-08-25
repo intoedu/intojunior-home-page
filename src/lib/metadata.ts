@@ -40,7 +40,7 @@ export function pageMetadata(
       description: m.description,
       images: [
         {
-          url: "/og.png",
+          url: `${SITE.url}/og.png`,
           width: 1200,
           height: 630,
           alt: lang === "ko" ? SITE.brand.fullKo : SITE.brand.fullEn,
@@ -51,7 +51,7 @@ export function pageMetadata(
       card: "summary_large_image",
       title: m.title,
       description: m.description,
-      images: ["/og.png"],
+      images: [`${SITE.url}/og.png`],
     },
   };
 }

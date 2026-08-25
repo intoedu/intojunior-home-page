@@ -1,0 +1,88 @@
+# ==========================================================================
+# 홈페이지 자동 배포
+# --------------------------------------------------------------------------
+# main 브랜치에 변경이 올라오면 사이트를 새로 만들어 GitHub Pages 에 올립니다.
+# 저장소 Settings → Pages → Source 가 "GitHub Actions" 여야 합니다.
+# (아래 configure-pages 단계가 자동으로 바꿔주기도 합니다)
+# ==========================================================================
+name: 홈페이지 배포
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # 저장소 Actions 탭에서 직접 실행할 수도 있습니다
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 배포가 겹치지 않도록 한 번에 하나씩만 진행합니다
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: 사이트 생성
+    runs-on: ubuntu-latest
+    steps:
+      - name: 소스 내려받기
+        uses: actions/checkout@v4
+
+      - name: Node.js 준비
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Pages 설정 확인
+        id: pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: 배포 주소 확인
+        id: cfg
+        env:
+          BASE_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          echo "배포 주소: $BASE_URL"
+          # github.io 미리보기 주소일 때는 검색엔진 수집을 막습니다
+          if [[ "$BASE_URL" == *".github.io"* ]]; then
+            echo "noindex=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "noindex=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 패키지 설치
+        run: npm ci
+
+      - name: 정적 사이트 생성
+        run: npm run build
+        env:
+          # 하위 경로(/저장소이름)에 배포될 때 자동으로 채워집니다
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
+          NEXT_PUBLIC_NOINDEX: ${{ steps.cfg.outputs.noindex }}
+          # 문의 폼을 자동 접수로 쓰려면 저장소 Settings → Secrets and variables
+          # → Actions → Variables 에 같은 이름으로 주소를 등록하세요
+          NEXT_PUBLIC_FORM_ENDPOINT: ${{ vars.NEXT_PUBLIC_FORM_ENDPOINT }}
+          NEXT_TELEMETRY_DISABLED: "1"
+
+      - name: 결과물 업로드
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    name: 배포
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: GitHub Pages 에 배포
+        id: deployment
+        uses: actions/deploy-pages@v4

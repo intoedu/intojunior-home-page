@@ -95,6 +95,10 @@
 
   (`.env.example` 파일을 복사해 `.env.local` 로 이름을 바꾸면 됩니다)
 
+  GitHub Pages 로 배포 중이라면 파일 대신 저장소 설정에 넣으면 됩니다.
+  **Settings → Secrets and variables → Actions → Variables** 에서
+  이름 `NEXT_PUBLIC_FORM_ENDPOINT`, 값에 발급받은 주소를 등록하세요.
+
 모든 폼에는 **개인정보 수집·이용 동의 체크박스**가 포함되어 있습니다(개인정보보호법 대응).
 
 ---
@@ -120,9 +124,9 @@ npm run lint      # 코드 점검
 
 | 방법 | 비용 | 이런 경우에 |
 | --- | --- | --- |
+| **GitHub Pages** | 무료 | **이미 설정 완료.** `main` 에 올리면 자동으로 배포됩니다 |
 | **기존 웹호스팅** (카페24 · 가비아 · 닷홈 등) | 월 1천~5천원대 | 이미 쓰던 호스팅이 있을 때. `out/` 폴더 안의 파일을 FTP 로 올리면 끝 |
-| **Cloudflare Pages** | 무료 | 가장 추천. GitHub 저장소를 연결하면 자동으로 배포·갱신됩니다 |
-| **GitHub Pages** | 무료 | 코드가 이미 GitHub 에 있으므로 바로 사용 가능 |
+| **Cloudflare Pages** | 무료 | GitHub 저장소를 연결하면 자동 배포. 국내 속도가 빠릅니다 |
 | **Netlify** | 무료 | Cloudflare 와 비슷 |
 
 무료 서비스들도 **개인 도메인 연결과 https(보안 인증서)를 무료로 제공**합니다.
@@ -137,13 +141,34 @@ npm run build       # out/ 폴더 생성
 `out/` 폴더 **안의 내용물**을 호스팅의 웹 루트(보통 `public_html` 또는 `www`)에 그대로 올립니다.
 폴더째가 아니라 안의 파일들을 올려야 합니다.
 
+#### GitHub Pages (설정 완료)
+
+`.github/workflows/deploy.yml` 이 들어 있어서, **`main` 브랜치에 코드가 올라가면
+자동으로 사이트를 새로 만들어 배포**합니다. 따로 해주실 일은 없습니다.
+
+처음 한 번만 저장소 설정을 확인해 주세요.
+
+> **Settings → Pages → Build and deployment → Source** 를 **`GitHub Actions`** 로 지정
+>
+> (`Deploy from a branch` 로 되어 있으면 소스 코드가 그대로 노출되고
+> README 만 덩그러니 보입니다. 위 워크플로가 자동으로 바꿔주기도 하지만,
+> 안 되면 직접 바꿔주세요.)
+
+배포 상태는 저장소 **Actions** 탭에서 볼 수 있습니다. 보통 2~3분 걸립니다.
+
+**주소는 자동으로 맞춰집니다.**
+지금은 `intoedu.github.io/intojunior-home-page/` 처럼 하위 경로에 올라가지만,
+나중에 Settings → Pages → Custom domain 에 `www.intojunior.com` 을 넣으면
+경로·링크·이미지 주소가 **코드 수정 없이** 알아서 바뀝니다.
+
+> 미리보기 주소(github.io)로 배포될 때는 검색엔진이 수집하지 않도록 자동 차단됩니다.
+> 실제 도메인을 연결하면 자동으로 해제됩니다.
+
 #### Cloudflare Pages 로 올리는 경우
 
 1. [pages.cloudflare.com](https://pages.cloudflare.com) 에서 이 GitHub 저장소를 연결합니다.
 2. 빌드 명령어 `npm run build`, 출력 폴더 `out` 으로 설정합니다.
 3. Custom domains 에서 `www.intojunior.com` 을 추가하고, 도메인 구입처에서 안내된 값을 등록합니다.
-
-이후에는 코드가 바뀔 때마다 자동으로 새 버전이 반영됩니다.
 
 ### 외부 서비스 사용 현황
 

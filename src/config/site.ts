@@ -5,9 +5,29 @@
  *     TODO 표시가 있는 항목은 원장님 확인 후 값을 채워주세요.
  * ========================================================================== */
 
+/**
+ * 하위 경로 배포용 (예: GitHub Pages 의 /저장소이름).
+ * 자체 도메인을 쓰면 빈 값이 되며, 배포 스크립트가 알아서 채워줍니다.
+ */
+const RAW_BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+export const BASE_PATH =
+  RAW_BASE_PATH === "/" ? "" : RAW_BASE_PATH.replace(/\/+$/, "");
+
+/** public 폴더의 파일을 가리킬 때 사용합니다. 예) asset("/photos/hero.jpg") */
+export const asset = (path: string) =>
+  `${BASE_PATH}${path.startsWith("/") ? path : `/${path}`}`;
+
+/** 미리보기 주소에서는 검색엔진이 수집하지 않도록 합니다. */
+export const NOINDEX = process.env.NEXT_PUBLIC_NOINDEX === "1";
+
 export const SITE = {
-  /** 배포 도메인 (도메인 연결 후 실제 주소로 변경) */
-  url: "https://www.intojunior.com",
+  /**
+   * 배포 주소. 도메인을 연결하면 이 값을 실제 주소로 바꿔주세요.
+   * (배포 스크립트가 NEXT_PUBLIC_SITE_URL 로 덮어쓰기도 합니다)
+   */
+  url: (
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.intojunior.com"
+  ).replace(/\/+$/, ""),
 
   brand: {
     ko: "인투주니어학원",
