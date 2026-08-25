@@ -36,11 +36,11 @@ export function MobileCta({ lang }: { lang: Lang }) {
           {t.common.callNow}
         </a>
         <Link
-          href={href(lang, "apply")}
+          href={href(lang, "location")}
           className="inline-flex h-12 items-center justify-center gap-1.5 rounded-xl bg-brand-600 text-[0.875rem] font-bold text-white"
         >
-          {t.common.apply}
-          <Icon name="arrowRight" size={16} />
+          <Icon name="mapPin" size={16} />
+          {t.common.directions}
         </Link>
       </div>
     </div>

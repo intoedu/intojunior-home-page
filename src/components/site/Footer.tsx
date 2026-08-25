@@ -39,18 +39,16 @@ export function Footer({ lang }: { lang: Lang }) {
               {t.footer.quickTitle}
             </h2>
             <ul className="mt-5 space-y-3">
-              {[...t.nav, { slug: "apply", label: t.common.applyLong }].map(
-                (item) => (
-                  <li key={item.slug || "home"}>
-                    <Link
-                      href={href(lang, item.slug)}
-                      className="text-[0.875rem] font-medium text-white/70 transition-colors hover:text-white"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ),
-              )}
+              {t.nav.map((item) => (
+                <li key={item.slug || "home"}>
+                  <Link
+                    href={href(lang, item.slug)}
+                    className="text-[0.875rem] font-medium text-white/70 transition-colors hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
 

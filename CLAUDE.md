@@ -22,6 +22,12 @@
 - 사진은 `PhotoSlot` 의 `src` 로 넣습니다. 비워두면 "사진 준비 중" 자리 표시가 나옵니다.
 - 정적 내보내기이므로 서버 기능(Route Handler, 서버 액션, ISR)은 사용할 수 없습니다.
   `sitemap.ts` / `robots.ts` 에는 `export const dynamic = "force-static"` 이 필요합니다.
+- **입력 양식(폼)·데이터베이스·외부 유료 서비스는 쓰지 않습니다.** 문의는 전화·이메일·지도 링크로만
+  연결합니다. 폼을 다시 넣자는 제안은 하지 마세요.
+- 외부 접속은 지도(구글 지도 임베드)와 유튜브(재생 시)뿐입니다. 서체는 `pretendard` 패키지를
+  `globals.css` 에서 불러와 사이트 안에 함께 배포합니다.
+- 배포는 GitHub Pages(`.github/workflows/deploy.yml`). 하위 경로 대응은 `NEXT_PUBLIC_BASE_PATH`,
+  `public/` 파일을 가리킬 땐 `asset()` 을 씁니다.
 
 ## 확인
 

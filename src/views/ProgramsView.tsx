@@ -25,18 +25,22 @@ export function ProgramsView({ lang }: { lang: Lang }) {
         crumbLabel={t.nav[2].label}
       >
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Button href={href(lang, "apply")} size="lg" icon="arrowRight">
-            {t.common.applyLong}
-          </Button>
           <Button
             href={telHref(SITE.phone.main)}
             external
-            variant="onDark"
             size="lg"
             icon="phone"
             iconPosition="left"
           >
             {SITE.phone.main}
+          </Button>
+          <Button
+            href={href(lang, "contact")}
+            variant="onDark"
+            size="lg"
+            icon="arrowRight"
+          >
+            {t.common.contact}
           </Button>
         </div>
       </PageHero>
@@ -69,17 +73,20 @@ export function ProgramsView({ lang }: { lang: Lang }) {
               {p.scheduleNote.description}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href={href(lang, "apply")} icon="arrowRight">
-                {t.common.applyLong}
-              </Button>
               <Button
                 href={telHref(SITE.phone.main)}
                 external
-                variant="secondary"
                 icon="phone"
                 iconPosition="left"
               >
                 {SITE.phone.main}
+              </Button>
+              <Button
+                href={href(lang, "contact")}
+                variant="secondary"
+                icon="arrowRight"
+              >
+                {t.common.contact}
               </Button>
             </div>
           </Reveal>

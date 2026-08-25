@@ -13,8 +13,8 @@
     "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
     system-ui, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR",
     sans-serif;
-  --font-display: var(--font-display-latin), "Pretendard Variable", Pretendard,
-    sans-serif;
+  /* 숫자·영문 라벨용 (본문과 같은 서체를 조금 더 조여서 사용합니다) */
+  --font-display: "Pretendard Variable", Pretendard, system-ui, sans-serif;
 
   /* ---- Brand blue (주 색상) ---- */
   --color-brand-50: #eef4ff;

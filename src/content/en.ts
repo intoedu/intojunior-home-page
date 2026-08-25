@@ -33,11 +33,6 @@ export const en: Dict = {
       description:
         "Leave us a message and we'll get back to you quickly. Call +82-42-822-0509 or +82-10-3454-9482.",
     },
-    apply: {
-      title: "Book a Level Test | INTO JUNIOR Daejeon Doan",
-      description:
-        "Find the right starting point for your child. Book a level test and learning consultation online.",
-    },
     faq: {
       title: "FAQ | INTO JUNIOR Daejeon Doan",
       description:
@@ -64,8 +59,8 @@ export const en: Dict = {
   common: {
     langLabel: "한국어",
     langSwitchAria: "Switch language",
-    apply: "Book a level test",
-    applyLong: "Book a level test & consultation",
+    book: "Call us",
+    bookLong: "Call to book a consultation",
     callMain: "Call the academy",
     callNow: "Call us",
     contact: "Contact",
@@ -77,8 +72,6 @@ export const en: Dict = {
     openNow: "Open now",
     closedNow: "Closed",
     regularHoliday: "Closed",
-    required: "Required",
-    optional: "Optional",
     skipToContent: "Skip to content",
     scrollDown: "Scroll down",
     photoPlaceholder: "Photo coming soon",
@@ -96,7 +89,7 @@ export const en: Dict = {
       description:
         "Learning shouldn't end at the worksheet. At INTO JUNIOR Daejeon Doan we connect reading, speaking and school exam preparation into one path — and give every student a stage to actually use it.",
       badges: ["Small classes", "1:1 diagnosis", "School exam support", "Speech & projects"],
-      primaryCta: "Book a level test",
+      primaryCta: "Call to book",
       secondaryCta: "See our programs",
       photoCaption: "Inside INTO JUNIOR Daejeon Doan",
     },
@@ -266,7 +259,7 @@ export const en: Dict = {
       eyebrow: "START HERE",
       title: "Thirty minutes is enough\nto find the right starting point",
       description:
-        "Level tests and consultations are by appointment. Book online or call us and we'll find a time that works for you.",
+        "Level tests and consultations are by appointment. Give us a ring and we'll find a time that works for you.",
     },
   },
 
@@ -516,118 +509,54 @@ export const en: Dict = {
   contact: {
     hero: {
       eyebrow: "CONTACT",
-      title: "Tell us what you'd like to know",
+      title: "Reach us however\nsuits you best",
       description:
-        "Classes, placement, fees — any question is welcome. We'll reply to the contact details you leave us as soon as we can.",
+        "Classes, placement, fees, booking a level test — any question is welcome. During opening hours a phone call is quickest.",
     },
     channels: {
-      title: "The fastest ways to reach us",
-      description: "If it's urgent, a phone call is quickest.",
-      callTitle: "By phone",
-      callDesc: "Call us any time during opening hours.",
+      title: "How to reach us",
+      description: "The director will answer personally.",
+      callTitle: "Call & book",
+      callDesc:
+        "Level tests and visits are booked by phone too. Call any time during opening hours.",
       emailTitle: "By email",
-      emailDesc: "Feel free to write in as much detail as you like.",
+      emailDesc:
+        "If a call is difficult, write to us and we'll reply as soon as we've read it.",
+      kakaoTitle: "KakaoTalk channel",
+      kakaoDesc: "Send us a message whenever it suits you.",
       visitTitle: "Visit us",
-      visitDesc: "Book ahead and your consultation starts without a wait.",
+      visitDesc:
+        "Call ahead to book and your consultation starts without a wait.",
       snsTitle: "Follow us",
       snsDesc: "The quickest place to see our classes and announcements.",
     },
-  },
-
-  /* --------------------------------------------------------------- apply */
-  apply: {
-    hero: {
-      eyebrow: "APPLY",
-      title: "Book a level test & consultation",
-      description:
-        "We'll assess your child's English accurately and tell you honestly what they need right now. Leave your details below and we'll call with available times.",
-    },
+    /** How a consultation works */
     steps: {
-      title: "How booking works",
+      title: "How a consultation works",
       items: [
-        { no: "01", title: "Apply online", description: "Fill in the form below and send it to us." },
-        { no: "02", title: "We call you", description: "We'll ring the number you left to agree a time." },
-        { no: "03", title: "Level test", description: "Visit the academy for the diagnostic test." },
-        { no: "04", title: "Results meeting", description: "We explain the results and the learning plan in detail." },
+        {
+          no: "01",
+          title: "Give us a call",
+          description: "Ring +82-42-822-0509 and we'll tell you which times are free.",
+        },
+        {
+          no: "02",
+          title: "Level test",
+          description: "Visit the academy for a reading, grammar, vocabulary and speaking assessment.",
+        },
+        {
+          no: "03",
+          title: "Results meeting",
+          description: "We explain where your child stands now and where we'd take them next.",
+        },
+        {
+          no: "04",
+          title: "Class placement",
+          description: "Together we pick the class that fits, and lessons begin.",
+        },
       ],
+      note: "※ The length and cost of the level test depend on grade and course, and are confirmed when you book.",
     },
-    note: "※ The length and cost of the level test depend on grade and course, and will be confirmed when your booking is made.",
-  },
-
-  /* ---------------------------------------------------------------- form */
-  form: {
-    contactTitle: "Send us a message",
-    applyTitle: "Booking form",
-    fields: {
-      parentName: "Parent's name",
-      studentName: "Student's name",
-      phone: "Phone number",
-      email: "Email",
-      grade: "Grade",
-      gradePlaceholder: "Select a grade",
-      program: "Course of interest",
-      programPlaceholder: "Select a course",
-      preferredDate: "Preferred date",
-      preferredTime: "Preferred time",
-      timePlaceholder: "Select a time slot",
-      route: "How did you hear about us?",
-      routePlaceholder: "Please select",
-      message: "Your message",
-      messagePlaceholder:
-        "Tell us about your child's current English learning, or anything you'd like to ask.",
-      applyMessagePlaceholder:
-        "Sharing your child's situation and your concerns helps us make the consultation far more useful.",
-    },
-    grades: [
-      "Elementary 1", "Elementary 2", "Elementary 3", "Elementary 4",
-      "Elementary 5", "Elementary 6", "Middle 1", "Middle 2",
-      "Middle 3", "Other",
-    ],
-    programOptions: [
-      "Elementary Reading & Writing",
-      "Elementary Speaking & Conversation",
-      "Middle School Prep",
-      "School Exam Intensive",
-      "Grammar & Vocabulary Clinic",
-      "Speech & Project",
-      "Not sure yet (decide after consultation)",
-    ],
-    timeOptions: [
-      "1:00 – 3:00 PM",
-      "3:00 – 5:00 PM",
-      "5:00 – 7:00 PM",
-      "7:00 – 8:30 PM",
-      "Saturday 2:00 – 4:00 PM",
-      "Flexible",
-    ],
-    routeOptions: [
-      "Recommendation", "Web search", "Naver blog / café", "Instagram",
-      "YouTube", "Signage / flyer", "Other",
-    ],
-    consent: {
-      label: "I agree to the collection and use of my personal information.",
-      link: "Read the policy",
-      summary:
-        "Collected: name, phone, email, grade and enquiry details / Purpose: consultation and booking / Retained: destroyed within 3 years of purpose completion",
-    },
-    submit: "Send",
-    submitApply: "Request booking",
-    submitting: "Sending…",
-    successTitle: "We've received it",
-    successBody:
-      "We'll be in touch shortly using the details you left. If it's urgent, please call +82-42-822-0509.",
-    errorTitle: "Something went wrong",
-    errorBody:
-      "Please try again in a moment, or call +82-42-822-0509 and we'll help you right away.",
-    mailFallbackNotice:
-      "Your email app will open with the message already filled in — just press send.",
-    validation: {
-      required: "This field is required.",
-      phone: "Please enter a valid phone number.",
-      email: "Please enter a valid email address.",
-      consent: "Please agree to the collection and use of personal information.",
-    },
-    another: "Write another message",
   },
 
   /* ----------------------------------------------------------------- faq */
@@ -648,7 +577,7 @@ export const en: Dict = {
       {
         category: "admission",
         q: "How do I book a level test?",
-        a: "Use the \"Book a level test\" page to apply online, or call +82-42-822-0509. Once we receive your request we'll call you back to confirm a time.",
+        a: "Just call +82-42-822-0509 or +82-10-3454-9482. We'll check what's free and confirm a time with you on the call.",
       },
       {
         category: "admission",
@@ -719,7 +648,7 @@ export const en: Dict = {
     stillCurious: {
       title: "Didn't find your answer?",
       description:
-        "Call and the director will answer personally. You can also leave a message and we'll reply quickly.",
+        "Call and the director will answer personally. If a call is difficult, email us and we'll reply quickly.",
     },
   },
 
@@ -741,42 +670,35 @@ export const en: Dict = {
     title: "Privacy Policy",
     updated: "Effective: 1 January 2026",
     intro:
-      "INTO JUNIOR Daejeon Doan (\"the Academy\") establishes and discloses the following privacy policy in accordance with the Personal Information Protection Act of Korea, in order to protect users' personal information and handle related concerns promptly.",
+      "INTO JUNIOR Daejeon Doan (\"the Academy\") takes your privacy seriously. This page explains how personal information is handled on this website.",
     sections: [
       {
-        title: "1. Personal information we collect",
-        body: "The Academy collects the following information in order to respond to enquiries and manage bookings.\n· Required: name (parent/student), phone number, enquiry details\n· Optional: email, grade, course of interest, preferred date and time, how you heard about us",
+        title: "1. This website does not collect personal information",
+        body: "There is no sign-up, enquiry form or booking form on this website.\nSimply visiting it therefore collects and stores no personal information — no name, phone number or email address.",
       },
       {
-        title: "2. Purpose of collection and use",
-        body: "Collected information is used only for the following purposes.\n· Responding to and following up on enquiries\n· Arranging and confirming level tests and consultations\n· Providing information about our classes and programs",
+        title: "2. Access logs and cookies",
+        body: "We use no visitor analytics, advertising or tracking scripts.\nThe server hosting this site may keep ordinary access logs, which are not used to identify individuals.",
       },
       {
-        title: "3. Retention and use period",
-        body: "Information is destroyed without delay once the purpose of collection has been fulfilled. Where retention is required by applicable law, it is kept for that period; otherwise it is destroyed within three years of the purpose being fulfilled.",
+        title: "3. Third-party services",
+        body: "Maps and video are provided through the services below. When you use them, each provider's own privacy policy also applies.\n· Map: Google Maps\n· Video: YouTube (loaded only when you press play)\n· Map shortcuts: Naver Map · Kakao Map",
       },
       {
-        title: "4. Provision to third parties",
-        body: "The Academy does not provide users' personal information to third parties, except where required by applicable law.",
+        title: "4. Enquiries made by phone or email",
+        body: "If you contact us by phone or email, the Academy uses what you tell us solely to respond to your enquiry and arrange a consultation.\nOnce that purpose is fulfilled it is destroyed without delay, except where retention is required by applicable law.",
       },
       {
-        title: "5. Rights of the data subject",
-        body: "Users may at any time request access to, correction of, deletion of, or suspension of processing of their personal information. Requests submitted to the contact below will be acted upon without delay.",
-      },
-      {
-        title: "6. Data protection officer",
+        title: "5. Contact",
         body: "· Officer: Park Jeong-kyung (Director)\n· Phone: +82-42-822-0509\n· Email: angelpark3401@gmail.com",
       },
       {
-        title: "7. Security measures",
-        body: "The Academy takes the measures necessary to prevent loss, theft, leakage, forgery, alteration or damage of personal information, including access-rights management and access control.",
-      },
-      {
-        title: "8. Changes to this policy",
-        body: "This policy applies from its effective date. Where additions, deletions or corrections are made in line with law or policy, we will announce the changes on this website at least seven days before they take effect.",
+        title: "6. Changes to this policy",
+        body: "This policy applies from its effective date. Any changes will be announced on this website.",
       },
     ],
   },
+
 
   /* ----------------------------------------------------------- not found */
   notFound: {

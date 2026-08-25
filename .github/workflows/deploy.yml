@@ -77,9 +77,6 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
           NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
           NEXT_PUBLIC_NOINDEX: ${{ steps.cfg.outputs.noindex }}
-          # 문의 폼을 자동 접수로 쓰려면 저장소 Settings → Secrets and variables
-          # → Actions → Variables 에 같은 이름으로 주소를 등록하세요
-          NEXT_PUBLIC_FORM_ENDPOINT: ${{ vars.NEXT_PUBLIC_FORM_ENDPOINT }}
           NEXT_TELEMETRY_DISABLED: "1"
 
       - name: 결과물 업로드

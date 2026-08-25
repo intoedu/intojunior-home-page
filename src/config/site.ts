@@ -95,14 +95,6 @@ export const SITE = {
     id: "", // TODO: 유튜브 영상 ID
   },
 
-  /**
-   * 문의/신청 폼 전송 방식
-   * - endpoint 를 비워두면 → 방문자의 메일 앱이 열리며 내용이 자동으로 채워집니다(설정 0단계).
-   * - Formspree / Web3Forms 등에서 발급받은 주소를 넣으면 → 이메일로 자동 접수됩니다.
-   *   (.env.local 의 NEXT_PUBLIC_FORM_ENDPOINT 값이 있으면 그 값이 우선합니다.)
-   */
-  formEndpoint: process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? "",
-
   /** 사업자 정보 (푸터 표기) */
   business: {
     name: "인투주니어학원 대전도안점",

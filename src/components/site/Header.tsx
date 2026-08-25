@@ -134,8 +134,8 @@ export function Header({ lang }: { lang: Lang }) {
               {SITE.phone.main}
             </a>
 
-            <Link
-              href={href(lang, "apply")}
+            <a
+              href={telHref(SITE.phone.main)}
               className={cn(
                 "hidden h-10 items-center gap-1.5 rounded-xl px-4 text-[0.8125rem] font-bold transition-all hover:-translate-y-0.5 sm:inline-flex",
                 solid
@@ -143,9 +143,9 @@ export function Header({ lang }: { lang: Lang }) {
                   : "bg-white text-navy-900 shadow-lift hover:bg-brand-50",
               )}
             >
-              {t.common.apply}
-              <Icon name="arrowRight" size={15} />
-            </Link>
+              <Icon name="phone" size={15} />
+              {t.common.book}
+            </a>
 
             {/* 모바일 메뉴 버튼 */}
             <button
@@ -220,21 +220,21 @@ export function Header({ lang }: { lang: Lang }) {
             </ul>
 
             <div className="mt-6 grid gap-2.5">
-              <Link
-                href={href(lang, "apply")}
-                onClick={() => setOpen(false)}
-                className="inline-flex h-13 items-center justify-center gap-2 rounded-2xl bg-brand-600 px-5 text-[0.9375rem] font-bold text-white shadow-glow"
-              >
-                {t.common.applyLong}
-                <Icon name="arrowRight" size={18} />
-              </Link>
               <a
                 href={telHref(SITE.phone.main)}
-                className="inline-flex h-13 items-center justify-center gap-2 rounded-2xl bg-navy-900 px-5 text-[0.9375rem] font-bold text-white"
+                className="inline-flex h-13 items-center justify-center gap-2 rounded-2xl bg-brand-600 px-5 text-[0.9375rem] font-bold text-white shadow-glow"
               >
                 <Icon name="phone" size={17} />
                 {SITE.phone.main}
               </a>
+              <Link
+                href={href(lang, "contact")}
+                onClick={() => setOpen(false)}
+                className="inline-flex h-13 items-center justify-center gap-2 rounded-2xl bg-navy-900 px-5 text-[0.9375rem] font-bold text-white"
+              >
+                {t.common.contact}
+                <Icon name="arrowRight" size={17} />
+              </Link>
               <Link
                 href={href(altLang, current)}
                 onClick={() => setOpen(false)}
