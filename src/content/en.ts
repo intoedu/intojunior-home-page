@@ -150,6 +150,48 @@ export const en: Dict = {
       ],
     },
 
+    /** Core programmes with intro videos */
+    core: {
+      eyebrow: "CORE PROGRAMS",
+      title: "The two pillars\nof INTO JUNIOR",
+      description:
+        "Fast ForWord builds a brain that hears English; ClearFluency completes the fluency to read and speak it. Both are proven solutions from Carnegie Learning.",
+      videoTabs: ["Intro video 1", "Intro video 2"],
+      channelCta: "Visit our YouTube channel",
+      items: [
+        {
+          no: "01",
+          badge: "Brain-science English",
+          title: "Fast ForWord",
+          subtitle: "Fast ForWord · Carnegie Learning",
+          videoLabel: "intro video",
+          description:
+            "It starts with the ability to tell English sounds apart. Phonemic training lifts memory, attention, processing speed and sequencing at the same time — the stamina all study rests on.",
+          points: [
+            "Selected by the US National Library of Education",
+            "Phonemic awareness · phonics · fluency · vocabulary · comprehension",
+            "Memory, attention, processing speed and sequencing together",
+            "Game-based learning that adapts difficulty in real time",
+          ],
+        },
+        {
+          no: "02",
+          badge: "Oral reading library",
+          title: "ClearFluency",
+          subtitle: "ClearFluency · Carnegie Learning",
+          videoLabel: "intro video",
+          description:
+            "Patented speech recognition listens as a child reads aloud and corrects them on the spot — not a recording reviewed later, but a 1:1 reading tutor that helps the moment they stumble.",
+          points: [
+            "Built on the US National Reading Panel's recommended methods",
+            "Green for words read well, red for words to practise",
+            "WCPM fluency score makes progress visible",
+            "95% agreement with specialist teachers in validation research",
+          ],
+        },
+      ],
+    },
+
     programsPreview: {
       eyebrow: "PROGRAMS",
       title: "A step-by-step curriculum\nbuilt around level and goal",

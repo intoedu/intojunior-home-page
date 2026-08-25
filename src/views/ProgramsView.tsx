@@ -1,6 +1,7 @@
 import { getDict, type Lang } from "@/content";
 import { PageHero } from "@/components/sections/PageHero";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { CorePrograms } from "@/components/sections/CorePrograms";
 import { Levels } from "@/components/sections/Levels";
 import { ProgramCard } from "@/components/sections/ProgramCard";
 import { Section } from "@/components/ui/Section";
@@ -45,7 +46,9 @@ export function ProgramsView({ lang }: { lang: Lang }) {
         </div>
       </PageHero>
 
-      {/* ── 과정 목록 ── */}
+      <CorePrograms lang={lang} />
+
+      {/* ── 전체 과정 목록 ── */}
       <Section tightTop size="wide" className="bg-white">
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {p.items.map((item, i) => (

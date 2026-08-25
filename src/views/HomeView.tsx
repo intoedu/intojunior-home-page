@@ -1,6 +1,7 @@
 import type { Lang } from "@/content";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { Pillars } from "@/components/sections/Pillars";
+import { CorePrograms } from "@/components/sections/CorePrograms";
 import { ProgramsPreview } from "@/components/sections/ProgramsPreview";
 import { Process } from "@/components/sections/Process";
 import { Levels } from "@/components/sections/Levels";
@@ -14,6 +15,7 @@ export function HomeView({ lang }: { lang: Lang }) {
     <>
       <HomeHero lang={lang} />
       <Pillars lang={lang} />
+      <CorePrograms lang={lang} />
       <ProgramsPreview lang={lang} />
       <Process lang={lang} />
       <Levels lang={lang} />

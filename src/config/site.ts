@@ -171,7 +171,7 @@ export const SITE = {
    */
   social: {
     instagram: "", // TODO: 인스타그램 계정 주소
-    youtube: "", // TODO: 유튜브 채널 주소
+    youtube: "https://www.youtube.com/channel/UCMTGCTMw9lDYBOBWSVjKW9g",
     blog: "", // TODO: 네이버 블로그 주소
     kakao: "", // TODO: 카카오톡 채널 주소 (예: http://pf.kakao.com/_xxxxx)
     naverPlace: "", // TODO: 네이버 플레이스(지도) 주소
@@ -183,7 +183,8 @@ export const SITE = {
    * 비워두면 "영상 준비 중" 카드가 표시됩니다.
    */
   video: {
-    id: "", // TODO: 유튜브 영상 ID
+    /** 메인 대표 소개 영상 */
+    id: "RFCYrbMAeVA",
   },
 
   /** 사업자 정보 (푸터 표기) */
@@ -193,6 +194,16 @@ export const SITE = {
     academyNo: "", // TODO: 학원설립·운영등록번호 (학원법상 표기 권장)
   },
 } as const;
+
+/**
+ * 핵심 프로그램 소개 영상 (유튜브 ID)
+ * 순서는 content 의 home.core.items 와 같습니다.
+ * 주소가 https://youtu.be/AbCdEfG 라면 ID 는 "AbCdEfG" 입니다.
+ */
+export const CORE_PROGRAM_VIDEOS: string[][] = [
+  ["8fpsAFFaenQ"], // 패스트포워드
+  ["yqdTsKZzJjA", "iVy6jGNfwFo"], // 클리어 플루언시
+];
 
 /** 전화 걸기용 tel: 링크 */
 export const telHref = (num: string) => `tel:${num.replace(/[^0-9+]/g, "")}`;
