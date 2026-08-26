@@ -277,12 +277,12 @@ export const en: Dict = {
       description:
         "",
       captions: [
+        "Reading library",
         "Classroom",
-        "Reading zone & library",
-        "Speaking class",
-        "Study & clinic area",
-        "Consultation room",
-        "Speech showcase",
+        "AI learning lab",
+        "Small-group classroom",
+        "Individual study booths",
+        "In class",
       ],
     },
 

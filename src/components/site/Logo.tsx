@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { SITE } from "@/config/site";
+import { SITE, asset } from "@/config/site";
 import type { Lang } from "@/content";
 
 /**
@@ -58,29 +58,26 @@ export function Logo({
   tone?: "light" | "dark";
   className?: string;
 }) {
-  const brand = lang === "ko" ? SITE.brand.ko : SITE.brand.en;
-  const tagline = lang === "ko" ? SITE.brand.taglineKo : SITE.brand.taglineEn;
+  const dark = tone === "dark";
+  const alt = lang === "ko" ? SITE.brand.fullKo : SITE.brand.fullEn;
 
   return (
-    <span className={cn("flex items-center gap-2.5", className)}>
-      <LogoMark className="size-9 sm:size-10" />
-      <span className="flex flex-col leading-none">
-        <span
-          className={cn(
-            "font-display text-[0.9375rem] font-extrabold tracking-[-0.02em] sm:text-base",
-            tone === "dark" ? "text-white" : "text-navy-900",
-          )}
-        >
-          {brand}
-        </span>
-        <span
-          className={cn(
-            "mt-1 text-[0.6875rem] font-semibold tracking-[0.02em]",
-            tone === "dark" ? "text-white/65" : "text-brand-600",
-          )}
-        >
-          {tagline}
-        </span>
+    <span className={cn("flex items-center", className)}>
+      {/* 로고 원본이 흰 바탕이라, 어두운 배경에서는 흰 판 위에 올립니다 */}
+      <span
+        className={cn(
+          "inline-flex items-center rounded-xl transition-colors",
+          dark && "bg-white px-2.5 py-1.5 shadow-soft",
+        )}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={asset("/logo.jpg")}
+          alt={alt}
+          width={501}
+          height={299}
+          className="h-9 w-auto sm:h-10"
+        />
       </span>
     </span>
   );
