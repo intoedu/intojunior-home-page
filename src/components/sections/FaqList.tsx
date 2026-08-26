@@ -18,7 +18,9 @@ export function FaqList({
   const [category, setCategory] = useState<string>("all");
   const [open, setOpen] = useState<number | null>(0);
 
+  /* 답변이 아직 준비되지 않은 항목은 화면에 내보내지 않습니다 */
   const items = t.faq.items
+    .filter((item) => item.a.trim().length > 0)
     .filter((item) => category === "all" || item.category === category)
     .slice(0, limit);
 

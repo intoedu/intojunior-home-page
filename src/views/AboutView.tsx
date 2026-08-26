@@ -64,6 +64,14 @@ export function AboutView({ lang }: { lang: Lang }) {
               />
             </Reveal>
 
+            {a.greeting.paragraphs.length === 0 && (
+              <Reveal>
+                <p className="mt-6 rounded-2xl bg-ink-50 p-6 text-[0.875rem] leading-relaxed text-ink-500 ring-1 ring-ink-100">
+                  {t.common.contentPending}
+                </p>
+              </Reveal>
+            )}
+
             <div className="mt-6 space-y-6">
               {a.greeting.paragraphs.map((para, i) => (
                 <Reveal key={i} delay={i * 60}>
@@ -80,6 +88,7 @@ export function AboutView({ lang }: { lang: Lang }) {
               ))}
             </div>
 
+            {a.greeting.paragraphs.length > 0 && (
             <Reveal delay={120}>
               <p className="mt-10 border-t border-ink-200 pt-6 text-right">
                 <span className="block text-[0.8125rem] text-ink-500">
@@ -93,6 +102,7 @@ export function AboutView({ lang }: { lang: Lang }) {
                 </span>
               </p>
             </Reveal>
+            )}
           </div>
         </div>
       </Section>
@@ -119,7 +129,8 @@ export function AboutView({ lang }: { lang: Lang }) {
         </Reveal>
       </Section>
 
-      {/* ── 교육 철학 ── */}
+      {/* ── 교육 철학 (내용이 있을 때만 표시) ── */}
+      {a.philosophy.items.length > 0 && (
       <Section size="wide" className="bg-soft-mesh">
         <SectionHeading
           eyebrow={a.philosophy.eyebrow}
@@ -147,8 +158,10 @@ export function AboutView({ lang }: { lang: Lang }) {
           ))}
         </ul>
       </Section>
+      )}
 
-      {/* ── 이런 고민이 있으셨다면 ── */}
+      {/* ── 이런 고민이 있으셨다면 (내용이 있을 때만 표시) ── */}
+      {a.fitFor.items.length > 0 && (
       <Section size="wide" className="bg-navy-950 text-white">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
@@ -181,6 +194,7 @@ export function AboutView({ lang }: { lang: Lang }) {
           </ul>
         </div>
       </Section>
+      )}
 
       {/* ── 공간 ── */}
       <Section size="wide" className="bg-white">
@@ -210,9 +224,11 @@ export function AboutView({ lang }: { lang: Lang }) {
             <h3 className="mt-4 text-[1.375rem] font-bold text-navy-900">
               {a.teachers.title}
             </h3>
-            <p className="mx-auto mt-3 max-w-xl text-[0.875rem] leading-[1.85] text-ink-600">
-              {a.teachers.description}
-            </p>
+            {a.teachers.description && (
+              <p className="mx-auto mt-3 max-w-xl text-[0.875rem] leading-[1.85] text-ink-600">
+                {a.teachers.description}
+              </p>
+            )}
             <p className="mt-5 text-[0.75rem] text-ink-400">{a.teachers.note}</p>
           </div>
         </Reveal>

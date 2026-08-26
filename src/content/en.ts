@@ -26,7 +26,7 @@ export const en: Dict = {
     campuses: {
       title: "Campuses | INTO JUNIOR",
       description:
-        "Find your nearest INTO JUNIOR campus — address, phone and opening hours.",
+        "Address, phone and opening hours for INTO JUNIOR Daejeon Doan.",
     },
     contact: {
       title: "Contact | INTO JUNIOR",
@@ -80,6 +80,7 @@ export const en: Dict = {
     scrollDown: "Scroll down",
     photoPlaceholder: "Photo coming soon",
     videoPlaceholder: "Video coming soon",
+    contentPending: "Content coming soon.",
     backHome: "Back to home",
   },
 
@@ -102,7 +103,7 @@ export const en: Dict = {
       { label: "Students", value: "Elementary · Middle", sub: "Level K – Level 3+" },
       { label: "Lessons", value: "90 minutes", sub: "Class + reading input" },
       { label: "Assessment", value: "3-stage test", sub: "Listening & reading, separately" },
-      { label: "Campuses", value: "3 campuses", sub: "Daejeon · Yongin · Gyeryong" },
+      { label: "Where", value: "Doan, Daejeon", sub: "Just behind Heungdo Elementary" },
     ],
 
     pillars: {
@@ -274,7 +275,7 @@ export const en: Dict = {
       eyebrow: "GALLERY",
       title: "The space they come to every day",
       description:
-        "Bright, calm and built for focus. You're welcome to look around when you visit for a consultation.",
+        "",
       captions: [
         "Classroom",
         "Reading zone & library",
@@ -287,14 +288,14 @@ export const en: Dict = {
 
     campuses: {
       eyebrow: "CAMPUS",
-      title: "Meet us at your\nnearest campus",
+      title: "Come and see us\nin Doan, Daejeon",
       description:
-        "Every campus runs the same curriculum to the same standards. Call ahead for a visit and you won't have to wait.",
+        "Call ahead for a visit and you won't have to wait.",
     },
 
     cta: {
       eyebrow: "START HERE",
-      title: "Thirty minutes is enough\nto find the right starting point",
+      title: "Fifty minutes is enough\nto find the right starting point",
       description:
         "Forty minutes of testing and ten minutes of feedback tell you where your child stands. Book through Naver and it's free.",
     },
@@ -323,76 +324,35 @@ export const en: Dict = {
       name: "Park Jeong-kyung",
       credential: "20+ years in English education · certified Grade-1 teacher",
       photoCaption: "Park Jeong-kyung, Founder",
-      paragraphs: [
-        "Hello, and welcome. I'm Park Jeong-kyung, founder of INTO JUNIOR.",
-        "Many children study English for years. They memorise words, solve problems, sit exams. And yet the moment you ask, \"Can you say that in English?\" the room goes quiet. The hours are long; the usable English is short.",
-        "Closing that gap is what an academy is for. Explaining what you read in your own words. Actually using the expressions you learned. And seeing that ability show up in your school results too. That is why we never separate reading from speaking, or real skill from exam scores.",
-        "Above all, I won't forget that every child moves at their own pace. For the fast learner, room to go further. For the one who needs time, someone beside them so they don't give up.",
-        "If you're wondering where your child's English really stands, please don't hesitate to get in touch. We'll assess it accurately — and tell you honestly.",
-      ],
+      paragraphs: [] as string[],
     },
 
     philosophy: {
       eyebrow: "PHILOSOPHY",
-      title: "Four things we hold to",
-      description:
-        "It isn't grand promises that change a child — it's the principles kept in every single lesson.",
-      items: [
-        {
-          icon: "target",
-          title: "We start from an accurate diagnosis",
-          description:
-            "We start from ability, not from grade. The curriculum is set only after a level test shows where a student actually is.",
-        },
-        {
-          icon: "speech",
-          title: "We build lessons that make students talk",
-          description:
-            "Not a lesson spent listening and copying, but one where the student speaks. Every session gives them a chance to express something.",
-        },
-        {
-          icon: "shield",
-          title: "We take school results seriously",
-          description:
-            "We're neither a conversation-only academy nor a worksheet factory. Skill has to show up on the school report too — so we manage exams alongside it.",
-        },
-        {
-          icon: "handshake",
-          title: "We work alongside parents",
-          description:
-            "We share how a child is doing, exactly as it is — the good news and the work still to do, both in good time.",
-        },
-      ],
+      title: "",
+      description: "",
+      items: [] as { icon: string; title: string; description: string }[],
     },
 
     fitFor: {
       eyebrow: "GOOD FIT",
-      title: "Does any of this sound familiar?",
-      items: [
-        "Years of English lessons, but still can't speak",
-        "Attends an academy, yet school scores won't move",
-        "Reads the book but can't explain what it said",
-        "Needs grammar sorted out before middle school",
-        "Lacks confidence and shrinks away from English",
-        "We simply want to know our child's real level",
-      ],
-      footnote:
-        "If even one of these rings true, start with a level test and find the cause first.",
+      title: "",
+      items: [] as string[],
+      footnote: "",
     },
 
     teachers: {
       eyebrow: "TEACHERS",
       title: "The people beside your child",
       description:
-        "The quality of a lesson comes down to the person teaching it. Meet the teachers across INTO JUNIOR campuses.",
+        "",
       note: "※ Full teacher profiles are being prepared.",
     },
 
     facility: {
       eyebrow: "SPACE",
       title: "A space made for focus",
-      description:
-        "Bright lighting, a clear layout, a library of English readers and a dedicated clinic area — a place where students stay comfortable for hours.",
+      description: "",
     },
   },
 
@@ -402,7 +362,7 @@ export const en: Dict = {
       eyebrow: "PROGRAMS",
       title: "Start with the course\nyour child needs now",
       description:
-        "From elementary to middle school, our courses cover reading, speaking, school exams and real experience. Every campus runs the same curriculum, combined to fit what the level test shows.",
+        "From elementary to middle school, our courses cover reading, speaking, school exams and real experience, combined to fit what the level test shows.",
     },
     scheduleNote: {
       title: "Year-round curriculum",
@@ -523,7 +483,7 @@ export const en: Dict = {
       eyebrow: "CAMPUS",
       title: "Our campuses",
       description:
-        "Every INTO JUNIOR campus runs the same curriculum to the same learning-management standards. Call whichever is closest to you.",
+        "3F #302, Heungdo Bldg, 691 Dongseo-daero, Yuseong-gu, Daejeon. Call ahead and your visit starts without a wait.",
     },
     labels: {
       address: "Address",
@@ -567,8 +527,7 @@ export const en: Dict = {
       "Parking differs from campus to campus. Please call the campus before your visit and we'll let you know.",
     expanding: {
       title: "Campus enquiries",
-      description:
-        "For anything about INTO JUNIOR campuses, please get in touch with our head office.",
+      description: "Please get in touch if you have any questions.",
     },
   },
 
@@ -655,17 +614,17 @@ export const en: Dict = {
       {
         category: "admission",
         q: "Can a complete beginner join?",
-        a: "Yes. We run courses that start from phonics and the very basics. The level test will find the right starting point, so please don't hesitate to ask.",
+        a: "Yes. Into J is for elementary 1–3 students beginning from phonics. The level test confirms the right starting point.",
       },
       {
         category: "admission",
         q: "Which grades do you teach?",
-        a: "We teach elementary and middle school students. Classes are grouped by grade and level, and we'll explain placement during your consultation.",
+        a: "Elementary 1 through middle school 3. Elementary splits into Into J, Into A and Into W; middle school into Into A and Into W.",
       },
       {
         category: "class",
         q: "How many students are in a class?",
-        a: "Every campus keeps classes small so teachers can follow each student individually. Class sizes vary by course and are confirmed at consultation.",
+        a: "Small-group lessons with close individual guidance. Please call for class sizes.",
       },
       {
         category: "class",
@@ -675,22 +634,22 @@ export const en: Dict = {
       {
         category: "class",
         q: "Is it conversation-focused or exam-focused?",
-        a: "Both. We build usable English through reading and speaking while managing school exam preparation so the results follow — with focused, school-by-school support during exam season.",
+        a: "Both. The regular lesson rotates through ClearFluency, grammar & comprehension, Fast ForWord and writing across the year, with school-exam intensives running alongside.",
       },
       {
         category: "manage",
         q: "How are homework and vocabulary managed?",
-        a: "We run weekly vocabulary tests and homework checks, with retakes or clinic sessions when a student falls short. Nothing gets left behind before we move on.",
+        a: "Lessons include SDL time for review and homework checks, and ClearFluency lessons come with a vocabulary test.",
       },
       {
         category: "manage",
         q: "How do parent consultations work?",
-        a: "Regular consultations cover how your child is doing and what comes next. Beyond that, you're welcome to contact us any time you'd like to talk.",
+        a: "",
       },
       {
         category: "manage",
         q: "Are make-up lessons available for absences?",
-        a: "We'll advise on make-up options and catching up depending on the class. Let us know in advance and we'll do our best to keep your child on track.",
+        a: "",
       },
       {
         category: "etc",
@@ -700,23 +659,23 @@ export const en: Dict = {
       {
         category: "etc",
         q: "How much are tuition and materials?",
-        a: "It varies by course, grade and number of lessons. Please call +82-42-822-0509 or book a consultation so we can give you accurate figures.",
+        a: "Please call +82-42-822-0509 and we'll go through it with you.",
       },
       {
         category: "etc",
         q: "Is there a shuttle bus?",
-        a: "Shuttle availability and routes differ by campus. Call the campus you're interested in and we'll let you know.",
+        a: "",
       },
       {
         category: "etc",
         q: "Is parking available?",
-        a: "Parking differs by campus. Call the campus before your visit and we'll advise you.",
+        a: "",
       },
     ],
     stillCurious: {
       title: "Didn't find your answer?",
       description:
-        "Call and the director will answer personally. If a call is difficult, email us and we'll reply quickly.",
+        "Call and we'll talk it through. If a call is difficult, email us and we'll reply quickly.",
     },
   },
 

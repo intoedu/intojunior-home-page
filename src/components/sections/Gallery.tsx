@@ -1,3 +1,4 @@
+import { photo } from "@/config/site";
 import { getDict, type Lang } from "@/content";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { PhotoSlot } from "@/components/ui/PhotoSlot";
@@ -9,12 +10,12 @@ const ICONS: IconName[] = ["building", "book", "mic", "target", "speech", "star"
 
 /**
  * 사진 갤러리.
- * 실제 사진을 받으면 public/photos/ 에 넣고 아래 PHOTOS 배열에 경로를 적어주세요.
- * 예) const PHOTOS = ["/photos/room1.jpg", "/photos/library.jpg", ...]
+ * public/photos/ 에 room1 ~ room6 이름으로 사진을 올리면 자동으로 표시됩니다.
+ * (확장자는 jpg / png / webp 아무거나 상관없습니다)
  */
-const PHOTOS: (string | undefined)[] = [
-  undefined, undefined, undefined, undefined, undefined, undefined,
-];
+const PHOTOS = ["room1", "room2", "room3", "room4", "room5", "room6"].map(
+  (name) => photo(name) || undefined,
+);
 
 /* 첫 번째 사진만 크게(2×2) 배치해 3×3 격자를 꽉 채웁니다. */
 const CELL = [

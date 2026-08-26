@@ -9,6 +9,8 @@
  * 하위 경로 배포용 (예: GitHub Pages 의 /저장소이름).
  * 자체 도메인을 쓰면 빈 값이 되며, 배포 스크립트가 알아서 채워줍니다.
  */
+import { PHOTO_FILES } from "./photos.generated";
+
 const RAW_BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export const BASE_PATH =
   RAW_BASE_PATH === "/" ? "" : RAW_BASE_PATH.replace(/\/+$/, "");
@@ -16,6 +18,16 @@ export const BASE_PATH =
 /** public 폴더의 파일을 가리킬 때 사용합니다. 예) asset("/photos/hero.jpg") */
 export const asset = (path: string) =>
   `${BASE_PATH}${path.startsWith("/") ? path : `/${path}`}`;
+
+/**
+ * public/photos/ 에 실제로 있는 사진만 경로를 돌려줍니다.
+ * 확장자는 신경 쓰지 않아도 됩니다. photo("director") → "/photos/director.jpg"
+ * 파일이 없으면 빈 문자열이라, 화면에는 "사진 준비 중" 자리 표시가 나옵니다.
+ */
+export const photo = (base: string): string => {
+  const hit = PHOTO_FILES.find((f) => f.replace(/\.[^.]+$/, "") === base);
+  return hit ? `/photos/${hit}` : "";
+};
 
 /** 미리보기 주소에서는 검색엔진이 수집하지 않도록 합니다. */
 export const NOINDEX = process.env.NEXT_PUBLIC_NOINDEX === "1";
@@ -77,42 +89,12 @@ export const CAMPUSES: Campus[] = [
     phone: "042-822-0509",
     mobile: "010-3454-9482",
     isHq: true,
-    photo: "", // TODO: 캠퍼스 사진 (예: "/photos/daejeon-doan.jpg")
+    photo: photo("daejeon-doan"),
     hours: HOURS,
     comingSoon: false,
   },
-  {
-    id: "yongin-myeongji",
-    nameKo: "용인 명지점",
-    nameEn: "Yongin Myeongji",
-    regionKo: "경기 용인시",
-    regionEn: "Yongin, Gyeonggi",
-    addressKo: "", // TODO: 주소를 알려주시면 채워 넣겠습니다
-    addressEn: "",
-    query: "용인 명지대학교",
-    phone: "", // TODO: 캠퍼스 대표번호
-    mobile: "",
-    isHq: false,
-    photo: "",
-    hours: HOURS,
-    comingSoon: false,
-  },
-  {
-    id: "gyeryong-eomsa",
-    nameKo: "계룡 엄사점",
-    nameEn: "Gyeryong Eomsa",
-    regionKo: "충남 계룡시",
-    regionEn: "Gyeryong, Chungnam",
-    addressKo: "", // TODO: 주소를 알려주시면 채워 넣겠습니다
-    addressEn: "",
-    query: "계룡시 엄사면",
-    phone: "", // TODO: 캠퍼스 대표번호
-    mobile: "",
-    isHq: false,
-    photo: "",
-    hours: HOURS,
-    comingSoon: false,
-  },
+  // 캠퍼스가 늘어나면 위와 같은 모양으로 하나 더 추가하면 됩니다.
+  // 홈·캠퍼스 안내·검색엔진 정보에 자동으로 반영됩니다.
 ];
 
 /** 본사로 표시할 캠퍼스 (없으면 첫 번째) */
@@ -192,8 +174,8 @@ export const SITE = {
    * 비워두면 "사진 준비 중" 자리 표시가 나옵니다.
    */
   photos: {
-    director: "", // 예: "/photos/director.jpg"
-    hero: "", // 예: "/photos/hero.jpg"
+    director: photo("director"),
+    hero: photo("hero"),
   },
 
   /** 사업자 정보 (푸터 표기) */

@@ -122,6 +122,7 @@ export function HomeHero({ lang }: { lang: Lang }) {
               <div className="relative">
                 {/* 메인 사진 */}
                 <PhotoSlot
+                  src={SITE.photos.hero || undefined}
                   alt={h.photoCaption}
                   caption={h.photoCaption}
                   label={t.common.photoPlaceholder}
@@ -129,7 +130,6 @@ export function HomeHero({ lang }: { lang: Lang }) {
                   tone="dark"
                   priority
                   className="aspect-4/5 w-full rounded-[2rem] shadow-lift ring-1 ring-white/15 sm:aspect-5/4 lg:aspect-4/5"
-                  /* 실제 사진을 넣을 때: src="/photos/hero.jpg" */
                 />
 
                 {/* 떠 있는 카드 — 4대 역량 */}
