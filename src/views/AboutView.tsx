@@ -1,4 +1,4 @@
-import { SITE } from "@/config/site";
+import { SITE, telHref } from "@/config/site";
 import { getDict, type Lang } from "@/content";
 import { PageHero } from "@/components/sections/PageHero";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -21,88 +21,109 @@ export function AboutView({ lang }: { lang: Lang }) {
         crumbLabel={t.nav[1].label}
       />
 
-      {/* ── 원장 인사말 ── */}
+      {/* ── 대표 인사말 ── */}
       <Section tightTop size="wide" className="bg-white">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
+          {/* 사진 */}
           <Reveal className="lg:col-span-5">
-            <div className="lg:sticky lg:top-28">
-              <PhotoSlot
-                src={SITE.photos.director || undefined}
-                alt={a.greeting.photoCaption}
-                caption={a.greeting.photoCaption}
-                label={t.common.photoPlaceholder}
-                icon="user"
-                className="aspect-4/5 w-full rounded-[2rem] shadow-card ring-1 ring-ink-100"
-              />
-              <div className="mt-6 rounded-2xl bg-ink-50 p-5 ring-1 ring-ink-100">
-                <p className="text-[0.75rem] font-semibold text-ink-500">
-                  {a.greeting.signature}
-                </p>
-                <p className="mt-1 text-[1.25rem] font-extrabold text-navy-900">
-                  {a.greeting.name}
-                </p>
-                <p className="mt-2 text-[0.8125rem] leading-relaxed font-semibold text-brand-700">
-                  {a.greeting.credential}
-                </p>
-                <p className="mt-3 border-t border-ink-200 pt-3 text-[0.75rem] tabular-nums text-ink-500">
-                  {SITE.phone.main} · {SITE.phone.mobile}
-                </p>
-              </div>
-            </div>
+            <PhotoSlot
+              src={SITE.photos.director || undefined}
+              alt={a.greeting.photoCaption}
+              caption={a.greeting.photoCaption}
+              label={t.common.photoPlaceholder}
+              icon="user"
+              className="aspect-10/11 w-full rounded-[2rem] shadow-card ring-1 ring-ink-100"
+            />
           </Reveal>
 
+          {/* 인사말 + 프로필 */}
           <div className="lg:col-span-7">
             <Reveal>
               <Eyebrow>{a.greeting.eyebrow}</Eyebrow>
               <h2 className="mt-4 text-[1.75rem] font-bold text-navy-900 sm:text-[2.125rem]">
                 {a.greeting.title}
               </h2>
-              <Icon
-                name="quote"
-                size={40}
-                className="mt-8 text-brand-100"
-              />
             </Reveal>
 
-            {a.greeting.paragraphs.length === 0 && (
+            {a.greeting.paragraphs.length > 0 ? (
+              <>
+                <Reveal>
+                  <Icon name="quote" size={36} className="mt-8 text-brand-100" />
+                </Reveal>
+                <div className="mt-5 space-y-6">
+                  {a.greeting.paragraphs.map((para, i) => (
+                    <Reveal key={i} delay={i * 60}>
+                      <p
+                        className={
+                          i === 0
+                            ? "text-[1.0625rem] leading-[1.9] font-semibold text-navy-900"
+                            : "text-[0.9375rem] leading-[2] text-ink-600 sm:text-base"
+                        }
+                      >
+                        {para}
+                      </p>
+                    </Reveal>
+                  ))}
+                </div>
+              </>
+            ) : (
               <Reveal>
-                <p className="mt-6 rounded-2xl bg-ink-50 p-6 text-[0.875rem] leading-relaxed text-ink-500 ring-1 ring-ink-100">
+                <p className="mt-6 rounded-2xl bg-ink-50 px-5 py-4 text-[0.875rem] leading-relaxed text-ink-500 ring-1 ring-ink-100">
                   {t.common.contentPending}
                 </p>
               </Reveal>
             )}
 
-            <div className="mt-6 space-y-6">
-              {a.greeting.paragraphs.map((para, i) => (
-                <Reveal key={i} delay={i * 60}>
-                  <p
-                    className={
-                      i === 0
-                        ? "text-[1.0625rem] leading-[1.9] font-semibold text-navy-900"
-                        : "text-[0.9375rem] leading-[2] text-ink-600 sm:text-base"
-                    }
-                  >
-                    {para}
-                  </p>
-                </Reveal>
-              ))}
-            </div>
-
-            {a.greeting.paragraphs.length > 0 && (
-            <Reveal delay={120}>
-              <p className="mt-10 border-t border-ink-200 pt-6 text-right">
-                <span className="block text-[0.8125rem] text-ink-500">
+            {/* 프로필 카드 */}
+            <Reveal delay={100}>
+              <div className="mt-8 rounded-2xl bg-ink-50 p-6 ring-1 ring-ink-100 sm:p-7">
+                <p className="text-[0.75rem] font-semibold text-ink-500">
                   {a.greeting.signature}
-                </span>
-                <span className="mt-1 block text-[1.125rem] font-extrabold text-navy-900">
+                </p>
+                <p className="mt-1 text-[1.375rem] font-extrabold text-navy-900">
                   {a.greeting.name}
-                </span>
-                <span className="mt-1 block text-[0.75rem] text-ink-500">
+                </p>
+                <p className="mt-2 text-[0.875rem] leading-relaxed font-semibold text-brand-700">
                   {a.greeting.credential}
-                </span>
-              </p>
+                </p>
+                <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-3 border-t border-ink-200 pt-5">
+                  <div className="flex items-center gap-2">
+                    <dt className="text-brand-500">
+                      <Icon name="phone" size={15} />
+                      <span className="sr-only">{t.campuses.labels.phone}</span>
+                    </dt>
+                    <dd className="flex flex-wrap items-center gap-x-3">
+                      <a
+                        href={telHref(SITE.phone.main)}
+                        className="-my-1.5 inline-flex items-center py-1.5 text-[0.875rem] font-bold tabular-nums text-navy-900 transition-colors hover:text-brand-700"
+                      >
+                        {SITE.phone.main}
+                      </a>
+                      <a
+                        href={telHref(SITE.phone.mobile)}
+                        className="-my-1.5 inline-flex items-center py-1.5 text-[0.8125rem] tabular-nums text-ink-500 transition-colors hover:text-brand-700"
+                      >
+                        {SITE.phone.mobile}
+                      </a>
+                    </dd>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <dt className="text-brand-500">
+                      <Icon name="mail" size={15} />
+                      <span className="sr-only">Email</span>
+                    </dt>
+                    <dd>
+                      <a
+                        href={`mailto:${SITE.email}`}
+                        className="-my-1.5 inline-flex items-center py-1.5 text-[0.8125rem] break-all text-ink-600 transition-colors hover:text-brand-700"
+                      >
+                        {SITE.email}
+                      </a>
+                    </dd>
+                  </div>
+                </dl>
+              </div>
             </Reveal>
-            )}
           </div>
         </div>
       </Section>
@@ -218,6 +239,7 @@ export function AboutView({ lang }: { lang: Lang }) {
           ))}
         </div>
 
+        {a.teachers.title && (
         <Reveal delay={120}>
           <div className="mt-12 rounded-3xl bg-ink-50 p-8 text-center ring-1 ring-ink-100">
             <Eyebrow className="justify-center">{a.teachers.eyebrow}</Eyebrow>
@@ -229,9 +251,12 @@ export function AboutView({ lang }: { lang: Lang }) {
                 {a.teachers.description}
               </p>
             )}
-            <p className="mt-5 text-[0.75rem] text-ink-400">{a.teachers.note}</p>
+            {a.teachers.note && (
+              <p className="mt-5 text-[0.75rem] text-ink-400">{a.teachers.note}</p>
+            )}
           </div>
         </Reveal>
+        )}
       </Section>
 
       <CtaBand lang={lang} />

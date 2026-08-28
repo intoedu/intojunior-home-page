@@ -3,6 +3,7 @@
  */
 export const PHOTO_FILES: readonly string[] = [
   "daejeon-doan.jpg",
+  "director.jpg",
   "hero.jpg",
   "room1.jpg",
   "room2.jpg",

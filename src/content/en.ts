@@ -119,7 +119,7 @@ export const en: Dict = {
           en: "BRAIN SCIENCE",
           title: "Brain-science learning",
           description:
-            "Build enough input through focused listening and reading, and speaking and writing follow naturally. We follow how language is actually acquired.",
+            "Output (speaking and writing) becomes automatic once input (listening and reading) has been built up — the principle of language acquisition.",
         },
         {
           no: "02",
@@ -128,7 +128,7 @@ export const en: Dict = {
           en: "FLUENCY",
           title: "AI fluency training",
           description:
-            "AI compares a student's reading against native pronunciation in real time. Green for right, red for what to fix — repeated until it becomes automatic.",
+            "ClearFluency compares a student's pronunciation against a native speaker's in real time, training until it becomes automatic.",
         },
         {
           no: "03",
@@ -137,7 +137,7 @@ export const en: Dict = {
           en: "READING INPUT",
           title: "Focused reading input",
           description:
-            "Coaches hand-pick books at each student's level. Fifteen minutes in class plus listening at home builds a daily input routine, checked with quizzes.",
+            "Coaches select books at each student's level. Fifteen minutes in class plus self-directed listening at home builds a daily input routine.",
         },
         {
           no: "04",
@@ -146,7 +146,7 @@ export const en: Dict = {
           en: "COACHING",
           title: "Learning coaching",
           description:
-            "We don't only look at English. Metacognition training and a planner build the ability to plan and check your own work — habits that carry across school.",
+            "Beyond English — metacognition, time management and planner use build the ability to take charge of your own learning.",
         },
       ],
     },
@@ -266,14 +266,14 @@ export const en: Dict = {
 
     video: {
       eyebrow: "VIDEO",
-      title: "Curious about our classes?\nSee them for yourself",
+      title: "INTO JUNIOR introduction",
       description:
-        "A look inside INTO JUNIOR — how our lessons run and how our students present.",
+        "",
     },
 
     gallery: {
       eyebrow: "GALLERY",
-      title: "The space they come to every day",
+      title: "Our space",
       description:
         "",
       captions: [
@@ -288,9 +288,9 @@ export const en: Dict = {
 
     campuses: {
       eyebrow: "CAMPUS",
-      title: "Come and see us\nin Doan, Daejeon",
+      title: "Our campus",
       description:
-        "Call ahead for a visit and you won't have to wait.",
+        "3F #302, Heungdo Bldg, 691 Dongseo-daero, Yuseong-gu, Daejeon",
     },
 
     cta: {
@@ -305,9 +305,9 @@ export const en: Dict = {
   about: {
     hero: {
       eyebrow: "ABOUT US",
-      title: "English that doesn't stop at learning",
+      title: "INTO JUNIOR",
       description:
-        "We stay with our students until they can say not \"I studied English\" but \"I can use it.\"",
+        "",
     },
 
     /** Brand motto */
@@ -343,15 +343,15 @@ export const en: Dict = {
 
     teachers: {
       eyebrow: "TEACHERS",
-      title: "The people beside your child",
+      title: "",
       description:
         "",
-      note: "※ Full teacher profiles are being prepared.",
+      note: "",
     },
 
     facility: {
       eyebrow: "SPACE",
-      title: "A space made for focus",
+      title: "Our space",
       description: "",
     },
   },
