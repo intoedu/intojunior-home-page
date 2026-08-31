@@ -67,7 +67,7 @@ export function Logo({
       <span
         className={cn(
           "inline-flex items-center rounded-xl transition-colors",
-          dark && "bg-white px-2.5 py-1.5 shadow-soft",
+          dark && "bg-white px-3 py-2 shadow-soft",
         )}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -76,7 +76,7 @@ export function Logo({
           alt={alt}
           width={501}
           height={299}
-          className="h-9 w-auto sm:h-10"
+          className="h-12 w-auto sm:h-14"
         />
       </span>
     </span>

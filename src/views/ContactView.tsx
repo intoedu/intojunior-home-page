@@ -37,7 +37,7 @@ export function ContactView({ lang }: { lang: Lang }) {
             {SITE.phone.main}
           </Button>
           <Button
-            href={href(lang, "campuses")}
+            href={href(lang, "location")}
             variant="onDark"
             size="lg"
             icon="mapPin"

@@ -121,7 +121,7 @@ export function FaqList({
                     <span className="inline-flex size-6 shrink-0 items-center justify-center rounded-lg bg-mint-100 font-display text-[0.75rem] font-extrabold text-mint-600">
                       A
                     </span>
-                    <p className="flex-1 text-[0.875rem] leading-[1.9] text-ink-600 sm:text-[0.9375rem]">
+                    <p className="flex-1 text-[0.875rem] leading-[1.9] whitespace-pre-line text-ink-600 sm:text-[0.9375rem]">
                       {item.a}
                     </p>
                   </div>

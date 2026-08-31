@@ -28,7 +28,7 @@ export function CampusesPreview({ lang }: { lang: Lang }) {
         />
         <Reveal delay={80} className="shrink-0">
           <Button
-            href={href(lang, "campuses")}
+            href={href(lang, "location")}
             variant="secondary"
             icon="arrowRight"
           >

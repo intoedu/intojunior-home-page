@@ -135,7 +135,10 @@ export function Header({ lang }: { lang: Lang }) {
             </a>
 
             <a
-              href={telHref(SITE.phone.main)}
+              href={SITE.booking || telHref(SITE.phone.main)}
+              {...(SITE.booking
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
               className={cn(
                 "hidden h-10 items-center gap-1.5 rounded-xl px-4 text-[0.8125rem] font-bold transition-all hover:-translate-y-0.5 sm:inline-flex",
                 solid
@@ -143,7 +146,7 @@ export function Header({ lang }: { lang: Lang }) {
                   : "bg-white text-navy-900 shadow-lift hover:bg-brand-50",
               )}
             >
-              <Icon name="phone" size={15} />
+              <Icon name={SITE.booking ? "calendar" : "phone"} size={15} />
               {t.common.book}
             </a>
 

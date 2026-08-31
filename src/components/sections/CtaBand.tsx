@@ -36,14 +36,14 @@ export function CtaBand({ lang }: { lang: Lang }) {
           <Reveal delay={90}>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button
-                href={telHref(SITE.phone.main)}
+                href={SITE.booking || telHref(SITE.phone.main)}
                 external
                 size="lg"
-                icon="phone"
+                icon={SITE.booking ? "calendar" : "phone"}
                 iconPosition="left"
                 className="w-full sm:w-auto"
               >
-                {SITE.phone.main}
+                {SITE.booking ? t.common.bookLong : SITE.phone.main}
               </Button>
               <Button
                 href={href(lang, "contact")}

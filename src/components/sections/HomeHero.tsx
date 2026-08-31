@@ -75,10 +75,10 @@ export function HomeHero({ lang }: { lang: Lang }) {
             <Reveal delay={250}>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button
-                  href={telHref(SITE.phone.main)}
+                  href={SITE.booking || telHref(SITE.phone.main)}
                   external
                   size="lg"
-                  icon="phone"
+                  icon={SITE.booking ? "calendar" : "phone"}
                   iconPosition="left"
                   className="w-full sm:w-auto"
                 >

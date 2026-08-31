@@ -24,7 +24,7 @@ export const en: Dict = {
         "Elementary reading & writing, speaking, middle school prep, school exam intensive, grammar & vocabulary clinic, and speech projects.",
     },
     campuses: {
-      title: "Campuses | INTO JUNIOR",
+      title: "Location | INTO JUNIOR",
       description:
         "Address, phone and opening hours for INTO JUNIOR Daejeon Doan.",
     },
@@ -50,7 +50,7 @@ export const en: Dict = {
     { slug: "", label: "Home" },
     { slug: "about", label: "About" },
     { slug: "programs", label: "Programs" },
-    { slug: "campuses", label: "Campuses" },
+    { slug: "location", label: "Location" },
     { slug: "faq", label: "FAQ" },
     { slug: "contact", label: "Contact" },
   ],
@@ -66,11 +66,11 @@ export const en: Dict = {
     contact: "Contact",
     viewMore: "Learn more",
     viewPrograms: "View all programs",
-    viewCampuses: "View all campuses",
+    viewCampuses: "See location",
     directions: "Get directions",
     hqBadge: "Head office",
     comingSoon: "Opening soon",
-    campusCountSuffix: " campuses",
+    campusCountSuffix: " location",
     menu: "Menu",
     close: "Close",
     openNow: "Open now",
@@ -137,7 +137,7 @@ export const en: Dict = {
           en: "READING INPUT",
           title: "Focused reading input",
           description:
-            "Coaches select books at each student's level. Fifteen minutes in class plus self-directed listening at home builds a daily input routine.",
+            "Coaches select books at each student's level. Fifteen minutes in class plus self-directed listening at home builds a daily listening routine.",
         },
         {
           no: "04",
@@ -185,9 +185,9 @@ export const en: Dict = {
             "Patented speech recognition listens as a child reads aloud and corrects them on the spot — not a recording reviewed later, but a 1:1 reading tutor that helps the moment they stumble.",
           points: [
             "Built on the US National Reading Panel's recommended methods",
-            "Green for words read well, red for words to practise",
+            "Green for words read well, blue for words needing some practice, red for words needing more",
             "WCPM fluency score makes progress visible",
-            "95% agreement with specialist teachers in validation research",
+            "95% agreement with native-speaker teachers in validation research",
           ],
         },
       ],
@@ -287,8 +287,8 @@ export const en: Dict = {
     },
 
     campuses: {
-      eyebrow: "CAMPUS",
-      title: "Our campus",
+      eyebrow: "LOCATION",
+      title: "Location",
       description:
         "3F #302, Heungdo Bldg, 691 Dongseo-daero, Yuseong-gu, Daejeon",
     },
@@ -362,7 +362,7 @@ export const en: Dict = {
       eyebrow: "PROGRAMS",
       title: "Start with the course\nyour child needs now",
       description:
-        "From elementary to middle school, our courses cover reading, speaking, school exams and real experience, combined to fit what the level test shows.",
+        "From elementary through middle school, INTO JUNIOR covers listening, speaking, reading, writing and school-exam preparation.",
     },
     scheduleNote: {
       title: "Year-round curriculum",
@@ -409,9 +409,9 @@ export const en: Dict = {
           "Patented speech recognition listens to a student reading aloud and corrects them in the moment — not a recording reviewed later.",
         points: [
           "Word Wall → Preview → Read & Record → Quiz",
-          "Green for words read well, red for words to practise",
+          "Green for words read well, blue for words needing some practice, red for words needing more",
           "WCPM fluency score to track growth",
-          "95% agreement with specialist teachers in validation research",
+          "95% agreement with native-speaker teachers in validation research",
         ],
       },
       {
@@ -436,10 +436,10 @@ export const en: Dict = {
         title: "Focused reading input",
         subtitle: "Reading Input",
         summary:
-          "Runs at every level. Coaches choose books at each student's level and build a daily listening routine that maximises input.",
+          "Runs at every level. Coaches choose books at each student's level — 15 minutes in class plus self-directed listening at home.",
         points: [
           "Books chosen by the coach for each level",
-          "15 minutes in class plus listening at home",
+          "15 minutes in class + self-directed listening at home",
           "Comprehension quizzes with individual feedback",
           "Level-up certification at set milestones",
         ],
@@ -480,10 +480,10 @@ export const en: Dict = {
   /* ------------------------------------------------------------ campuses */
   campuses: {
     hero: {
-      eyebrow: "CAMPUS",
-      title: "Our campuses",
+      eyebrow: "LOCATION",
+      title: "Location",
       description:
-        "3F #302, Heungdo Bldg, 691 Dongseo-daero, Yuseong-gu, Daejeon. Call ahead and your visit starts without a wait.",
+        "3F #302, Heungdo Bldg, 691 Dongseo-daero, Yuseong-gu, Daejeon",
     },
     labels: {
       address: "Address",
@@ -499,34 +499,34 @@ export const en: Dict = {
       mainLine: "Main line",
       mobileLine: "Mobile",
       viewOnMap: "View on map",
-      callCampus: "Call this campus",
+      callCampus: "Call us",
       preparing: "Details coming soon",
-      askHq: "Please contact our head office for the address and phone number.",
+      askHq: "Please call us for the address and phone number.",
     },
     transport: [
       {
         icon: "bus",
         title: "By bus",
         description:
-          "Get off at a stop near the campus and walk a short distance. Call us for exact routes.",
+          "Call us and we'll give you the exact bus routes.",
       },
       {
         icon: "car",
         title: "By car",
         description:
-          "Search the campus address in your navigation app, or use the map buttons below.",
+          "Search \"691 Dongseo-daero, Yuseong-gu, Daejeon\" in your navigation app. We're in the Heungdo Building, right behind Heungdo Elementary School.",
       },
       {
         icon: "building",
         title: "In the building",
         description:
-          "Floors and unit numbers differ by campus — check the campus details below.",
+          "3rd floor, unit 302 of the Heungdo Building.",
       },
     ],
     parkingNote:
-      "Parking differs from campus to campus. Please call the campus before your visit and we'll let you know.",
+      "",
     expanding: {
-      title: "Campus enquiries",
+      title: "Enquiries",
       description: "Please get in touch if you have any questions.",
     },
   },
@@ -619,7 +619,7 @@ export const en: Dict = {
       {
         category: "admission",
         q: "Which grades do you teach?",
-        a: "Elementary 1 through middle school 3. Elementary splits into Into J, Into A and Into W; middle school into Into A and Into W.",
+        a: "Elementary 1 through middle school 3.\n\n[Elementary] Into J (Beginner) · Into A (Intermediate) · Into W (Advanced)\n[Middle] Into A (Beginner, Intermediate) · Into W (Advanced)",
       },
       {
         category: "class",
@@ -654,7 +654,7 @@ export const en: Dict = {
       {
         category: "etc",
         q: "What are your opening hours?",
-        a: "Monday, Tuesday, Thursday and Friday 1:00–8:30 PM, Saturday 2:00–4:00 PM, closed Wednesday and Sunday. Hours can differ by campus, so please check the Campuses page.",
+        a: "Monday, Tuesday, Thursday and Friday, 2:00–8:30 PM.",
       },
       {
         category: "etc",

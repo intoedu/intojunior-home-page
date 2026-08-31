@@ -37,11 +37,11 @@ export const NOINDEX = process.env.NEXT_PUBLIC_NOINDEX === "1";
  * closed: true 이면 정기휴무
  */
 const HOURS = [
-  { day: 1, ko: "월요일", en: "Monday", open: "13:00", close: "20:30", closed: false },
-  { day: 2, ko: "화요일", en: "Tuesday", open: "13:00", close: "20:30", closed: false },
+  { day: 1, ko: "월요일", en: "Monday", open: "14:00", close: "20:30", closed: false },
+  { day: 2, ko: "화요일", en: "Tuesday", open: "14:00", close: "20:30", closed: false },
   { day: 3, ko: "수요일", en: "Wednesday", open: "", close: "", closed: true },
-  { day: 4, ko: "목요일", en: "Thursday", open: "13:00", close: "20:30", closed: false },
-  { day: 5, ko: "금요일", en: "Friday", open: "13:00", close: "20:30", closed: false },
+  { day: 4, ko: "목요일", en: "Thursday", open: "14:00", close: "20:30", closed: false },
+  { day: 5, ko: "금요일", en: "Friday", open: "14:00", close: "20:30", closed: false },
   { day: 6, ko: "토요일", en: "Saturday", open: "14:00", close: "16:00", closed: false },
   { day: 0, ko: "일요일", en: "Sunday", open: "", close: "", closed: true },
 ] as const;
@@ -132,6 +132,15 @@ export const SITE = {
   },
 
   email: "angelpark3401@gmail.com",
+
+  /**
+   * 네이버 예약 주소.
+   * 값을 넣으면 "무료 레벨테스트 예약" 버튼이 네이버 예약으로 바로 연결됩니다.
+   * 비워두면 전화 걸기로 동작합니다.
+   * TODO: 네이버 예약 주소를 알려주시면 넣겠습니다.
+   *       (예: https://booking.naver.com/booking/13/bizes/0000000)
+   */
+  booking: "",
 
   /**
    * 본사 주소

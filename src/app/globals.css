@@ -130,7 +130,7 @@
 
 :root {
   color-scheme: light;
-  --header-h: 72px;
+  --header-h: 84px;
 }
 
 @layer base {

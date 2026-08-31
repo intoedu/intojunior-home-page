@@ -29,14 +29,15 @@ export function MobileCta({ lang }: { lang: Lang }) {
     >
       <div className="mx-3 mb-3 grid grid-cols-2 gap-2 rounded-2xl bg-white/85 p-2 shadow-lift ring-1 ring-ink-200/70 backdrop-blur-xl">
         <a
-          href={telHref(SITE.phone.main)}
+          href={SITE.booking || telHref(SITE.phone.main)}
+          {...(SITE.booking ? { target: "_blank", rel: "noopener noreferrer" } : {})}
           className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-navy-900 text-[0.875rem] font-bold text-white"
         >
-          <Icon name="phone" size={16} />
-          {t.common.callNow}
+          <Icon name={SITE.booking ? "calendar" : "phone"} size={16} />
+          {SITE.booking ? t.common.book : t.common.callNow}
         </a>
         <Link
-          href={href(lang, "campuses")}
+          href={href(lang, "location")}
           className="inline-flex h-12 items-center justify-center gap-1.5 rounded-xl bg-brand-600 text-[0.875rem] font-bold text-white"
         >
           <Icon name="mapPin" size={16} />
