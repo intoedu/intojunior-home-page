@@ -53,7 +53,7 @@ export function Header({ lang }: { lang: Lang }) {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
           solid
-            ? "border-b border-ink-100 bg-white/85 backdrop-blur-xl supports-backdrop-filter:bg-white/75"
+            ? "border-b border-ink-100 bg-white/95 backdrop-blur-xl supports-backdrop-filter:bg-white/88"
             : "border-b border-transparent bg-transparent",
         )}
         style={{ height: "var(--header-h)" }}
