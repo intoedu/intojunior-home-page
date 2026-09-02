@@ -29,7 +29,7 @@ export function FaqList({
   return (
     <div>
       {showFilter && (
-        <div className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
+        <div className="flex flex-wrap gap-2">
           {[{ key: "all", label: allLabel }, ...t.faq.categories].map((c) => {
             const active = category === c.key;
             return (
@@ -42,7 +42,7 @@ export function FaqList({
                 }}
                 aria-pressed={active}
                 className={cn(
-                  "shrink-0 rounded-full px-4 py-2.5 text-[0.8125rem] font-bold transition-all",
+                  "rounded-full px-4 py-2.5 text-[0.8125rem] font-bold transition-all",
                   active
                     ? "bg-brand-600 text-white shadow-glow"
                     : "bg-white text-ink-600 ring-1 ring-ink-200 hover:text-brand-700 hover:ring-brand-200",

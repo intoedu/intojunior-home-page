@@ -76,10 +76,41 @@ export function ProgramsView({ lang }: { lang: Lang }) {
           </p>
         </Reveal>
 
-        {/* 연간 로테이션 표 */}
+        {/* 연간 로테이션 — 좁은 화면에서는 카드로 표시해 잘리지 않게 합니다 */}
         <Reveal delay={80}>
-          <div className="mt-10 overflow-x-auto rounded-3xl bg-white shadow-card ring-1 ring-ink-100">
-            <table className="w-full min-w-[34rem] border-collapse text-left">
+          {/* 작은 화면: 카드 */}
+          <ul className="mt-10 space-y-3 md:hidden">
+            {p.scheduleNote.rows.map((row) => (
+              <li
+                key={row.period}
+                className="rounded-2xl bg-white p-5 shadow-card ring-1 ring-ink-100"
+              >
+                <p className="text-[0.9375rem] font-extrabold text-navy-900">
+                  {row.period}
+                </p>
+                <dl className="mt-4 space-y-2.5 border-t border-ink-100 pt-4 text-[0.875rem]">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <dt className="shrink-0 text-ink-500">
+                      {p.scheduleNote.columns[1]}
+                    </dt>
+                    <dd className="text-right font-bold text-brand-700">
+                      {row.regular}
+                    </dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-4">
+                    <dt className="shrink-0 text-ink-500">
+                      {p.scheduleNote.columns[2]}
+                    </dt>
+                    <dd className="text-right text-ink-700">{row.special}</dd>
+                  </div>
+                </dl>
+              </li>
+            ))}
+          </ul>
+
+          {/* 큰 화면: 표 */}
+          <div className="mt-10 hidden overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-ink-100 md:block">
+            <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="bg-navy-950 text-white">
                   {p.scheduleNote.columns.map((c) => (
@@ -109,6 +140,7 @@ export function ProgramsView({ lang }: { lang: Lang }) {
               </tbody>
             </table>
           </div>
+
           <p className="mt-4 text-[0.8125rem] text-ink-500">
             {p.scheduleNote.note}
           </p>
