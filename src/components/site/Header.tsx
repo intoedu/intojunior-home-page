@@ -21,11 +21,35 @@ export function Header({ lang }: { lang: Lang }) {
   const pathname = usePathname() ?? "/";
   const current = slugFromPath(pathname, lang);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
 
+  /**
+   * 아래로 내리면 헤더를 숨기고, 위로 올리면 다시 보여줍니다.
+   * 고정 헤더가 제목을 가리는 것을 막기 위한 처리입니다.
+   */
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
-    onScroll();
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    const update = () => {
+      const y = window.scrollY;
+      setScrolled(y > 16);
+      const goingDown = y > lastY;
+      if (Math.abs(y - lastY) > 6) {
+        setHidden(goingDown && y > 160);
+        lastY = y;
+      }
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    };
+
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -52,6 +76,8 @@ export function Header({ lang }: { lang: Lang }) {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+          /* 아래로 스크롤하는 동안에는 헤더를 위로 숨깁니다 */
+          hidden && !open ? "-translate-y-full" : "translate-y-0",
           solid
             ? "border-b border-ink-100 bg-white/95 backdrop-blur-xl supports-backdrop-filter:bg-white/88"
             : "border-b border-transparent bg-transparent",
