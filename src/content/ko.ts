@@ -393,6 +393,7 @@ export const ko = {
       eyebrow: "SPACE",
       title: "학원 공간",
       description: "",
+      captions: ["리셉션", "강의실", "원서 라이브러리", "AI 학습실"],
     },
   },
 

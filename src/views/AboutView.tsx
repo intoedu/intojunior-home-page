@@ -1,4 +1,7 @@
-import { SITE, telHref } from "@/config/site";
+import { SITE, photo, telHref } from "@/config/site";
+
+/** 학원 공간 사진 (public/photos/) — 문구 순서와 같습니다 */
+const FACILITY_PHOTOS = ["daejeon-doan", "room7", "room1", "room3"];
 import { getDict, type Lang } from "@/content";
 import { PageHero } from "@/components/sections/PageHero";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -225,14 +228,17 @@ export function AboutView({ lang }: { lang: Lang }) {
           description={a.facility.description}
           align="center"
         />
-        <div className="mt-14 grid gap-4 sm:grid-cols-3">
-          {t.home.gallery.captions.slice(0, 3).map((caption, i) => (
+        <div className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {a.facility.captions.map((caption, i) => (
             <Reveal key={caption} delay={i * 80}>
               <PhotoSlot
+                src={photo(FACILITY_PHOTOS[i]) || undefined}
                 alt={caption}
                 caption={caption}
                 label={t.common.photoPlaceholder}
-                icon={(["building", "book", "mic"] as IconName[])[i]}
+                icon={
+                  (["building", "book", "grammar", "sparkle"] as IconName[])[i]
+                }
                 className="aspect-4/5 w-full rounded-3xl ring-1 ring-ink-100"
               />
             </Reveal>

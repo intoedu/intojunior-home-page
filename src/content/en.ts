@@ -353,6 +353,7 @@ export const en: Dict = {
       eyebrow: "SPACE",
       title: "Our space",
       description: "",
+      captions: ["Reception", "Classroom", "Reading library", "AI learning lab"],
     },
   },
 
