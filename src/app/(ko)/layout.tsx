@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   ...pageMetadata("ko", "home"),
   icons: {
-    icon: [{ url: asset("/icon.svg"), type: "image/svg+xml" }],
+    icon: [{ url: asset("/icon.png"), type: "image/png", sizes: "512x512" }],
     apple: asset("/apple-icon.png"),
   },
   robots: NOINDEX
