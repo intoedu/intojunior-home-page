@@ -3,6 +3,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { CorePrograms } from "@/components/sections/CorePrograms";
 import { Levels } from "@/components/sections/Levels";
+import { Tuition } from "@/components/sections/Tuition";
 import { ProgramCard } from "@/components/sections/ProgramCard";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
@@ -209,6 +210,8 @@ export function ProgramsView({ lang }: { lang: Lang }) {
           </div>
         </Reveal>
       </Section>
+
+      <Tuition lang={lang} />
 
       <CtaBand lang={lang} />
     </>

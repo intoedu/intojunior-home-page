@@ -226,3 +226,56 @@ export const campusMapLinks = (campus: Campus) => mapLinksFor(campus.query);
 
 /** 본사 기준 지도 링크 */
 export const MAP_LINKS = mapLinksFor(SITE.address.query);
+
+/* ==========================================================================
+ * 교습비 (학원법상 게시 항목)
+ * --------------------------------------------------------------------------
+ * 금액·시간은 여기 한 곳만 고치면 한국어·영어 페이지에 함께 반영됩니다.
+ * 반 이름은 src/content/ko.ts · en.ts 의 programs.tuition.names 에 있습니다.
+ * (id 를 추가하면 두 파일 모두에 이름을 넣어야 타입 검사를 통과합니다)
+ * ========================================================================== */
+export type TuitionRow = {
+  /** 콘텐츠 파일에서 반 이름을 찾는 식별자 */
+  id: TuitionClassId;
+  /** 월 총 교습시간 (분) */
+  minutes: number;
+  /** 분당단가 (원) */
+  unitPrice: number;
+  /** 월 교습비 (원) */
+  fee: number;
+  /** 정원 (반별) */
+  capacity: number;
+};
+
+export type TuitionClassId =
+  | "elemA"
+  | "elemB"
+  | "elemC"
+  | "elemAdv"
+  | "midA"
+  | "midB"
+  | "midC"
+  | "midAdv";
+
+export type TuitionGroupId = "elementary" | "middle";
+
+export const TUITION: { group: TuitionGroupId; rows: TuitionRow[] }[] = [
+  {
+    group: "elementary",
+    rows: [
+      { id: "elemA", minutes: 1092, unitPrice: 165, fee: 180000, capacity: 10 },
+      { id: "elemB", minutes: 1512, unitPrice: 146, fee: 220000, capacity: 10 },
+      { id: "elemC", minutes: 2016, unitPrice: 125, fee: 250000, capacity: 10 },
+      { id: "elemAdv", minutes: 2184, unitPrice: 138, fee: 300000, capacity: 10 },
+    ],
+  },
+  {
+    group: "middle",
+    rows: [
+      { id: "midA", minutes: 1092, unitPrice: 193, fee: 210000, capacity: 10 },
+      { id: "midB", minutes: 1512, unitPrice: 166, fee: 250000, capacity: 10 },
+      { id: "midC", minutes: 2016, unitPrice: 149, fee: 300000, capacity: 10 },
+      { id: "midAdv", minutes: 2184, unitPrice: 161, fee: 350000, capacity: 10 },
+    ],
+  },
+];

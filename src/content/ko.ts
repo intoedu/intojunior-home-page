@@ -434,6 +434,33 @@ export const ko = {
       ],
       hoursTitle: "학원 운영시간",
     },
+    /**
+     * 교습비 — 금액·시간은 src/config/site.ts 의 TUITION 에 있습니다.
+     * 여기에는 표시용 이름과 안내 문구만 둡니다.
+     */
+    tuition: {
+      eyebrow: "TUITION",
+      title: "교습비",
+      description:
+        "「학원의 설립·운영 및 과외교습에 관한 법률」에 따라 교습비를 안내합니다. 교습기간 1개월 기준이며, 개설반에 따라 월 총 교습시간이 다릅니다.",
+      note: "※ 정원은 반별 인원입니다. 반 편성은 레벨테스트 결과에 따라 정해집니다.",
+      columns: ["개설반", "월 총 교습시간", "분당단가", "교습비", "정원"],
+      groups: {
+        elementary: "보습(초등)",
+        middle: "보습(중등)",
+      },
+      names: {
+        elemA: "초등영어A",
+        elemB: "초등영어B",
+        elemC: "초등영어C",
+        elemAdv: "초등영어심화",
+        midA: "중등영어A",
+        midB: "중등영어B",
+        midC: "중등영어C",
+        midAdv: "중등영어심화",
+      },
+      units: { minutes: "분", capacity: "명" },
+    },
     items: [
       {
         no: "01",

@@ -384,6 +384,30 @@ export const en: Dict = {
       ],
       hoursTitle: "Academy hours",
     },
+    /** Tuition — amounts live in src/config/site.ts (TUITION). */
+    tuition: {
+      eyebrow: "TUITION",
+      title: "Tuition",
+      description:
+        "Tuition is published as required by Korea's Private Academy Act. Figures are for a one-month term; total monthly minutes vary by class.",
+      note: "※ Capacity is per class. Placement is decided by the level test.",
+      columns: ["Class", "Monthly minutes", "Per-minute rate", "Tuition", "Capacity"],
+      groups: {
+        elementary: "Elementary",
+        middle: "Middle school",
+      },
+      names: {
+        elemA: "Elementary English A",
+        elemB: "Elementary English B",
+        elemC: "Elementary English C",
+        elemAdv: "Elementary English Advanced",
+        midA: "Middle English A",
+        midB: "Middle English B",
+        midC: "Middle English C",
+        midAdv: "Middle English Advanced",
+      },
+      units: { minutes: " min", capacity: "" },
+    },
     items: [
       {
         no: "01",
