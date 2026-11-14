@@ -64,9 +64,9 @@ export function ProgramsView({ lang }: { lang: Lang }) {
       <Levels lang={lang} />
 
       {/* ── 연간 커리큘럼 · 수업 시간 ── */}
-      <Section size="wide" className="bg-soft-mesh">
+      <Section size="wide" className="bg-ink-50">
         <Reveal>
-          <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-white text-brand-600 shadow-soft ring-1 ring-ink-100">
+          <span className="inline-flex size-12 items-center justify-center rounded-xl bg-white text-brand-600 ring-1 ring-ink-200">
             <Icon name="calendar" size={22} />
           </span>
           <h2 className="mt-6 text-[1.75rem] font-bold text-navy-900 sm:text-[2.125rem]">
@@ -84,7 +84,7 @@ export function ProgramsView({ lang }: { lang: Lang }) {
             {p.scheduleNote.rows.map((row) => (
               <li
                 key={row.period}
-                className="rounded-2xl bg-white p-5 shadow-card ring-1 ring-ink-100"
+                className="rounded-xl bg-white p-5 ring-1 ring-ink-200"
               >
                 <p className="text-[0.9375rem] font-extrabold text-navy-900">
                   {row.period}
@@ -110,7 +110,7 @@ export function ProgramsView({ lang }: { lang: Lang }) {
           </ul>
 
           {/* 큰 화면: 표 */}
-          <div className="mt-10 hidden overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-ink-100 md:block">
+          <div className="mt-10 hidden overflow-hidden rounded bg-white ring-1 ring-ink-200 md:block">
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="bg-navy-950 text-white">
@@ -150,7 +150,7 @@ export function ProgramsView({ lang }: { lang: Lang }) {
         {/* 수업 시간 + 운영시간 */}
         <div className="mt-10 grid gap-6 lg:grid-cols-12">
           <Reveal delay={120} className="lg:col-span-7">
-            <div className="h-full rounded-3xl bg-white p-7 shadow-card ring-1 ring-ink-100">
+            <div className="h-full rounded bg-white p-7 ring-1 ring-ink-200">
               <h3 className="flex items-center gap-2 text-[0.8125rem] font-bold tracking-wide text-navy-900 uppercase">
                 <Icon name="clock" size={16} className="text-brand-500" />
                 {p.scheduleNote.timesTitle}
@@ -159,7 +159,7 @@ export function ProgramsView({ lang }: { lang: Lang }) {
                 {p.scheduleNote.classTimes.map((c) => (
                   <li
                     key={c.course}
-                    className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-2xl bg-ink-50 px-5 py-4 ring-1 ring-ink-100"
+                    className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-xl bg-ink-50 px-5 py-4 ring-1 ring-ink-200"
                   >
                     <span className="text-[0.9375rem] font-bold text-navy-900">
                       {c.course}
@@ -180,7 +180,7 @@ export function ProgramsView({ lang }: { lang: Lang }) {
           </Reveal>
 
           <Reveal delay={160} className="lg:col-span-5">
-            <div className="rounded-3xl bg-white p-7 shadow-card ring-1 ring-ink-100">
+            <div className="rounded bg-white p-7 ring-1 ring-ink-200">
               <h3 className="flex items-center gap-2 text-[0.8125rem] font-bold tracking-wide text-navy-900 uppercase">
                 <Icon name="clock" size={16} className="text-brand-500" />
                 {p.scheduleNote.hoursTitle}

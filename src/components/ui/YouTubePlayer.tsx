@@ -28,7 +28,7 @@ export function YouTubePlayer({
   return (
     <div
       className={cn(
-        "relative aspect-video overflow-hidden rounded-[1.5rem] bg-navy-950 shadow-lift ring-1 ring-navy-900/10",
+        "relative aspect-video overflow-hidden rounded bg-navy-950 ring-1 ring-navy-900/10",
         className,
       )}
     >
@@ -70,7 +70,7 @@ export function YouTubePlayer({
               <button
                 type="button"
                 onClick={() => setPlaying(true)}
-                className="inline-flex size-[4.5rem] items-center justify-center rounded-full bg-white/95 text-brand-600 shadow-lift transition-transform duration-300 hover:scale-105"
+                className="inline-flex size-[4.5rem] items-center justify-center rounded-full bg-white/95 text-brand-600 transition-transform duration-300 hover:scale-105"
                 aria-label={title}
               >
                 <Icon name="play" size={26} className="ml-1" />

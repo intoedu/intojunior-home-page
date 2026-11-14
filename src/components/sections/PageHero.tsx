@@ -6,7 +6,7 @@ import { Eyebrow } from "@/components/ui/Section";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
 
-/** 하위 페이지 공통 히어로 (딥 네이비 그라디언트) */
+/** 하위 페이지 공통 히어로 (딥 네이비) */
 export function PageHero({
   lang,
   eyebrow,
@@ -27,33 +27,14 @@ export function PageHero({
   const t = getDict(lang);
 
   return (
-    <section
-      className={cn(
-        "relative overflow-hidden bg-brand-mesh text-white",
-        className,
-      )}
-    >
-      <div aria-hidden className="absolute inset-0 bg-grid-faint opacity-40" />
-      <div
-        aria-hidden
-        className="absolute -top-24 -right-24 size-96 rounded-full bg-brand-500/25 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="absolute -bottom-32 -left-16 size-80 rounded-full bg-mint-500/15 blur-3xl"
-      />
-
-      <Container
-        size="wide"
-        className="relative pb-14 sm:pb-16"
-        // 고정 헤더 높이만큼 여백 확보
-      >
-        <div style={{ paddingTop: "calc(var(--header-h) + 3.5rem)" }}>
+    <section className={cn("bg-navy-950 text-white", className)}>
+      <Container>
+        <div className="py-16 sm:py-20 lg:py-24">
           {/* 브레드크럼 */}
           <Reveal>
             <nav
               aria-label="breadcrumb"
-              className="flex items-center gap-1.5 text-[0.75rem] font-medium text-white/45"
+              className="flex items-center gap-1.5 text-[0.8125rem] font-medium text-white/45"
             >
               <Link
                 href={href(lang)}
@@ -66,13 +47,13 @@ export function PageHero({
             </nav>
           </Reveal>
 
-          <Reveal delay={60} className="mt-6 max-w-3xl">
+          <Reveal delay={60} className="mt-7 max-w-[40rem]">
             {eyebrow && <Eyebrow tone="dark">{eyebrow}</Eyebrow>}
-            <h1 className="mt-4 text-[2rem] leading-[1.2] font-extrabold tracking-[-0.03em] whitespace-pre-line text-white sm:text-[2.75rem] lg:text-[3.25rem]">
+            <h1 className="mt-3 text-[2rem] leading-[1.25] font-extrabold tracking-[-0.015em] whitespace-pre-line text-white sm:text-[2.75rem] lg:text-[3.25rem]">
               {title}
             </h1>
             {description && (
-              <p className="mt-6 max-w-2xl text-[0.9375rem] leading-[1.9] text-white/70 sm:text-[1.0625rem]">
+              <p className="mt-6 text-[1rem] leading-[1.75] text-white/70 sm:text-[1.125rem]">
                 {description}
               </p>
             )}
@@ -85,13 +66,6 @@ export function PageHero({
           )}
         </div>
       </Container>
-
-      {/* 하단 곡선 */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 -bottom-px h-8 rounded-t-[2.5rem] bg-white sm:h-10 sm:rounded-t-[3.5rem]"
-      />
-      <div className="h-8 sm:h-10" />
     </section>
   );
 }

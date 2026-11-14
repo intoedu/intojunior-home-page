@@ -20,39 +20,7 @@ export function Header({ lang }: { lang: Lang }) {
   const t = getDict(lang);
   const pathname = usePathname() ?? "/";
   const current = slugFromPath(pathname, lang);
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
-
-  /**
-   * 아래로 내리면 헤더를 숨기고, 위로 올리면 다시 보여줍니다.
-   * 고정 헤더가 제목을 가리는 것을 막기 위한 처리입니다.
-   */
-  useEffect(() => {
-    let lastY = window.scrollY;
-    let ticking = false;
-
-    const update = () => {
-      const y = window.scrollY;
-      setScrolled(y > 16);
-      const goingDown = y > lastY;
-      if (Math.abs(y - lastY) > 6) {
-        setHidden(goingDown && y > 160);
-        lastY = y;
-      }
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(update);
-    };
-
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -61,7 +29,6 @@ export function Header({ lang }: { lang: Lang }) {
     };
   }, [open]);
 
-  const solid = scrolled || open;
   const altLang: Lang = lang === "ko" ? "en" : "ko";
 
   return (
@@ -74,28 +41,21 @@ export function Header({ lang }: { lang: Lang }) {
       </a>
 
       <header
-        className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-200",
-          /* 아래로 스크롤하는 동안에는 헤더를 위로 숨깁니다 */
-          hidden && !open ? "-translate-y-full" : "translate-y-0",
-          solid
-            ? "border-b border-ink-100 bg-white/95 backdrop-blur-xl supports-backdrop-filter:bg-white/88"
-            : "border-b border-transparent bg-transparent",
-        )}
+        className="sticky top-0 z-50 border-b border-ink-200 bg-white/92 backdrop-blur-xl"
         style={{ height: "var(--header-h)" }}
       >
-        <div className="mx-auto flex h-full max-w-7xl items-center gap-4 px-5 sm:px-8">
+        <div className="mx-auto flex h-full max-w-[72.5rem] items-center gap-4 px-5">
           <Link
             href={href(lang)}
-            className="-m-1 shrink-0 rounded-xl p-1"
+            className="-m-1 shrink-0 rounded p-1"
             aria-label={SITE.brand.fullKo}
           >
-            <Logo lang={lang} tone={solid ? "light" : "dark"} />
+            <Logo lang={lang} size="sm" />
           </Link>
 
           {/* 데스크톱 내비게이션 */}
           <nav
-            className="ml-auto hidden items-center gap-0.5 lg:flex"
+            className="ml-auto hidden items-center gap-1 lg:flex"
             aria-label={t.common.menu}
           >
             {t.nav.map((item) => {
@@ -106,75 +66,45 @@ export function Header({ lang }: { lang: Lang }) {
                   href={href(lang, item.slug)}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "relative rounded-xl px-3.5 py-2 text-[0.875rem] font-semibold transition-colors",
-                    solid
-                      ? active
-                        ? "text-brand-700"
-                        : "text-ink-700 hover:text-brand-600"
-                      : active
-                        ? "text-white"
-                        : "text-white/75 hover:text-white",
+                    "rounded px-3 py-2 text-[0.9375rem] font-bold transition-colors",
+                    active
+                      ? "text-navy-900"
+                      : "text-ink-600 hover:text-navy-900",
                   )}
                 >
                   {item.label}
-                  {active && (
-                    <span
-                      className={cn(
-                        "absolute inset-x-3.5 -bottom-px h-0.5 rounded-full",
-                        solid ? "bg-brand-600" : "bg-white",
-                      )}
-                    />
-                  )}
                 </Link>
               );
             })}
           </nav>
 
-          <div className="ml-auto flex items-center gap-2 lg:ml-4">
-            {/* 언어 전환 */}
-            <Link
-              href={href(altLang, current)}
-              aria-label={`${t.common.langSwitchAria}: ${t.common.langLabel}`}
-              className={cn(
-                "hidden h-10 items-center gap-1.5 rounded-xl px-3 text-[0.8125rem] font-bold transition-colors sm:inline-flex",
-                solid
-                  ? "text-ink-600 ring-1 ring-ink-200 hover:bg-brand-50 hover:text-brand-700 hover:ring-brand-200"
-                  : "text-white/85 ring-1 ring-white/25 hover:bg-white/10 hover:text-white",
-              )}
-            >
-              <Icon name="globe" size={15} />
-              {t.common.langLabel}
-            </Link>
-
-            {/* 전화 (데스크톱) */}
-            <a
-              href={telHref(SITE.phone.main)}
-              className={cn(
-                "hidden h-10 items-center gap-2 rounded-xl px-3.5 text-[0.8125rem] font-bold tabular-nums transition-colors xl:inline-flex",
-                solid
-                  ? "text-navy-900 hover:text-brand-700"
-                  : "text-white/90 hover:text-white",
-              )}
-            >
-              <Icon name="phone" size={15} />
-              {SITE.phone.main}
-            </a>
-
+          <div className="ml-auto flex items-center gap-2 lg:ml-5">
+            {/* 예약 CTA */}
             <a
               href={SITE.booking || telHref(SITE.phone.main)}
               {...(SITE.booking
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
-              className={cn(
-                "hidden h-10 items-center gap-1.5 rounded-xl px-4 text-[0.8125rem] font-bold transition-all hover:-translate-y-0.5 sm:inline-flex",
-                solid
-                  ? "bg-brand-600 text-white shadow-glow hover:bg-brand-700"
-                  : "bg-white text-navy-900 shadow-lift hover:bg-brand-50",
-              )}
+              className="hidden h-10 items-center gap-1.5 rounded-full bg-brand-600 px-5 text-[0.875rem] font-bold text-white transition-colors hover:bg-brand-700 sm:inline-flex"
             >
               <Icon name={SITE.booking ? "calendar" : "phone"} size={15} />
               {t.common.book}
             </a>
+
+            {/* 언어 전환 — 현재 언어가 진하게 표시됩니다 */}
+            <div className="hidden h-10 items-center gap-1 rounded-full px-2 ring-1 ring-ink-200 sm:inline-flex">
+              <Icon name="globe" size={15} className="mx-1 text-ink-400" />
+              <span className="rounded-full bg-navy-900 px-2.5 py-1 text-[0.75rem] font-extrabold text-white">
+                {lang === "ko" ? "KO" : "EN"}
+              </span>
+              <Link
+                href={href(altLang, current)}
+                aria-label={`${t.common.langSwitchAria}: ${t.common.langLabel}`}
+                className="rounded-full px-2.5 py-1 text-[0.75rem] font-extrabold text-ink-500 transition-colors hover:text-navy-900"
+              >
+                {altLang === "ko" ? "KO" : "EN"}
+              </Link>
+            </div>
 
             {/* 모바일 메뉴 버튼 */}
             <button
@@ -183,12 +113,7 @@ export function Header({ lang }: { lang: Lang }) {
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? t.common.close : t.common.menu}
-              className={cn(
-                "inline-flex size-10 items-center justify-center rounded-xl transition-colors lg:hidden",
-                solid
-                  ? "text-navy-900 ring-1 ring-ink-200 hover:bg-ink-50"
-                  : "text-white ring-1 ring-white/25 hover:bg-white/10",
-              )}
+              className="inline-flex size-10 items-center justify-center rounded-full text-navy-900 ring-1 ring-ink-200 transition-colors hover:bg-ink-50 lg:hidden"
             >
               <Icon name={open ? "close" : "menu"} size={20} />
             </button>
@@ -207,23 +132,21 @@ export function Header({ lang }: { lang: Lang }) {
       >
         <div
           className={cn(
-            "absolute inset-0 bg-navy-950/40 backdrop-blur-sm transition-opacity duration-300",
+            "absolute inset-0 bg-navy-950/40 transition-opacity duration-200",
             open ? "opacity-100" : "opacity-0",
           )}
           onClick={() => setOpen(false)}
         />
         <div
           className={cn(
-            "absolute inset-x-0 top-0 origin-top overflow-y-auto rounded-b-4xl bg-white pb-8 shadow-lift transition-all duration-300",
-            open
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-4 opacity-0",
+            "absolute inset-x-0 top-0 overflow-y-auto border-b border-ink-200 bg-white pb-8 transition-opacity duration-200",
+            open ? "opacity-100" : "opacity-0",
           )}
           style={{ paddingTop: "var(--header-h)", maxHeight: "100dvh" }}
         >
           <nav className="px-5 pt-4" aria-label={t.common.menu}>
             <ul className="flex flex-col">
-              {t.nav.map((item, i) => {
+              {t.nav.map((item) => {
                 const active = current === item.slug;
                 return (
                   <li key={item.slug || "home"}>
@@ -231,10 +154,9 @@ export function Header({ lang }: { lang: Lang }) {
                       href={href(lang, item.slug)}
                       onClick={() => setOpen(false)}
                       className={cn(
-                        "flex items-center justify-between border-b border-ink-100 py-4 text-lg font-bold transition-colors",
+                        "flex items-center justify-between border-b border-ink-200 py-4 text-lg font-bold transition-colors",
                         active ? "text-brand-700" : "text-navy-900",
                       )}
-                      style={{ transitionDelay: `${i * 20}ms` }}
                     >
                       {item.label}
                       <Icon
@@ -251,7 +173,7 @@ export function Header({ lang }: { lang: Lang }) {
             <div className="mt-6 grid gap-2.5">
               <a
                 href={telHref(SITE.phone.main)}
-                className="inline-flex h-13 items-center justify-center gap-2 rounded-2xl bg-brand-600 px-5 text-[0.9375rem] font-bold text-white shadow-glow"
+                className="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-brand-600 px-5 text-[0.9375rem] font-bold text-white"
               >
                 <Icon name="phone" size={17} />
                 {SITE.phone.main}
@@ -259,7 +181,7 @@ export function Header({ lang }: { lang: Lang }) {
               <Link
                 href={href(lang, "contact")}
                 onClick={() => setOpen(false)}
-                className="inline-flex h-13 items-center justify-center gap-2 rounded-2xl bg-navy-900 px-5 text-[0.9375rem] font-bold text-white"
+                className="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-navy-900 px-5 text-[0.9375rem] font-bold text-white"
               >
                 {t.common.contact}
                 <Icon name="arrowRight" size={17} />
@@ -267,7 +189,7 @@ export function Header({ lang }: { lang: Lang }) {
               <Link
                 href={href(altLang, current)}
                 onClick={() => setOpen(false)}
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl text-[0.875rem] font-bold text-ink-600 ring-1 ring-ink-200"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full text-[0.875rem] font-bold text-ink-600 ring-1 ring-ink-200"
               >
                 <Icon name="globe" size={16} />
                 {t.common.langLabel}

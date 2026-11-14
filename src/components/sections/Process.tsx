@@ -26,7 +26,7 @@ export function Process({ lang }: { lang: Lang }) {
             <div className="flex gap-5 lg:flex-col lg:gap-0">
               {/* 번호 */}
               <div className="relative shrink-0">
-                <span className="relative z-10 inline-flex size-14 items-center justify-center rounded-2xl bg-white font-display text-[0.9375rem] font-extrabold text-brand-600 shadow-card ring-1 ring-brand-100">
+                <span className="relative z-10 inline-flex size-14 items-center justify-center rounded-xl bg-white font-display text-[0.9375rem] font-extrabold text-brand-600 ring-1 ring-brand-100">
                   {step.no}
                 </span>
                 {/* 모바일 세로선 */}

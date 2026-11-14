@@ -28,7 +28,7 @@ export function CampusCard({
   return (
     <article
       className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-ink-100 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift hover:ring-brand-200",
+        "group flex h-full flex-col overflow-hidden rounded bg-white ring-1 ring-ink-200 transition-all duration-300 hover:-translate-y-0.5 hover:ring-brand-200",
         className,
       )}
     >
@@ -63,7 +63,7 @@ export function CampusCard({
         <h3 className="mt-2 text-[1.25rem] font-bold text-navy-900">{name}</h3>
 
         {!ready && (
-          <p className="mt-5 rounded-xl bg-ink-50 px-4 py-3 text-[0.8125rem] leading-relaxed text-ink-600 ring-1 ring-ink-100">
+          <p className="mt-5 rounded-xl bg-ink-50 px-4 py-3 text-[0.8125rem] leading-relaxed text-ink-600 ring-1 ring-ink-200">
             <span className="font-bold text-navy-900">{L.preparing}</span>{" "}
             {L.askHq}
           </p>

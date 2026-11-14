@@ -16,12 +16,12 @@ export function ProgramCard({
   return (
     <article
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-3xl bg-white p-7 ring-1 ring-ink-100 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift hover:ring-brand-200 sm:p-8",
+        "group relative flex h-full flex-col overflow-hidden rounded bg-white p-7 ring-1 ring-ink-200 transition-all duration-300 hover:-translate-y-0.5 hover:ring-brand-200 sm:p-8",
         className,
       )}
     >
       <div className="flex items-start justify-between gap-4">
-        <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
+        <span className="inline-flex size-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
           <Icon name={program.icon as IconName} size={22} />
         </span>
         <span className="inline-flex items-center rounded-full bg-navy-900/5 px-3 py-1 text-[0.6875rem] font-bold text-navy-800">

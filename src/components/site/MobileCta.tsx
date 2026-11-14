@@ -27,7 +27,7 @@ export function MobileCta({ lang }: { lang: Lang }) {
       )}
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
-      <div className="mx-3 mb-3 grid grid-cols-2 gap-2 rounded-2xl bg-white/85 p-2 shadow-lift ring-1 ring-ink-200/70 backdrop-blur-xl">
+      <div className="mx-3 mb-3 grid grid-cols-2 gap-2 rounded-xl bg-white/85 p-2 ring-1 ring-ink-200/70 backdrop-blur-xl">
         <a
           href={SITE.booking || telHref(SITE.phone.main)}
           {...(SITE.booking ? { target: "_blank", rel: "noopener noreferrer" } : {})}

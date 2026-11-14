@@ -10,10 +10,13 @@ import type { Lang } from "@/content";
 export function Logo({
   lang,
   tone = "light",
+  size = "md",
   className,
 }: {
   lang: Lang;
   tone?: "light" | "dark";
+  /** sm = 헤더(짧은 바), md = 그 외 */
+  size?: "sm" | "md";
   className?: string;
 }) {
   const dark = tone === "dark";
@@ -28,7 +31,7 @@ export function Logo({
         width={620}
         height={370}
         className={cn(
-          "h-12 w-auto sm:h-14",
+          size === "sm" ? "h-9 w-auto" : "h-12 w-auto sm:h-14",
           /* 어두운 배경에서는 흰색 로고로 표시합니다 */
           dark && "brightness-0 invert",
         )}

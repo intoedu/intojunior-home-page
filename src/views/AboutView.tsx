@@ -35,7 +35,7 @@ export function AboutView({ lang }: { lang: Lang }) {
               caption={a.greeting.photoCaption}
               label={t.common.photoPlaceholder}
               icon="user"
-              className="aspect-10/11 w-full rounded-[2rem] shadow-card ring-1 ring-ink-100"
+              className="aspect-10/11 w-full rounded ring-1 ring-ink-200"
             />
           </Reveal>
 
@@ -71,7 +71,7 @@ export function AboutView({ lang }: { lang: Lang }) {
               </>
             ) : (
               <Reveal>
-                <p className="mt-6 rounded-2xl bg-ink-50 px-5 py-4 text-[0.875rem] leading-relaxed text-ink-500 ring-1 ring-ink-100">
+                <p className="mt-6 rounded-xl bg-ink-50 px-5 py-4 text-[0.875rem] leading-relaxed text-ink-500 ring-1 ring-ink-200">
                   {t.common.contentPending}
                 </p>
               </Reveal>
@@ -79,7 +79,7 @@ export function AboutView({ lang }: { lang: Lang }) {
 
             {/* 프로필 카드 */}
             <Reveal delay={100}>
-              <div className="mt-8 rounded-2xl bg-ink-50 p-6 ring-1 ring-ink-100 sm:p-7">
+              <div className="mt-8 rounded-xl bg-ink-50 p-6 ring-1 ring-ink-200 sm:p-7">
                 <p className="text-[0.75rem] font-semibold text-ink-500">
                   {a.greeting.signature}
                 </p>
@@ -155,7 +155,7 @@ export function AboutView({ lang }: { lang: Lang }) {
 
       {/* ── 교육 철학 (내용이 있을 때만 표시) ── */}
       {a.philosophy.items.length > 0 && (
-      <Section size="wide" className="bg-soft-mesh">
+      <Section size="wide" className="bg-ink-50">
         <SectionHeading
           eyebrow={a.philosophy.eyebrow}
           title={a.philosophy.title}
@@ -165,8 +165,8 @@ export function AboutView({ lang }: { lang: Lang }) {
         <ul className="mt-14 grid gap-5 sm:grid-cols-2">
           {a.philosophy.items.map((item, i) => (
             <Reveal as="li" key={item.title} delay={i * 80}>
-              <article className="group flex h-full gap-5 rounded-3xl bg-white p-7 shadow-soft ring-1 ring-ink-100 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift hover:ring-brand-200 sm:p-8">
-                <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
+              <article className="group flex h-full gap-5 rounded bg-white p-7 ring-1 ring-ink-200 transition-all duration-300 hover:-translate-y-0.5 hover:ring-brand-200 sm:p-8">
+                <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
                   <Icon name={item.icon as IconName} size={22} />
                 </span>
                 <div>
@@ -195,7 +195,7 @@ export function AboutView({ lang }: { lang: Lang }) {
               tone="dark"
             />
             <Reveal delay={100}>
-              <p className="mt-7 rounded-2xl bg-white/[0.06] p-5 text-[0.875rem] leading-[1.85] text-white/70 ring-1 ring-white/10">
+              <p className="mt-7 rounded-xl bg-white/[0.06] p-5 text-[0.875rem] leading-[1.85] text-white/70 ring-1 ring-white/10">
                 {a.fitFor.footnote}
               </p>
             </Reveal>
@@ -239,7 +239,7 @@ export function AboutView({ lang }: { lang: Lang }) {
                 icon={
                   (["building", "book", "grammar", "sparkle"] as IconName[])[i]
                 }
-                className="aspect-4/5 w-full rounded-3xl ring-1 ring-ink-100"
+                className="aspect-4/5 w-full rounded ring-1 ring-ink-200"
               />
             </Reveal>
           ))}
@@ -247,7 +247,7 @@ export function AboutView({ lang }: { lang: Lang }) {
 
         {a.teachers.title && (
         <Reveal delay={120}>
-          <div className="mt-12 rounded-3xl bg-ink-50 p-8 text-center ring-1 ring-ink-100">
+          <div className="mt-12 rounded bg-ink-50 p-8 text-center ring-1 ring-ink-200">
             <Eyebrow className="justify-center">{a.teachers.eyebrow}</Eyebrow>
             <h3 className="mt-4 text-[1.375rem] font-bold text-navy-900">
               {a.teachers.title}

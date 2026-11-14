@@ -3,7 +3,6 @@ import { SITE, telHref, MAP_LINKS } from "@/config/site";
 import { getDict, href, type Lang } from "@/content";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
-import { Logo } from "./Logo";
 import { SocialLinks } from "./SocialLinks";
 import { OpeningHours } from "./OpeningHours";
 
@@ -12,38 +11,72 @@ export function Footer({ lang }: { lang: Lang }) {
   const year = 2026;
 
   return (
-    <footer className="relative overflow-hidden bg-navy-950 text-white">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-70"
-        style={{
-          backgroundImage:
-            "radial-gradient(48rem 26rem at 8% 0%, rgba(52,101,255,0.28) 0, transparent 60%), radial-gradient(36rem 22rem at 96% 12%, rgba(20,184,163,0.16) 0, transparent 62%)",
-        }}
-      />
-
-      <Container size="wide" className="relative py-16 sm:py-20">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          {/* 브랜드 */}
-          <div className="lg:col-span-4">
-            <Logo lang={lang} tone="dark" />
-            <p className="mt-5 max-w-xs text-[0.875rem] leading-[1.85] text-white/60">
-              {t.footer.tagline}
+    <footer className="border-t border-ink-200 bg-ink-50 text-ink-700">
+      <Container className="py-16 sm:py-20">
+        {/* 전화번호 + 버튼 */}
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <a
+              href={telHref(SITE.phone.main)}
+              className="block text-[2rem] leading-none font-extrabold tabular-nums text-navy-900 transition-colors hover:text-brand-700 sm:text-[2.25rem]"
+            >
+              {SITE.phone.main}
+            </a>
+            <p className="mt-3 text-[0.875rem] text-ink-500">
+              {t.footer.holidayNote}
             </p>
-            <SocialLinks tone="dark" className="mt-6" />
+            <a
+              href={telHref(SITE.phone.mobile)}
+              className="mt-1 inline-block text-[0.875rem] tabular-nums text-ink-500 transition-colors hover:text-navy-900"
+            >
+              {SITE.phone.mobile}
+            </a>
           </div>
 
-          {/* 바로가기 */}
-          <nav className="lg:col-span-2" aria-label={t.footer.quickTitle}>
-            <h2 className="text-[0.6875rem] font-bold tracking-[0.18em] text-white/40 uppercase">
+          <div className="flex flex-col items-start gap-4 sm:items-end">
+            <div className="flex flex-wrap gap-2">
+              <a
+                href={MAP_LINKS.naver}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 items-center gap-1.5 rounded-full bg-white px-4 text-[0.8125rem] font-bold text-navy-900 ring-1 ring-ink-200 transition-colors hover:ring-brand-300"
+              >
+                <Icon name="mapPin" size={15} />
+                {t.campuses.labels.viewOnMap}
+              </a>
+              <Link
+                href={href(lang, "contact")}
+                className="inline-flex h-10 items-center gap-1.5 rounded-full bg-white px-4 text-[0.8125rem] font-bold text-navy-900 ring-1 ring-ink-200 transition-colors hover:ring-brand-300"
+              >
+                {t.common.contact}
+              </Link>
+              <a
+                href={SITE.booking || telHref(SITE.phone.main)}
+                {...(SITE.booking
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="inline-flex h-10 items-center gap-1.5 rounded-full bg-brand-600 px-4 text-[0.8125rem] font-bold text-white transition-colors hover:bg-brand-700"
+              >
+                <Icon name={SITE.booking ? "calendar" : "phone"} size={15} />
+                {t.common.book}
+              </a>
+            </div>
+            <SocialLinks />
+          </div>
+        </div>
+
+        {/* 바로가기 · 연락처 · 운영시간 */}
+        <div className="mt-14 grid gap-10 border-t border-ink-200 pt-10 sm:grid-cols-2 lg:grid-cols-3">
+          <nav aria-label={t.footer.quickTitle}>
+            <h2 className="text-[0.75rem] font-extrabold tracking-[0.04em] text-ink-400 uppercase">
               {t.footer.quickTitle}
             </h2>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5">
               {t.nav.map((item) => (
                 <li key={item.slug || "home"}>
                   <Link
                     href={href(lang, item.slug)}
-                    className="-my-1.5 inline-flex items-center py-1.5 text-[0.875rem] font-medium text-white/70 transition-colors hover:text-white"
+                    className="-my-1.5 inline-flex items-center py-1.5 text-[0.875rem] font-medium text-ink-600 transition-colors hover:text-navy-900"
                   >
                     {item.label}
                   </Link>
@@ -52,45 +85,25 @@ export function Footer({ lang }: { lang: Lang }) {
             </ul>
           </nav>
 
-          {/* 연락처 */}
-          <div className="lg:col-span-3">
-            <h2 className="text-[0.6875rem] font-bold tracking-[0.18em] text-white/40 uppercase">
+          <div>
+            <h2 className="text-[0.75rem] font-extrabold tracking-[0.04em] text-ink-400 uppercase">
               {t.footer.contactTitle}
             </h2>
-            <ul className="mt-5 space-y-4 text-[0.875rem]">
-              <li className="flex gap-3">
-                <Icon name="phone" size={17} className="mt-0.5 shrink-0 text-brand-300" />
-                <span className="flex flex-col gap-1">
-                  <a
-                    href={telHref(SITE.phone.main)}
-                    className="-my-1.5 inline-flex items-center py-1.5 font-bold tabular-nums text-white transition-colors hover:text-brand-200"
-                  >
-                    {SITE.phone.main}
-                  </a>
-                  <a
-                    href={telHref(SITE.phone.mobile)}
-                    className="-my-1.5 inline-flex items-center py-1.5 tabular-nums text-white/60 transition-colors hover:text-white"
-                  >
-                    {SITE.phone.mobile}
-                  </a>
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <Icon name="mail" size={17} className="mt-0.5 shrink-0 text-brand-300" />
+            <ul className="mt-4 space-y-3 text-[0.875rem]">
+              <li>
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="-my-1.5 inline-flex items-center py-1.5 break-all text-white/70 transition-colors hover:text-white"
+                  className="-my-1.5 inline-flex items-center py-1.5 break-all text-ink-600 transition-colors hover:text-navy-900"
                 >
                   {SITE.email}
                 </a>
               </li>
-              <li className="flex gap-3">
-                <Icon name="mapPin" size={17} className="mt-0.5 shrink-0 text-brand-300" />
+              <li>
                 <a
                   href={MAP_LINKS.naver}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="leading-[1.7] text-white/70 transition-colors hover:text-white"
+                  className="leading-[1.7] text-ink-600 transition-colors hover:text-navy-900"
                 >
                   {lang === "ko" ? SITE.address.ko : SITE.address.en}
                 </a>
@@ -98,21 +111,18 @@ export function Footer({ lang }: { lang: Lang }) {
             </ul>
           </div>
 
-          {/* 운영시간 */}
-          <div className="lg:col-span-3">
-            <h2 className="text-[0.6875rem] font-bold tracking-[0.18em] text-white/40 uppercase">
+          <div>
+            <h2 className="text-[0.75rem] font-extrabold tracking-[0.04em] text-ink-400 uppercase">
               {t.footer.hoursTitle}
             </h2>
-            <OpeningHours lang={lang} tone="dark" compact className="mt-5" />
-            <p className="mt-3 px-2.5 text-[0.75rem] text-white/45">
-              {t.footer.holidayNote}
-            </p>
+            <OpeningHours lang={lang} compact className="mt-4" />
           </div>
         </div>
 
         {/* 하단 바 */}
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.75rem] text-white/45">
+        <div className="mt-12 flex flex-col gap-3 border-t border-ink-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.75rem] text-ink-400">
+            <span>{t.footer.tagline}</span>
             <span>
               {t.footer.ceoLabel} {SITE.ceo}
             </span>
@@ -124,12 +134,12 @@ export function Footer({ lang }: { lang: Lang }) {
             )}
             <Link
               href={href(lang, "privacy")}
-              className="font-semibold text-white/60 underline-offset-4 transition-colors hover:text-white hover:underline"
+              className="font-semibold text-ink-500 underline-offset-4 transition-colors hover:text-navy-900 hover:underline"
             >
               {t.footer.privacy}
             </Link>
           </div>
-          <p className="text-[0.75rem] text-white/35">
+          <p className="text-[0.75rem] text-ink-400">
             © {year} {t.footer.copyright}
           </p>
         </div>

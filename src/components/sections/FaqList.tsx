@@ -44,7 +44,7 @@ export function FaqList({
                 className={cn(
                   "rounded-full px-4 py-2.5 text-[0.8125rem] font-bold transition-all",
                   active
-                    ? "bg-brand-600 text-white shadow-glow"
+                    ? "bg-brand-600 text-white "
                     : "bg-white text-ink-600 ring-1 ring-ink-200 hover:text-brand-700 hover:ring-brand-200",
                 )}
               >
@@ -62,10 +62,10 @@ export function FaqList({
             <li
               key={item.q}
               className={cn(
-                "overflow-hidden rounded-2xl bg-white ring-1 transition-all duration-300",
+                "overflow-hidden rounded-xl bg-white ring-1 transition-all duration-300",
                 isOpen
-                  ? "shadow-card ring-brand-200"
-                  : "shadow-soft ring-ink-100 hover:ring-brand-200",
+                  ? " ring-brand-200"
+                  : " ring-ink-200 hover:ring-brand-200",
               )}
             >
               <h3>

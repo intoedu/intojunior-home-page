@@ -6,22 +6,19 @@ type Variant = "primary" | "secondary" | "ghost" | "onDark" | "accent";
 type Size = "sm" | "md" | "lg";
 
 const VARIANTS: Record<Variant, string> = {
-  primary:
-    "bg-brand-600 text-white shadow-glow hover:bg-brand-700 hover:-translate-y-0.5 active:translate-y-0",
+  primary: "bg-brand-600 text-white hover:bg-brand-700",
   secondary:
-    "bg-white text-navy-900 ring-1 ring-ink-200 shadow-soft hover:ring-brand-300 hover:text-brand-700 hover:-translate-y-0.5 active:translate-y-0",
-  ghost:
-    "bg-transparent text-navy-900 hover:bg-brand-50 hover:text-brand-700",
-  onDark:
-    "bg-white/10 text-white ring-1 ring-white/25 backdrop-blur-sm hover:bg-white/20 hover:-translate-y-0.5 active:translate-y-0",
-  accent:
-    "bg-accent-400 text-navy-950 shadow-[0_16px_40px_-16px_rgba(249,138,7,0.7)] hover:bg-accent-300 hover:-translate-y-0.5 active:translate-y-0",
+    "bg-white text-navy-900 ring-1 ring-ink-200 hover:ring-brand-300 hover:text-brand-700",
+  ghost: "bg-transparent text-navy-900 hover:bg-brand-50 hover:text-brand-700",
+  onDark: "bg-white/12 text-white hover:bg-white/20",
+  accent: "bg-accent-400 text-navy-950 hover:bg-accent-300",
 };
 
+/** 높이·글자 크기는 레퍼런스(인투유학)와 같은 값입니다 */
 const SIZES: Record<Size, string> = {
-  sm: "h-10 px-4 text-[0.875rem] gap-1.5 rounded-xl",
-  md: "h-12 px-5 text-[0.9375rem] gap-2 rounded-2xl",
-  lg: "h-14 px-7 text-base gap-2.5 rounded-2xl",
+  sm: "h-10 px-5 text-[0.875rem] gap-1.5",
+  md: "h-12 px-6 text-[0.9375rem] gap-2",
+  lg: "h-14 px-7 text-base gap-2.5",
 };
 
 type BaseProps = {
@@ -34,7 +31,7 @@ type BaseProps = {
 };
 
 const base =
-  "inline-flex items-center justify-center font-semibold tracking-[-0.01em] transition-all duration-200 will-change-transform select-none";
+  "inline-flex items-center justify-center rounded-full font-bold tracking-[-0.01em] transition-colors duration-200 select-none";
 
 export function Button({
   href,
@@ -94,7 +91,7 @@ export function ButtonEl({
         base,
         VARIANTS[variant],
         SIZES[size],
-        "disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0",
+        "disabled:cursor-not-allowed disabled:opacity-60",
         className,
       )}
       {...rest}

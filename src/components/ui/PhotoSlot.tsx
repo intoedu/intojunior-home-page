@@ -75,10 +75,10 @@ export function PhotoSlot({
       />
       <div
         className={cn(
-          "relative flex size-12 items-center justify-center rounded-2xl",
+          "relative flex size-12 items-center justify-center rounded-xl",
           dark
             ? "bg-white/12 text-white/80 ring-1 ring-white/20"
-            : "bg-white/80 text-brand-500 shadow-soft ring-1 ring-brand-100",
+            : "bg-white/80 text-brand-500  ring-1 ring-brand-100",
         )}
       >
         <Icon name={icon} size={22} />

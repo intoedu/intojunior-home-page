@@ -22,7 +22,7 @@ export function MapEmbed({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-[1.75rem] bg-ink-100 shadow-card ring-1 ring-ink-100",
+        "relative overflow-hidden rounded bg-ink-100 ring-1 ring-ink-200",
         className,
       )}
     >
@@ -70,7 +70,7 @@ export function MapLinks({
               "inline-flex h-11 items-center gap-1.5 rounded-xl px-4 text-[0.8125rem] font-bold transition-all hover:-translate-y-0.5",
               tone === "dark"
                 ? "bg-white/8 text-white ring-1 ring-white/15 hover:bg-white/15"
-                : "bg-white text-navy-900 shadow-soft ring-1 ring-ink-200 hover:text-brand-700 hover:ring-brand-200",
+                : "bg-white text-navy-900  ring-1 ring-ink-200 hover:text-brand-700 hover:ring-brand-200",
             )}
           >
             <Icon name="mapPin" size={15} />

@@ -9,7 +9,7 @@ export function ProgramsPreview({ lang }: { lang: Lang }) {
   const p = t.home.programsPreview;
 
   return (
-    <Section size="wide" className="bg-soft-mesh">
+    <Section size="wide" className="bg-ink-50">
       <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
         <SectionHeading
           eyebrow={p.eyebrow}

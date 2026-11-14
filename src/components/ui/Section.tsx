@@ -22,7 +22,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        tightTop ? "pt-14 pb-20 sm:pt-16 sm:pb-28" : "py-20 sm:py-28",
+        tightTop ? "pt-16 pb-20 sm:pt-20 sm:pb-25" : "py-20 sm:py-25",
         className,
       )}
     >
@@ -33,6 +33,7 @@ export function Section({
   );
 }
 
+/** 섹션 제목 위의 작은 영문 라벨 */
 export function Eyebrow({
   children,
   tone = "light",
@@ -45,17 +46,11 @@ export function Eyebrow({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 text-[0.6875rem] font-bold uppercase tracking-[0.2em]",
-        tone === "light" ? "text-brand-600" : "text-brand-200",
+        "block text-[0.875rem] font-extrabold tracking-[0.04em] uppercase",
+        tone === "light" ? "text-brand-600" : "text-brand-300",
         className,
       )}
     >
-      <span
-        className={cn(
-          "h-px w-6",
-          tone === "light" ? "bg-brand-400" : "bg-brand-300/70",
-        )}
-      />
       {children}
     </span>
   );
@@ -66,7 +61,7 @@ export function SectionHeading({
   eyebrow,
   title,
   description,
-  align = "left",
+  align = "center",
   tone = "light",
   className,
   children,
@@ -82,16 +77,15 @@ export function SectionHeading({
   return (
     <Reveal
       className={cn(
-        "max-w-2xl",
-        align === "center" && "mx-auto text-center",
+        align === "center" ? "mx-auto max-w-[44rem] text-center" : "max-w-2xl",
         className,
       )}
     >
       {eyebrow && <Eyebrow tone={tone}>{eyebrow}</Eyebrow>}
       <h2
         className={cn(
-          "mt-4 text-[1.75rem] leading-[1.28] font-bold whitespace-pre-line sm:text-[2.125rem] lg:text-[2.5rem]",
-          tone === "dark" && "text-white",
+          "mt-3 text-[1.75rem] leading-[1.3] font-extrabold tracking-[-0.01em] whitespace-pre-line sm:text-[2.125rem] lg:text-[2.5rem]",
+          tone === "dark" ? "text-white" : "text-navy-900",
         )}
       >
         {title}
@@ -99,8 +93,8 @@ export function SectionHeading({
       {description && (
         <p
           className={cn(
-            "mt-5 text-[0.9375rem] leading-[1.85] sm:text-base",
-            tone === "dark" ? "text-navy-100/80" : "text-ink-600",
+            "mt-5 text-[0.9375rem] leading-[1.8] sm:text-base",
+            tone === "dark" ? "text-navy-100/75" : "text-ink-500",
           )}
         >
           {description}

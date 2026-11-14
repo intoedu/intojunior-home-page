@@ -27,8 +27,7 @@ export default function NotFound() {
       <script
         dangerouslySetInnerHTML={{ __html: 'document.documentElement.lang="ko"' }}
       />
-      <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-brand-mesh py-32 text-white">
-        <div aria-hidden className="absolute inset-0 bg-grid-faint opacity-40" />
+      <section className="flex min-h-[80vh] items-center bg-navy-950 py-32 text-white">
         <Container className="relative text-center">
           <p className="font-display text-[4rem] leading-none font-extrabold tracking-tight text-white/20 sm:text-[6rem]">
             404
@@ -45,14 +44,14 @@ export default function NotFound() {
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href={href("ko")}
-              className="inline-flex h-13 items-center justify-center gap-2 rounded-2xl bg-white px-6 text-[0.9375rem] font-bold text-navy-900 transition-transform hover:-translate-y-0.5"
+              className="inline-flex h-13 items-center justify-center gap-2 rounded-xl bg-white px-6 text-[0.9375rem] font-bold text-navy-900 transition-transform hover:-translate-y-0.5"
             >
               {t.common.backHome}
               <Icon name="arrowRight" size={17} />
             </Link>
             <Link
               href={href("ko", "contact")}
-              className="inline-flex h-13 items-center justify-center gap-2 rounded-2xl bg-white/10 px-6 text-[0.9375rem] font-bold text-white ring-1 ring-white/20 transition-transform hover:-translate-y-0.5"
+              className="inline-flex h-13 items-center justify-center gap-2 rounded-xl bg-white/10 px-6 text-[0.9375rem] font-bold text-white ring-1 ring-white/20 transition-transform hover:-translate-y-0.5"
             >
               {t.common.contact}
             </Link>

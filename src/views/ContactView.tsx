@@ -64,14 +64,14 @@ export function ContactView({ lang }: { lang: Lang }) {
           <Reveal className="lg:col-span-7">
             <a
               href={telHref(SITE.phone.main)}
-              className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] bg-navy-950 p-8 text-white transition-transform hover:-translate-y-0.5 sm:p-10"
+              className="group relative flex h-full flex-col justify-between overflow-hidden rounded bg-navy-950 p-8 text-white transition-transform hover:-translate-y-0.5 sm:p-10"
             >
               <span
                 aria-hidden
                 className="pointer-events-none absolute -top-20 -right-16 size-64 rounded-full bg-brand-500/25 blur-3xl transition-all duration-500 group-hover:bg-brand-500/40"
               />
               <span className="relative">
-                <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-white/10 text-brand-200 ring-1 ring-white/15">
+                <span className="inline-flex size-12 items-center justify-center rounded-xl bg-white/10 text-brand-200 ring-1 ring-white/15">
                   <Icon name="phone" size={22} />
                 </span>
                 <span className="mt-6 block text-[1.125rem] font-bold">
@@ -98,9 +98,9 @@ export function ContactView({ lang }: { lang: Lang }) {
             <Reveal delay={80}>
               <a
                 href={`mailto:${SITE.email}`}
-                className="group flex items-start gap-4 rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100 transition-transform hover:-translate-y-0.5"
+                className="group flex items-start gap-4 rounded bg-ink-50 p-6 ring-1 ring-ink-200 transition-transform hover:-translate-y-0.5"
               >
-                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-soft">
+                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600">
                   <Icon name="mail" size={20} />
                 </span>
                 <span className="flex-1">
@@ -123,9 +123,9 @@ export function ContactView({ lang }: { lang: Lang }) {
                   href={SITE.social.kakao}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-start gap-4 rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100 transition-transform hover:-translate-y-0.5"
+                  className="group flex items-start gap-4 rounded bg-ink-50 p-6 ring-1 ring-ink-200 transition-transform hover:-translate-y-0.5"
                 >
-                  <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-soft">
+                  <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600">
                     <Icon name="kakao" size={20} />
                   </span>
                   <span className="flex-1">
@@ -150,9 +150,9 @@ export function ContactView({ lang }: { lang: Lang }) {
                 href={MAP_LINKS.naver}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full items-start gap-4 rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100 transition-transform hover:-translate-y-0.5"
+                className="group flex h-full items-start gap-4 rounded bg-ink-50 p-6 ring-1 ring-ink-200 transition-transform hover:-translate-y-0.5"
               >
-                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-soft">
+                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600">
                   <Icon name="mapPin" size={20} />
                 </span>
                 <span className="flex-1">
@@ -178,7 +178,7 @@ export function ContactView({ lang }: { lang: Lang }) {
 
         {hasSocial && (
           <Reveal delay={200}>
-            <div className="mt-4 flex flex-col gap-4 rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100 sm:flex-row sm:items-center sm:justify-between">
+            <div className="mt-4 flex flex-col gap-4 rounded bg-ink-50 p-6 ring-1 ring-ink-200 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-[0.9375rem] font-bold text-navy-900">
                   {c.channels.snsTitle}
@@ -194,7 +194,7 @@ export function ContactView({ lang }: { lang: Lang }) {
       </Section>
 
       {/* ── 상담 진행 순서 ── */}
-      <Section size="wide" className="bg-soft-mesh">
+      <Section size="wide" className="bg-ink-50">
         <Reveal>
           <h2 className="text-[1.75rem] font-bold text-navy-900 sm:text-[2.125rem]">
             {c.steps.title}
@@ -204,7 +204,7 @@ export function ContactView({ lang }: { lang: Lang }) {
         <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {c.steps.items.map((step, i) => (
             <Reveal as="li" key={step.no} delay={i * 80}>
-              <div className="relative h-full rounded-2xl bg-white p-7 shadow-soft ring-1 ring-ink-100">
+              <div className="relative h-full rounded-xl bg-white p-7 ring-1 ring-ink-200">
                 <span className="font-display text-[0.6875rem] font-extrabold tracking-[0.18em] text-brand-600">
                   {step.no}
                 </span>
@@ -236,7 +236,7 @@ export function ContactView({ lang }: { lang: Lang }) {
       <Section size="wide" className="bg-white">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-5">
-            <div className="rounded-[1.5rem] bg-ink-50 p-7 ring-1 ring-ink-100">
+            <div className="rounded bg-ink-50 p-7 ring-1 ring-ink-200">
               <h2 className="flex items-center gap-2 text-[0.75rem] font-bold tracking-[0.14em] text-brand-600 uppercase">
                 <Icon name="clock" size={15} />
                 {t.campuses.labels.hours}
@@ -247,7 +247,7 @@ export function ContactView({ lang }: { lang: Lang }) {
             <Reveal delay={120}>
               <Link
                 href={href(lang, "faq")}
-                className="group mt-4 flex items-center justify-between gap-4 rounded-[1.5rem] bg-brand-50 p-6 ring-1 ring-brand-100 transition-transform hover:-translate-y-0.5"
+                className="group mt-4 flex items-center justify-between gap-4 rounded bg-brand-50 p-6 ring-1 ring-brand-100 transition-transform hover:-translate-y-0.5"
               >
                 <span>
                   <span className="block text-[0.9375rem] font-bold text-navy-900">

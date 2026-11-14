@@ -26,7 +26,7 @@ export function Tuition({ lang }: { lang: Lang }) {
       <div className="mt-12 space-y-6">
         {TUITION.map((group, gi) => (
           <Reveal key={group.group} delay={gi * 80}>
-            <div className="overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-ink-100">
+            <div className="overflow-hidden rounded bg-white ring-1 ring-ink-200">
               <h3 className="border-b border-ink-100 bg-ink-50 px-6 py-4 text-[0.9375rem] font-extrabold text-navy-900">
                 {u.groups[group.group]}
               </h3>

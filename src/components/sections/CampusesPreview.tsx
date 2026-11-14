@@ -44,7 +44,7 @@ export function CampusesPreview({ lang }: { lang: Lang }) {
               <CampusCard campus={CAMPUSES[0]} lang={lang} showPhoto={false} />
             </Reveal>
             <Reveal delay={150}>
-              <div className="rounded-3xl bg-ink-50 p-6 ring-1 ring-ink-100">
+              <div className="rounded bg-ink-50 p-6 ring-1 ring-ink-200">
                 <h3 className="flex items-center gap-2 text-[0.8125rem] font-bold tracking-wide text-navy-900 uppercase">
                   <Icon name="clock" size={16} className="text-brand-500" />
                   {t.campuses.labels.hours}

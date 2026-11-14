@@ -41,7 +41,7 @@ export function Gallery({ lang }: { lang: Lang }) {
   const g = t.home.gallery;
 
   return (
-    <Section size="wide" className="bg-soft-mesh">
+    <Section size="wide" className="bg-ink-50">
       <SectionHeading
         eyebrow={g.eyebrow}
         title={g.title}
@@ -58,7 +58,7 @@ export function Gallery({ lang }: { lang: Lang }) {
               caption={caption}
               label={PHOTOS[i] ? undefined : t.common.photoPlaceholder}
               icon={ICONS[i % ICONS.length]}
-              className={cn("w-full rounded-3xl ring-1 ring-ink-100", RATIO[i])}
+              className={cn("w-full rounded ring-1 ring-ink-200", RATIO[i])}
             />
           </Reveal>
         ))}

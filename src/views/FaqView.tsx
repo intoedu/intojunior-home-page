@@ -24,7 +24,7 @@ export function FaqView({ lang }: { lang: Lang }) {
         <FaqList lang={lang} />
 
         <Reveal delay={100}>
-          <div className="mt-12 rounded-3xl bg-soft-mesh p-8 text-center ring-1 ring-ink-100 sm:p-10">
+          <div className="mt-12 rounded bg-ink-50 p-8 text-center ring-1 ring-ink-200 sm:p-10">
             <h2 className="text-[1.25rem] font-bold text-navy-900 sm:text-[1.5rem]">
               {t.faq.stillCurious.title}
             </h2>

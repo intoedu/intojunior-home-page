@@ -55,7 +55,7 @@ function CampusBlock({
 
       {!ready && (
         <Reveal>
-          <div className="mt-8 flex flex-col gap-5 rounded-3xl bg-ink-50 p-8 ring-1 ring-ink-100 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-8 flex flex-col gap-5 rounded bg-ink-50 p-8 ring-1 ring-ink-200 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-[1.0625rem] font-bold text-navy-900">
                 {L.preparing}
@@ -95,11 +95,11 @@ function CampusBlock({
                 src={campus.photo}
                 alt={name}
                 caption={name}
-                className="aspect-16/10 w-full rounded-[1.5rem] ring-1 ring-ink-100"
+                className="aspect-16/10 w-full rounded ring-1 ring-ink-200"
               />
             )}
 
-            <div className="rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100">
+            <div className="rounded bg-ink-50 p-6 ring-1 ring-ink-200">
               <div className="flex items-start justify-between gap-3">
                 <h3 className="flex items-center gap-2 text-[0.75rem] font-bold tracking-[0.14em] text-brand-600 uppercase">
                   <Icon name="mapPin" size={15} />
@@ -112,7 +112,7 @@ function CampusBlock({
               </p>
             </div>
 
-            <div className="rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100">
+            <div className="rounded bg-ink-50 p-6 ring-1 ring-ink-200">
               <h3 className="flex items-center gap-2 text-[0.75rem] font-bold tracking-[0.14em] text-brand-600 uppercase">
                 <Icon name="phone" size={15} />
                 {L.phone}
@@ -149,7 +149,7 @@ function CampusBlock({
               </dl>
             </div>
 
-            <div className="flex-1 rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100">
+            <div className="flex-1 rounded bg-ink-50 p-6 ring-1 ring-ink-200">
               <h3 className="flex items-center gap-2 text-[0.75rem] font-bold tracking-[0.14em] text-brand-600 uppercase">
                 <Icon name="clock" size={15} />
                 {L.hours}
@@ -207,7 +207,7 @@ export function CampusesView({ lang }: { lang: Lang }) {
       </Section>
 
       {/* ── 찾아오시는 방법 ── */}
-      <Section size="wide" className="bg-soft-mesh">
+      <Section size="wide" className="bg-ink-50">
         <Reveal>
           <h2 className="text-[1.75rem] font-bold text-navy-900 sm:text-[2.125rem]">
             {c.labels.transport}
@@ -217,8 +217,8 @@ export function CampusesView({ lang }: { lang: Lang }) {
         <ul className="mt-10 grid gap-5 sm:grid-cols-3">
           {c.transport.map((item, i) => (
             <Reveal as="li" key={item.title} delay={i * 80}>
-              <article className="h-full rounded-3xl bg-white p-7 shadow-soft ring-1 ring-ink-100">
-                <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
+              <article className="h-full rounded bg-white p-7 ring-1 ring-ink-200">
+                <span className="inline-flex size-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
                   <Icon name={item.icon as IconName} size={22} />
                 </span>
                 <h3 className="mt-5 text-[1.0625rem] font-bold text-navy-900">
@@ -233,7 +233,7 @@ export function CampusesView({ lang }: { lang: Lang }) {
         </ul>
 
         <Reveal delay={120}>
-          <p className="mt-6 flex items-start gap-2.5 rounded-2xl bg-white p-5 text-[0.8125rem] leading-relaxed text-ink-600 ring-1 ring-ink-100">
+          <p className="mt-6 flex items-start gap-2.5 rounded-xl bg-white p-5 text-[0.8125rem] leading-relaxed text-ink-600 ring-1 ring-ink-200">
             <Icon name="car" size={17} className="mt-px shrink-0 text-brand-500" />
             <span>
               <strong className="font-bold text-navy-900">
@@ -246,7 +246,7 @@ export function CampusesView({ lang }: { lang: Lang }) {
 
         {/* 캠퍼스 관련 문의 */}
         <Reveal delay={160}>
-          <div className="mt-6 flex flex-col gap-5 rounded-3xl bg-white p-8 ring-1 ring-ink-100 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-6 flex flex-col gap-5 rounded bg-white p-8 ring-1 ring-ink-200 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <Eyebrow>{c.hero.eyebrow}</Eyebrow>
               <h3 className="mt-3 text-[1.25rem] font-bold text-navy-900">

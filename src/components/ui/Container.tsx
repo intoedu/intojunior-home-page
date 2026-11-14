@@ -1,5 +1,8 @@
 import { cn } from "@/lib/utils";
 
+/**
+ * 본문 폭. 기준 폭은 980px 입니다. (좌우 여백 20px)
+ */
 export function Container({
   className,
   children,
@@ -12,10 +15,10 @@ export function Container({
   return (
     <div
       className={cn(
-        "mx-auto w-full px-5 sm:px-8",
-        size === "narrow" && "max-w-3xl",
-        size === "default" && "max-w-6xl",
-        size === "wide" && "max-w-7xl",
+        "mx-auto w-full px-5",
+        size === "narrow" && "max-w-[46rem]",
+        size === "default" && "max-w-[61.25rem]",
+        size === "wide" && "max-w-[61.25rem]",
         className,
       )}
     >

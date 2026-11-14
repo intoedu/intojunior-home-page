@@ -41,7 +41,7 @@ export function VideoSection({ lang }: { lang: Lang }) {
             title={v.title.replace(/\n/g, " ")}
             lang={lang}
             placeholder={t.common.videoPlaceholder}
-            className="rounded-[1.75rem]"
+            className="rounded"
           />
         </Reveal>
       </div>
