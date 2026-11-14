@@ -18,8 +18,8 @@ export function HomeHero({ lang }: { lang: Lang }) {
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
         <div className="absolute inset-0 bg-grid-faint opacity-45" />
-        <div className="absolute -top-40 -left-32 size-[34rem] animate-float-slow rounded-full bg-brand-500/25 blur-3xl" />
-        <div className="absolute top-1/4 -right-40 size-[30rem] animate-float-slow rounded-full bg-mint-500/18 blur-3xl [animation-delay:-6s]" />
+        <div className="absolute -top-40 -left-32 size-[34rem] rounded-full bg-brand-500/25 blur-3xl" />
+        <div className="absolute top-1/4 -right-40 size-[30rem] rounded-full bg-mint-500/18 blur-3xl" />
         <div className="absolute inset-x-0 bottom-0 h-64 bg-linear-to-t from-navy-950/60 to-transparent" />
       </div>
 

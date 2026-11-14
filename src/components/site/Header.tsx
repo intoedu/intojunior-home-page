@@ -75,7 +75,7 @@ export function Header({ lang }: { lang: Lang }) {
 
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+          "fixed inset-x-0 top-0 z-50 transition-all duration-200",
           /* 아래로 스크롤하는 동안에는 헤더를 위로 숨깁니다 */
           hidden && !open ? "-translate-y-full" : "translate-y-0",
           solid

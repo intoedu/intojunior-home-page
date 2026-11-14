@@ -70,7 +70,7 @@ export function YouTubePlayer({
               <button
                 type="button"
                 onClick={() => setPlaying(true)}
-                className="inline-flex size-[4.5rem] items-center justify-center rounded-full bg-white/95 text-brand-600 shadow-lift transition-transform duration-300 hover:scale-110"
+                className="inline-flex size-[4.5rem] items-center justify-center rounded-full bg-white/95 text-brand-600 shadow-lift transition-transform duration-300 hover:scale-105"
                 aria-label={title}
               >
                 <Icon name="play" size={26} className="ml-1" />

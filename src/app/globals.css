@@ -82,46 +82,13 @@
   --radius-5xl: 2.5rem;
 
   /* ---- Shadow (블루 톤 레이어드) ---- */
-  --shadow-soft: 0 1px 2px rgba(16, 29, 79, 0.04),
-    0 8px 24px -12px rgba(16, 29, 79, 0.12);
-  --shadow-card: 0 1px 2px rgba(16, 29, 79, 0.05),
-    0 12px 32px -16px rgba(16, 29, 79, 0.18);
-  --shadow-lift: 0 2px 4px rgba(16, 29, 79, 0.05),
-    0 24px 56px -24px rgba(16, 29, 79, 0.28);
+  --shadow-soft:
+    0 1px 2px rgba(16, 29, 79, 0.04), 0 8px 24px -12px rgba(16, 29, 79, 0.12);
+  --shadow-card:
+    0 1px 2px rgba(16, 29, 79, 0.05), 0 12px 32px -16px rgba(16, 29, 79, 0.18);
+  --shadow-lift:
+    0 2px 4px rgba(16, 29, 79, 0.05), 0 24px 56px -24px rgba(16, 29, 79, 0.28);
   --shadow-glow: 0 18px 48px -18px rgba(59, 79, 178, 0.5);
-
-  /* ---- Animation ---- */
-  --animate-float-slow: float-slow 14s ease-in-out infinite;
-  --animate-marquee: marquee 38s linear infinite;
-  --animate-shimmer: shimmer 2.4s linear infinite;
-}
-
-@keyframes float-slow {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(0, -22px, 0) scale(1.04);
-  }
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes shimmer {
-  from {
-    background-position: 200% 0;
-  }
-  to {
-    background-position: -200% 0;
-  }
 }
 
 /* ==========================================================================
@@ -248,12 +215,12 @@
   background-image:
     radial-gradient(
       42rem 26rem at 6% 0%,
-      rgba(61, 82, 184, 0.10) 0%,
+      rgba(61, 82, 184, 0.1) 0%,
       transparent 58%
     ),
     radial-gradient(
       38rem 24rem at 100% 22%,
-      rgba(41, 180, 202, 0.10) 0%,
+      rgba(41, 180, 202, 0.1) 0%,
       transparent 60%
     );
 }
@@ -274,19 +241,15 @@
   border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
-/* 스크롤 등장 애니메이션 (JS 없이 CSS만) */
+/* 스크롤 등장 — 움직임 없이 짧게 비치기만 합니다 */
 @utility reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.35s ease-out;
   transition-delay: var(--reveal-delay, 0ms);
 }
 
 @utility reveal-in {
   opacity: 1;
-  transform: none;
 }
 
 /* 스크롤바 숨김 (가로 스크롤 영역) */

@@ -165,7 +165,7 @@ export function AboutView({ lang }: { lang: Lang }) {
         <ul className="mt-14 grid gap-5 sm:grid-cols-2">
           {a.philosophy.items.map((item, i) => (
             <Reveal as="li" key={item.title} delay={i * 80}>
-              <article className="group flex h-full gap-5 rounded-3xl bg-white p-7 shadow-soft ring-1 ring-ink-100 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift hover:ring-brand-200 sm:p-8">
+              <article className="group flex h-full gap-5 rounded-3xl bg-white p-7 shadow-soft ring-1 ring-ink-100 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift hover:ring-brand-200 sm:p-8">
                 <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
                   <Icon name={item.icon as IconName} size={22} />
                 </span>

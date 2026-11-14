@@ -64,7 +64,7 @@ export function ContactView({ lang }: { lang: Lang }) {
           <Reveal className="lg:col-span-7">
             <a
               href={telHref(SITE.phone.main)}
-              className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] bg-navy-950 p-8 text-white transition-transform hover:-translate-y-1 sm:p-10"
+              className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] bg-navy-950 p-8 text-white transition-transform hover:-translate-y-0.5 sm:p-10"
             >
               <span
                 aria-hidden
@@ -98,7 +98,7 @@ export function ContactView({ lang }: { lang: Lang }) {
             <Reveal delay={80}>
               <a
                 href={`mailto:${SITE.email}`}
-                className="group flex items-start gap-4 rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100 transition-transform hover:-translate-y-1"
+                className="group flex items-start gap-4 rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100 transition-transform hover:-translate-y-0.5"
               >
                 <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-soft">
                   <Icon name="mail" size={20} />
@@ -123,7 +123,7 @@ export function ContactView({ lang }: { lang: Lang }) {
                   href={SITE.social.kakao}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-start gap-4 rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100 transition-transform hover:-translate-y-1"
+                  className="group flex items-start gap-4 rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100 transition-transform hover:-translate-y-0.5"
                 >
                   <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-soft">
                     <Icon name="kakao" size={20} />
@@ -139,7 +139,7 @@ export function ContactView({ lang }: { lang: Lang }) {
                   <Icon
                     name="arrowUpRight"
                     size={18}
-                    className="shrink-0 text-ink-400 transition-transform group-hover:translate-x-0.5"
+                    className="shrink-0 text-ink-400"
                   />
                 </a>
               </Reveal>
@@ -150,7 +150,7 @@ export function ContactView({ lang }: { lang: Lang }) {
                 href={MAP_LINKS.naver}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full items-start gap-4 rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100 transition-transform hover:-translate-y-1"
+                className="group flex h-full items-start gap-4 rounded-[1.5rem] bg-ink-50 p-6 ring-1 ring-ink-100 transition-transform hover:-translate-y-0.5"
               >
                 <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-soft">
                   <Icon name="mapPin" size={20} />
@@ -169,7 +169,7 @@ export function ContactView({ lang }: { lang: Lang }) {
                 <Icon
                   name="arrowUpRight"
                   size={18}
-                  className="shrink-0 text-ink-400 transition-transform group-hover:translate-x-0.5"
+                  className="shrink-0 text-ink-400"
                 />
               </a>
             </Reveal>
@@ -247,7 +247,7 @@ export function ContactView({ lang }: { lang: Lang }) {
             <Reveal delay={120}>
               <Link
                 href={href(lang, "faq")}
-                className="group mt-4 flex items-center justify-between gap-4 rounded-[1.5rem] bg-brand-50 p-6 ring-1 ring-brand-100 transition-transform hover:-translate-y-1"
+                className="group mt-4 flex items-center justify-between gap-4 rounded-[1.5rem] bg-brand-50 p-6 ring-1 ring-brand-100 transition-transform hover:-translate-y-0.5"
               >
                 <span>
                   <span className="block text-[0.9375rem] font-bold text-navy-900">
@@ -260,7 +260,7 @@ export function ContactView({ lang }: { lang: Lang }) {
                 <Icon
                   name="arrowRight"
                   size={18}
-                  className="shrink-0 text-brand-600 transition-transform group-hover:translate-x-0.5"
+                  className="shrink-0 text-brand-600"
                 />
               </Link>
             </Reveal>

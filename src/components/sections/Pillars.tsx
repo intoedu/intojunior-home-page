@@ -18,7 +18,7 @@ export function Pillars({ lang }: { lang: Lang }) {
       <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {p.items.map((item, i) => (
           <Reveal as="li" key={item.key} delay={i * 80}>
-            <article className="group relative h-full overflow-hidden rounded-3xl bg-ink-50 p-7 ring-1 ring-ink-100 transition-all duration-300 hover:-translate-y-1.5 hover:bg-white hover:shadow-lift hover:ring-brand-200">
+            <article className="group relative h-full overflow-hidden rounded-3xl bg-ink-50 p-7 ring-1 ring-ink-100 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-lift hover:ring-brand-200">
               {/* 호버 시 나타나는 그라디언트 */}
               <span
                 aria-hidden
