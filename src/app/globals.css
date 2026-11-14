@@ -96,16 +96,18 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  /*
+   * scroll-behavior: smooth 는 넣지 않습니다.
+   * 넣으면 메뉴로 페이지를 옮길 때 "맨 위로" 이동까지 애니메이션으로 재생돼,
+   * 새 페이지가 스르륵 스크롤되며 섹션이 지나가 버립니다.
+   * (scroll-padding-top 은 애니메이션과 무관하게 앵커 도착 위치만 잡아줍니다)
+   */
   html {
-    scroll-behavior: smooth;
     scroll-padding-top: calc(var(--header-h) + 16px);
     -webkit-text-size-adjust: 100%;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
     *,
     *::before,
     *::after {
