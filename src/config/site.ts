@@ -190,8 +190,9 @@ export const SITE = {
   /** 사업자 정보 (푸터 표기) */
   business: {
     name: "인투주니어학원",
-    registrationNo: "", // TODO: 사업자등록번호
-    academyNo: "", // TODO: 학원설립·운영등록번호 (학원법상 표기 권장)
+    registrationNo: "594-91-02457",
+    /** 학원설립·운영등록증명서(대전광역시서부교육지원청) 좌측 상단 번호 */
+    academyNo: "제 서5408호",
   },
 } as const;
 
