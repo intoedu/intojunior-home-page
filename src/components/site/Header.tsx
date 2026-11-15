@@ -61,7 +61,7 @@ export function Header({ lang }: { lang: Lang }) {
         onMouseLeave={() => setOpenIdx(null)}
       >
         <div
-          className="mx-auto flex max-w-[73.75rem] items-center gap-4 px-5"
+          className="mx-auto flex max-w-[61.25rem] items-center gap-4 px-5"
           style={{ height: "var(--header-h)" }}
         >
           <Link
@@ -69,7 +69,7 @@ export function Header({ lang }: { lang: Lang }) {
             className="-m-1 shrink-0 rounded p-1"
             aria-label={SITE.brand.fullKo}
           >
-            <Logo lang={lang} size="sm" />
+            <Logo lang={lang} />
           </Link>
 
           {/* 데스크톱 내비게이션 — 상위 메뉴에 올리면 아래로 펼쳐집니다 */}
@@ -148,7 +148,7 @@ export function Header({ lang }: { lang: Lang }) {
         {/* 펼침 패널 */}
         {openIdx !== null && t.menu[openIdx].groups.length > 0 && (
           <div className="absolute inset-x-0 top-full hidden border-b border-ink-200 bg-white lg:block">
-            <div className="mx-auto max-w-[73.75rem] px-5 py-10">
+            <div className="mx-auto max-w-[61.25rem] px-5 py-10">
               <div className="flex gap-16">
                 {t.menu[openIdx].groups.map((group) => (
                   <div key={group.title} className="min-w-[11rem]">
