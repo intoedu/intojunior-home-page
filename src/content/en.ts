@@ -204,9 +204,9 @@ export const en: Dict = {
       eyebrow: "LEVEL TEST",
       title: "A 40-minute test and a 10-minute talk\ntell you exactly where your child is",
       description:
-        "We assess listening and reading separately and report the result as an individual ATOS (AR) level. Book through Naver and the test is free.",
+        "We assess listening and reading separately and report the result as an individual ATOS (AR) level. The level test is free.",
       steps: [
-        { no: "01", title: "Book", description: "Reserve online through Naver or call +82-42-822-0509. Booking via Naver makes the test free." },
+        { no: "01", title: "Book", description: "Reserve online through Naver or call +82-42-822-0509." },
         { no: "02", title: "Stage 1 · Paper & interview", description: "Elementary students start with alphabet and phonics discrimination plus a 1:1 speaking interview." },
         { no: "03", title: "Stage 2 · Online assessment", description: "Carnegie Learning's R.P.I. assesses listening and reading, with a paper test for reading and writing." },
         { no: "04", title: "Results talk (10 min)", description: "We go through the ATOS (AR) level and the results by skill, and explain what to build first." },
@@ -297,7 +297,7 @@ export const en: Dict = {
       eyebrow: "START HERE",
       title: "Fifty minutes is enough\nto find the right starting point",
       description:
-        "Forty minutes of testing and ten minutes of feedback tell you where your child stands. Book through Naver and it's free.",
+        "Forty minutes of testing and ten minutes of feedback tell you where your child stands. The level test is free.",
     },
   },
 
@@ -607,7 +607,7 @@ export const en: Dict = {
           description: "Together we pick the class that fits, and lessons begin.",
         },
       ],
-      note: "※ The length and cost of the level test depend on grade and course, and are confirmed when you book.",
+      note: "※ The level test is free. Full details are confirmed when you book.",
     },
   },
 
@@ -629,12 +629,12 @@ export const en: Dict = {
       {
         category: "admission",
         q: "How do I book a level test?",
-        a: "Book online through Naver or call +82-42-822-0509 — whichever is easier. Booking through Naver makes the test free.",
+        a: "Book online through Naver or call +82-42-822-0509 — whichever is easier. The level test is free.",
       },
       {
         category: "admission",
         q: "How much does the level test cost, and how long does it take?",
-        a: "Forty minutes of testing plus ten minutes of feedback — about 50 minutes. Book through Naver and it is free. A paper test, Carnegie Learning's online R.P.I. and a 1:1 speaking interview, finishing with an individual ATOS (AR) level.",
+        a: "Forty minutes of testing plus ten minutes of feedback — about 50 minutes. The level test is free. A paper test, Carnegie Learning's online R.P.I. and a 1:1 speaking interview, finishing with an individual ATOS (AR) level.",
       },
       {
         category: "admission",
