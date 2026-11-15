@@ -390,7 +390,7 @@ export const en: Dict = {
       title: "Tuition",
       description:
         "Tuition is published as required by Korea's Private Academy Act. Figures are for a one-month term; total monthly minutes vary by class.",
-      note: "※ Capacity is per class. Placement is decided by the level test.",
+      note: "※ No additional fees are charged beyond the tuition shown. Capacity is per class, and placement is decided by the level test.",
       columns: ["Class", "Monthly minutes", "Per-minute rate", "Tuition", "Capacity"],
       groups: {
         elementary: "Elementary",
