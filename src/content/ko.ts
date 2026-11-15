@@ -142,6 +142,7 @@ export const ko = {
     openNow: "영업 중",
     closedNow: "영업 종료",
     regularHoliday: "정기휴무",
+    weekdays: "평일",
     skipToContent: "본문 바로가기",
     scrollDown: "아래로 스크롤",
     photoPlaceholder: "사진 준비 중",

@@ -139,6 +139,7 @@ export const en: Dict = {
     openNow: "Open now",
     closedNow: "Closed",
     regularHoliday: "Closed",
+    weekdays: "Weekdays",
     skipToContent: "Skip to content",
     scrollDown: "Scroll down",
     photoPlaceholder: "Photo coming soon",
