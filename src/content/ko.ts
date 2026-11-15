@@ -54,6 +54,73 @@ export const ko = {
     { slug: "contact", label: "문의하기" },
   ],
 
+  /**
+   * 상단 메뉴 (펼침형).
+   * href 는 slug 와 앵커로 조합합니다. slug 가 ""  이면 홈입니다.
+   * 하위 항목의 앵커는 각 페이지의 <Section id="..."> 와 짝을 이룹니다.
+   */
+  menu: [
+    {
+      slug: "about",
+      label: "학원 소개",
+      groups: [
+        {
+          title: "소개·인사말",
+          items: [
+            { label: "인사말", slug: "about", hash: "greeting" },
+            { label: "학원 공간", slug: "about", hash: "facility" },
+          ],
+        },
+        {
+          title: "오시는 길",
+          items: [
+            { label: "위치·지도", slug: "location", hash: "place" },
+            { label: "찾아오시는 방법", slug: "location", hash: "directions" },
+          ],
+        },
+      ],
+    },
+    {
+      slug: "programs",
+      label: "프로그램",
+      groups: [
+        {
+          title: "프로그램 안내",
+          items: [
+            { label: "핵심 프로그램", slug: "programs", hash: "core" },
+            { label: "전체 과정", slug: "programs", hash: "courses" },
+            { label: "성장 단계", slug: "programs", hash: "levels" },
+          ],
+        },
+        {
+          title: "수업·교습비",
+          items: [
+            { label: "연간 커리큘럼", slug: "programs", hash: "curriculum" },
+            { label: "교습비 안내", slug: "programs", hash: "tuition" },
+          ],
+        },
+      ],
+    },
+    {
+      slug: "contact",
+      label: "문의·예약",
+      groups: [
+        {
+          title: "문의",
+          items: [
+            { label: "문의하기", slug: "contact", hash: "" },
+            { label: "자주 묻는 질문", slug: "faq", hash: "" },
+            { label: "운영시간", slug: "contact", hash: "hours" },
+          ],
+        },
+        {
+          title: "예약",
+          items: [{ label: "레벨테스트 예약", slug: "contact", hash: "" }],
+        },
+      ],
+    },
+  ],
+
   /* ---------------------------------------------------------------- 공통 */
   common: {
     langLabel: "English",

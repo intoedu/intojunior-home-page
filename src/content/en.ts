@@ -55,6 +55,69 @@ export const en: Dict = {
     { slug: "contact", label: "Contact" },
   ],
 
+  /** Top menu (mega dropdown) — mirrors the Korean structure. */
+  menu: [
+    {
+      slug: "about",
+      label: "About",
+      groups: [
+        {
+          title: "About us",
+          items: [
+            { label: "Greeting", slug: "about", hash: "greeting" },
+            { label: "Our space", slug: "about", hash: "facility" },
+          ],
+        },
+        {
+          title: "Directions",
+          items: [
+            { label: "Location & map", slug: "location", hash: "place" },
+            { label: "Getting here", slug: "location", hash: "directions" },
+          ],
+        },
+      ],
+    },
+    {
+      slug: "programs",
+      label: "Programmes",
+      groups: [
+        {
+          title: "Programmes",
+          items: [
+            { label: "Core programmes", slug: "programs", hash: "core" },
+            { label: "All courses", slug: "programs", hash: "courses" },
+            { label: "Levels", slug: "programs", hash: "levels" },
+          ],
+        },
+        {
+          title: "Lessons & tuition",
+          items: [
+            { label: "Year curriculum", slug: "programs", hash: "curriculum" },
+            { label: "Tuition", slug: "programs", hash: "tuition" },
+          ],
+        },
+      ],
+    },
+    {
+      slug: "contact",
+      label: "Contact",
+      groups: [
+        {
+          title: "Contact",
+          items: [
+            { label: "Get in touch", slug: "contact", hash: "" },
+            { label: "FAQ", slug: "faq", hash: "" },
+            { label: "Opening hours", slug: "contact", hash: "hours" },
+          ],
+        },
+        {
+          title: "Booking",
+          items: [{ label: "Book a level test", slug: "contact", hash: "" }],
+        },
+      ],
+    },
+  ],
+
   /* ------------------------------------------------------------- common */
   common: {
     langLabel: "한국어",

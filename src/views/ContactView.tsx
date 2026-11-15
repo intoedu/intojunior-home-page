@@ -233,7 +233,7 @@ export function ContactView({ lang }: { lang: Lang }) {
       </Section>
 
       {/* ── 운영시간 · 위치 ── */}
-      <Section size="wide" className="bg-white">
+      <Section id="hours" size="wide" className="bg-white">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-5">
             <div className="rounded bg-ink-50 p-7 ring-1 ring-ink-200">

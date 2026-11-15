@@ -198,7 +198,7 @@ export function CampusesView({ lang }: { lang: Lang }) {
       </PageHero>
 
       {/* ── 캠퍼스별 상세 ── */}
-      <Section tightTop size="wide" className="bg-white">
+      <Section id="place" tightTop size="wide" className="bg-white">
         <div className="space-y-20 sm:space-y-24">
           {CAMPUSES.map((campus, i) => (
             <CampusBlock key={campus.id} campus={campus} lang={lang} index={i} />
@@ -207,7 +207,7 @@ export function CampusesView({ lang }: { lang: Lang }) {
       </Section>
 
       {/* ── 찾아오시는 방법 ── */}
-      <Section size="wide" className="bg-ink-50">
+      <Section id="directions" size="wide" className="bg-ink-50">
         <Reveal>
           <h2 className="text-[1.75rem] font-bold text-navy-900 sm:text-[2.125rem]">
             {c.labels.transport}

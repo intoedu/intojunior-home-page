@@ -25,7 +25,7 @@ export function AboutView({ lang }: { lang: Lang }) {
       />
 
       {/* ── 대표 인사말 ── */}
-      <Section tightTop size="wide" className="bg-white">
+      <Section id="greeting" tightTop size="wide" className="bg-white">
         <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
           {/* 사진 */}
           <Reveal className="lg:col-span-5">
@@ -221,7 +221,7 @@ export function AboutView({ lang }: { lang: Lang }) {
       )}
 
       {/* ── 공간 ── */}
-      <Section size="wide" className="bg-white">
+      <Section id="facility" size="wide" className="bg-white">
         <SectionHeading
           eyebrow={a.facility.eyebrow}
           title={a.facility.title}

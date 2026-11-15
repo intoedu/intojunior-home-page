@@ -8,7 +8,7 @@ export function Levels({ lang }: { lang: Lang }) {
   const l = t.home.levels;
 
   return (
-    <Section size="wide" className="bg-ink-50">
+    <Section id="levels" size="wide" className="bg-ink-50">
       <SectionHeading
         eyebrow={l.eyebrow}
         title={l.title}

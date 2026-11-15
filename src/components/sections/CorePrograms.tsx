@@ -16,7 +16,7 @@ export function CorePrograms({ lang }: { lang: Lang }) {
   const [active, setActive] = useState<number[]>(c.items.map(() => 0));
 
   return (
-    <Section size="wide" className="bg-navy-950 text-white">
+    <Section id="core" size="wide" className="bg-navy-950 text-white">
       <SectionHeading
         eyebrow={c.eyebrow}
         title={c.title}

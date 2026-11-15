@@ -50,7 +50,7 @@ export function ProgramsView({ lang }: { lang: Lang }) {
       <CorePrograms lang={lang} />
 
       {/* ── 전체 과정 목록 ── */}
-      <Section tightTop size="wide" className="bg-white">
+      <Section id="courses" tightTop size="wide" className="bg-white">
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {p.items.map((item, i) => (
             <Reveal as="li" key={item.no} delay={(i % 3) * 80}>
@@ -64,7 +64,7 @@ export function ProgramsView({ lang }: { lang: Lang }) {
       <Levels lang={lang} />
 
       {/* ── 연간 커리큘럼 · 수업 시간 ── */}
-      <Section size="wide" className="bg-ink-50">
+      <Section id="curriculum" size="wide" className="bg-ink-50">
         <Reveal>
           <span className="inline-flex size-12 items-center justify-center rounded-xl bg-white text-brand-600 ring-1 ring-ink-200">
             <Icon name="calendar" size={22} />

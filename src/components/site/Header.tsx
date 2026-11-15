@@ -21,6 +21,10 @@ export function Header({ lang }: { lang: Lang }) {
   const pathname = usePathname() ?? "/";
   const current = slugFromPath(pathname, lang);
   const [open, setOpen] = useState(false);
+  /** 펼쳐진 상위 메뉴 번호 (데스크톱) */
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+  /** 모바일 드로어에서 펼쳐진 항목 */
+  const [openMobile, setOpenMobile] = useState<number | null>(null);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -29,7 +33,19 @@ export function Header({ lang }: { lang: Lang }) {
     };
   }, [open]);
 
+  /* Esc 로 펼침 메뉴 닫기 */
+  useEffect(() => {
+    if (openIdx === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenIdx(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [openIdx]);
+
   const altLang: Lang = lang === "ko" ? "en" : "ko";
+  const linkTo = (slug: string, hash: string) =>
+    `${href(lang, slug)}${hash ? `#${hash}` : ""}`;
 
   return (
     <>
@@ -41,10 +57,13 @@ export function Header({ lang }: { lang: Lang }) {
       </a>
 
       <header
-        className="sticky top-0 z-50 border-b border-ink-200 bg-white/92 backdrop-blur-xl"
-        style={{ height: "var(--header-h)" }}
+        className="sticky top-0 z-50 border-b border-ink-200 bg-white/96 backdrop-blur-xl"
+        onMouseLeave={() => setOpenIdx(null)}
       >
-        <div className="mx-auto flex h-full max-w-[72.5rem] items-center gap-4 px-5">
+        <div
+          className="mx-auto flex max-w-[73.75rem] items-center gap-4 px-5"
+          style={{ height: "var(--header-h)" }}
+        >
           <Link
             href={href(lang)}
             className="-m-1 shrink-0 rounded p-1"
@@ -53,45 +72,39 @@ export function Header({ lang }: { lang: Lang }) {
             <Logo lang={lang} size="sm" />
           </Link>
 
-          {/* 데스크톱 내비게이션 */}
+          {/* 데스크톱 내비게이션 — 상위 메뉴에 올리면 아래로 펼쳐집니다 */}
           <nav
-            className="ml-auto hidden items-center gap-1 lg:flex"
+            className="ml-auto hidden self-stretch lg:flex"
             aria-label={t.common.menu}
           >
-            {t.nav.map((item) => {
+            {t.menu.map((item, i) => {
               const active = current === item.slug;
+              const expanded = openIdx === i;
               return (
-                <Link
-                  key={item.slug || "home"}
-                  href={href(lang, item.slug)}
-                  aria-current={active ? "page" : undefined}
+                <button
+                  key={item.slug}
+                  type="button"
+                  aria-expanded={expanded}
+                  onMouseEnter={() => setOpenIdx(i)}
+                  onFocus={() => setOpenIdx(i)}
+                  onClick={() => setOpenIdx(expanded ? null : i)}
                   className={cn(
-                    "rounded px-3 py-2 text-[0.9375rem] font-bold transition-colors",
-                    active
-                      ? "text-navy-900"
-                      : "text-ink-600 hover:text-navy-900",
+                    "flex items-center px-7 text-[0.96875rem] font-bold transition-colors",
+                    expanded
+                      ? "bg-brand-50 text-brand-700"
+                      : active
+                        ? "text-navy-900"
+                        : "text-ink-700 hover:text-navy-900",
                   )}
                 >
                   {item.label}
-                </Link>
+                </button>
               );
             })}
           </nav>
 
           <div className="ml-auto flex items-center gap-2 lg:ml-5">
-            {/* 예약 CTA */}
-            <a
-              href={SITE.booking || telHref(SITE.phone.main)}
-              {...(SITE.booking
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-              className="hidden h-10 items-center gap-1.5 rounded-full bg-brand-600 px-5 text-[0.875rem] font-bold text-white transition-colors hover:bg-brand-700 sm:inline-flex"
-            >
-              <Icon name={SITE.booking ? "calendar" : "phone"} size={15} />
-              {t.common.book}
-            </a>
-
-            {/* 언어 전환 — 현재 언어가 진하게 표시됩니다 */}
+            {/* 언어 전환 */}
             <div className="hidden h-10 items-center gap-1 rounded-full px-2 ring-1 ring-ink-200 sm:inline-flex">
               <Icon name="globe" size={15} className="mx-1 text-ink-400" />
               <span className="rounded-full bg-navy-900 px-2.5 py-1 text-[0.75rem] font-extrabold text-white">
@@ -106,6 +119,18 @@ export function Header({ lang }: { lang: Lang }) {
               </Link>
             </div>
 
+            {/* 예약 CTA */}
+            <a
+              href={SITE.booking || telHref(SITE.phone.main)}
+              {...(SITE.booking
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              className="hidden h-11 items-center gap-1.5 rounded-full bg-brand-600 px-5 text-[0.875rem] font-bold text-white transition-colors hover:bg-brand-700 sm:inline-flex"
+            >
+              <Icon name={SITE.booking ? "calendar" : "phone"} size={15} />
+              {t.common.book}
+            </a>
+
             {/* 모바일 메뉴 버튼 */}
             <button
               type="button"
@@ -113,12 +138,43 @@ export function Header({ lang }: { lang: Lang }) {
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? t.common.close : t.common.menu}
-              className="inline-flex size-10 items-center justify-center rounded-full text-navy-900 ring-1 ring-ink-200 transition-colors hover:bg-ink-50 lg:hidden"
+              className="inline-flex size-11 items-center justify-center rounded-full text-navy-900 ring-1 ring-ink-200 transition-colors hover:bg-ink-50 lg:hidden"
             >
               <Icon name={open ? "close" : "menu"} size={20} />
             </button>
           </div>
         </div>
+
+        {/* 펼침 패널 */}
+        {openIdx !== null && t.menu[openIdx].groups.length > 0 && (
+          <div className="absolute inset-x-0 top-full hidden border-b border-ink-200 bg-white lg:block">
+            <div className="mx-auto max-w-[73.75rem] px-5 py-10">
+              <div className="flex gap-16">
+                {t.menu[openIdx].groups.map((group) => (
+                  <div key={group.title} className="min-w-[11rem]">
+                    <h2 className="border-b border-ink-200 pb-3 text-[1.0625rem] font-extrabold text-navy-900">
+                      {group.title}
+                    </h2>
+                    <ul className="mt-4 space-y-1">
+                      {group.items.map((sub) => (
+                        <li key={sub.label + sub.hash}>
+                          <Link
+                            href={linkTo(sub.slug, sub.hash)}
+                            onClick={() => setOpenIdx(null)}
+                            className="-mx-2 flex items-center gap-2 rounded px-2 py-2 text-[0.9375rem] text-ink-600 transition-colors hover:text-brand-700"
+                          >
+                            <span className="text-ink-300">·</span>
+                            {sub.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* 모바일 드로어 */}
@@ -146,25 +202,67 @@ export function Header({ lang }: { lang: Lang }) {
         >
           <nav className="px-5 pt-4" aria-label={t.common.menu}>
             <ul className="flex flex-col">
-              {t.nav.map((item) => {
-                const active = current === item.slug;
+              <li>
+                <Link
+                  href={href(lang)}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-between border-b border-ink-200 py-4 text-lg font-bold text-navy-900"
+                >
+                  {t.nav[0].label}
+                  <Icon name="chevronRight" size={18} className="text-ink-300" />
+                </Link>
+              </li>
+
+              {t.menu.map((item, i) => {
+                const expanded = openMobile === i;
                 return (
-                  <li key={item.slug || "home"}>
-                    <Link
-                      href={href(lang, item.slug)}
-                      onClick={() => setOpen(false)}
+                  <li key={item.slug}>
+                    <button
+                      type="button"
+                      aria-expanded={expanded}
+                      onClick={() => setOpenMobile(expanded ? null : i)}
                       className={cn(
-                        "flex items-center justify-between border-b border-ink-200 py-4 text-lg font-bold transition-colors",
-                        active ? "text-brand-700" : "text-navy-900",
+                        "flex w-full items-center justify-between border-b border-ink-200 py-4 text-lg font-bold transition-colors",
+                        current === item.slug ? "text-brand-700" : "text-navy-900",
                       )}
                     >
                       {item.label}
                       <Icon
-                        name="chevronRight"
+                        name="chevronDown"
                         size={18}
-                        className={active ? "text-brand-500" : "text-ink-300"}
+                        className={cn(
+                          "text-ink-300 transition-transform",
+                          expanded && "rotate-180",
+                        )}
                       />
-                    </Link>
+                    </button>
+                    {expanded && (
+                      <div className="border-b border-ink-200 bg-ink-50 px-1 py-3">
+                        {item.groups.map((group) => (
+                          <div key={group.title} className="px-3 py-2">
+                            <p className="text-[0.75rem] font-extrabold tracking-[0.04em] text-ink-400 uppercase">
+                              {group.title}
+                            </p>
+                            <ul className="mt-2 space-y-0.5">
+                              {group.items.map((sub) => (
+                                <li key={sub.label + sub.hash}>
+                                  <Link
+                                    href={linkTo(sub.slug, sub.hash)}
+                                    onClick={() => {
+                                      setOpen(false);
+                                      setOpenMobile(null);
+                                    }}
+                                    className="block py-2 text-[0.9375rem] text-ink-700"
+                                  >
+                                    {sub.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </li>
                 );
               })}
