@@ -47,6 +47,14 @@ export function Header({ lang }: { lang: Lang }) {
   const linkTo = (slug: string, hash: string) =>
     `${href(lang, slug)}${hash ? `#${hash}` : ""}`;
 
+  /**
+   * 지금 보고 있는 페이지가 속한 상위 메뉴인지.
+   * 하위 항목의 페이지(예: 자주 묻는 질문)에 있어도 상위(문의·예약)를 켭니다.
+   */
+  const isActive = (item: (typeof t.menu)[number]) =>
+    current === item.slug ||
+    item.groups.some((g) => g.items.some((s) => s.slug === current));
+
   return (
     <>
       <a
@@ -78,8 +86,9 @@ export function Header({ lang }: { lang: Lang }) {
             aria-label={t.common.menu}
           >
             {t.menu.map((item, i) => {
-              const active = current === item.slug;
-              const expanded = openIdx === i;
+              /* 펼친 메뉴가 있으면 그쪽을, 없으면 현재 페이지를 켭니다 */
+              const highlighted =
+                openIdx !== null ? openIdx === i : isActive(item);
               return (
                 /* 상위 메뉴도 눌러서 해당 페이지로 이동합니다 (올리면 펼쳐짐) */
                 <Link
@@ -90,11 +99,9 @@ export function Header({ lang }: { lang: Lang }) {
                   onClick={() => setOpenIdx(null)}
                   className={cn(
                     "flex items-center px-7 text-[0.96875rem] font-bold transition-colors",
-                    expanded
+                    highlighted
                       ? "bg-brand-50 text-brand-700"
-                      : active
-                        ? "text-navy-900"
-                        : "text-ink-700 hover:text-navy-900",
+                      : "text-ink-700 hover:text-navy-900",
                   )}
                 >
                   {item.label}
@@ -224,9 +231,7 @@ export function Header({ lang }: { lang: Lang }) {
                         onClick={() => setOpen(false)}
                         className={cn(
                           "flex-1 py-4 text-lg font-bold transition-colors",
-                          current === item.slug
-                            ? "text-brand-700"
-                            : "text-navy-900",
+                          isActive(item) ? "text-brand-700" : "text-navy-900",
                         )}
                       >
                         {item.label}
