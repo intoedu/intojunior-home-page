@@ -634,7 +634,7 @@ export const en: Dict = {
       {
         category: "admission",
         q: "How much does the level test cost, and how long does it take?",
-        a: "Forty minutes of testing plus ten minutes of feedback — about 50 minutes. It costs ₩10,000, or nothing if you book through Naver. A paper test, Carnegie Learning's online R.P.I. and a 1:1 speaking interview, finishing with an individual ATOS (AR) level.",
+        a: "Forty minutes of testing plus ten minutes of feedback — about 50 minutes. Book through Naver and it is free. A paper test, Carnegie Learning's online R.P.I. and a 1:1 speaking interview, finishing with an individual ATOS (AR) level.",
       },
       {
         category: "admission",
