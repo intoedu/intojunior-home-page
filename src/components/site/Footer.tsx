@@ -82,6 +82,15 @@ export function Footer({ lang }: { lang: Lang }) {
                   </Link>
                 </li>
               ))}
+              {/* 교습비는 학원법상 표시 항목이라 어느 페이지에서든 바로 닿게 둡니다 */}
+              <li>
+                <Link
+                  href={`${href(lang, "programs")}#tuition`}
+                  className="-my-1.5 inline-flex items-center py-1.5 text-[0.875rem] font-medium text-ink-600 transition-colors hover:text-navy-900"
+                >
+                  {t.footer.tuitionLink}
+                </Link>
+              </li>
             </ul>
           </nav>
 

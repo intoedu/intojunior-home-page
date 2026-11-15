@@ -765,6 +765,7 @@ export const ko = {
     tagline:
       "읽고, 말하고, 성적과 경험까지 완성하는 영어 교육",
     quickTitle: "바로가기",
+    tuitionLink: "교습비 안내",
     contactTitle: "문의 · 상담",
     hoursTitle: "운영시간",
     ceoLabel: "대표",

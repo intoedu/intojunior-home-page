@@ -708,6 +708,7 @@ export const en: Dict = {
   footer: {
     tagline: "English you can read, speak, score with — and actually use",
     quickTitle: "Quick links",
+    tuitionLink: "Tuition",
     contactTitle: "Get in touch",
     hoursTitle: "Opening hours",
     ceoLabel: "Director",
