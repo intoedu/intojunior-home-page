@@ -81,13 +81,13 @@ export function Header({ lang }: { lang: Lang }) {
               const active = current === item.slug;
               const expanded = openIdx === i;
               return (
-                <button
+                /* 상위 메뉴도 눌러서 해당 페이지로 이동합니다 (올리면 펼쳐짐) */
+                <Link
                   key={item.slug}
-                  type="button"
-                  aria-expanded={expanded}
+                  href={href(lang, item.slug)}
                   onMouseEnter={() => setOpenIdx(i)}
                   onFocus={() => setOpenIdx(i)}
-                  onClick={() => setOpenIdx(expanded ? null : i)}
+                  onClick={() => setOpenIdx(null)}
                   className={cn(
                     "flex items-center px-7 text-[0.96875rem] font-bold transition-colors",
                     expanded
@@ -98,7 +98,7 @@ export function Header({ lang }: { lang: Lang }) {
                   )}
                 >
                   {item.label}
-                </button>
+                </Link>
               );
             })}
           </nav>
@@ -217,25 +217,37 @@ export function Header({ lang }: { lang: Lang }) {
                 const expanded = openMobile === i;
                 return (
                   <li key={item.slug}>
-                    <button
-                      type="button"
-                      aria-expanded={expanded}
-                      onClick={() => setOpenMobile(expanded ? null : i)}
-                      className={cn(
-                        "flex w-full items-center justify-between border-b border-ink-200 py-4 text-lg font-bold transition-colors",
-                        current === item.slug ? "text-brand-700" : "text-navy-900",
-                      )}
-                    >
-                      {item.label}
-                      <Icon
-                        name="chevronDown"
-                        size={18}
+                    {/* 이름을 누르면 페이지로, 화살표를 누르면 하위 메뉴가 펼쳐집니다 */}
+                    <div className="flex items-center border-b border-ink-200">
+                      <Link
+                        href={href(lang, item.slug)}
+                        onClick={() => setOpen(false)}
                         className={cn(
-                          "text-ink-300 transition-transform",
-                          expanded && "rotate-180",
+                          "flex-1 py-4 text-lg font-bold transition-colors",
+                          current === item.slug
+                            ? "text-brand-700"
+                            : "text-navy-900",
                         )}
-                      />
-                    </button>
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        type="button"
+                        aria-expanded={expanded}
+                        aria-label={`${item.label} ${t.common.menu}`}
+                        onClick={() => setOpenMobile(expanded ? null : i)}
+                        className="-mr-2 inline-flex size-12 items-center justify-center"
+                      >
+                        <Icon
+                          name="chevronDown"
+                          size={20}
+                          className={cn(
+                            "text-ink-400 transition-transform",
+                            expanded && "rotate-180",
+                          )}
+                        />
+                      </button>
+                    </div>
                     {expanded && (
                       <div className="border-b border-ink-200 bg-ink-50 px-1 py-3">
                         {item.groups.map((group) => (
