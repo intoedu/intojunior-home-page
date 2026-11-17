@@ -1,32 +1,19 @@
-import { SITE, asset, telHref } from "@/config/site";
+import { SITE, telHref } from "@/config/site";
 import { getDict, href, type Lang } from "@/content";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
+import { PhotoBackdrop } from "@/components/ui/PhotoBackdrop";
 
 export function HomeHero({ lang }: { lang: Lang }) {
   const t = getDict(lang);
   const h = t.home.hero;
-  const photo = SITE.photos.hero;
 
   return (
     <>
       <section className="relative isolate overflow-hidden bg-navy-950 text-white">
-        {/* 배경 사진 + 어둡게 덮는 레이어 */}
-        <div aria-hidden className="absolute inset-0 -z-10">
-          {photo && (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img
-              src={asset(photo)}
-              alt=""
-              className="size-full object-cover"
-              fetchPriority="high"
-            />
-          )}
-          <div className="absolute inset-0 bg-navy-950/82" />
-          <div className="absolute inset-0 bg-linear-to-r from-navy-950/85 via-navy-950/55 to-navy-950/35" />
-        </div>
+        <PhotoBackdrop photo="hero" tone="edge" priority />
 
         <Container>
           <div className="py-24 sm:py-32 lg:pt-40 lg:pb-35">

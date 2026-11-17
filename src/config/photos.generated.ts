@@ -2,6 +2,9 @@
  * scripts/scan-photos.mjs 가 public/photos/ 를 훑어 만듭니다.
  */
 export const PHOTO_FILES: readonly string[] = [
+  "b-core.jpg",
+  "b-cta.jpg",
+  "b-motto.jpg",
   "director.jpg",
   "entrance.jpg",
   "f-ailab.jpg",

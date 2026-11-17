@@ -9,6 +9,8 @@ export function Section({
   size = "default",
   /** 히어로 바로 아래에 오는 첫 섹션은 위 여백을 줄입니다 */
   tightTop = false,
+  /** 배경에 깔 요소 (PhotoBackdrop 등). className 에 relative isolate overflow-hidden 을 함께 넣어 주세요 */
+  backdrop,
   children,
 }: {
   id?: string;
@@ -16,6 +18,7 @@ export function Section({
   containerClassName?: string;
   size?: "default" | "narrow" | "wide";
   tightTop?: boolean;
+  backdrop?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
@@ -26,6 +29,7 @@ export function Section({
         className,
       )}
     >
+      {backdrop}
       <Container size={size} className={containerClassName}>
         {children}
       </Container>

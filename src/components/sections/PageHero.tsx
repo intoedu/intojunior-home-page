@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { asset, photo as findPhoto } from "@/config/site";
 import { getDict, href, type Lang } from "@/content";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Section";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
+import { PhotoBackdrop } from "@/components/ui/PhotoBackdrop";
 
 /**
  * 하위 페이지 공통 히어로 (딥 네이비)
@@ -34,7 +34,6 @@ export function PageHero({
   className?: string;
 }) {
   const t = getDict(lang);
-  const src = photo ? findPhoto(photo) : "";
 
   return (
     <section
@@ -43,20 +42,7 @@ export function PageHero({
         className,
       )}
     >
-      {/* 배경 사진 + 어둡게 덮는 레이어 — 홈 첫 화면과 같은 농도 */}
-      {src && (
-        <div aria-hidden className="absolute inset-0 -z-10">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={asset(src)}
-            alt=""
-            className="size-full object-cover"
-            fetchPriority="high"
-          />
-          <div className="absolute inset-0 bg-navy-950/82" />
-          <div className="absolute inset-0 bg-linear-to-r from-navy-950/85 via-navy-950/55 to-navy-950/35" />
-        </div>
-      )}
+      <PhotoBackdrop photo={photo} tone="edge" priority />
 
       <Container>
         <div className="py-16 sm:py-20 lg:py-24">

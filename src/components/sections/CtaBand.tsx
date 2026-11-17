@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
+import { PhotoBackdrop } from "@/components/ui/PhotoBackdrop";
 
 /** 페이지 하단 공통 전환 유도 섹션 */
 export function CtaBand({ lang }: { lang: Lang }) {
@@ -11,7 +12,9 @@ export function CtaBand({ lang }: { lang: Lang }) {
   const c = t.home.cta;
 
   return (
-    <section className="bg-navy-950 py-20 text-white sm:py-25">
+    <section className="relative isolate overflow-hidden bg-navy-950 py-20 text-white sm:py-25">
+      <PhotoBackdrop photo="b-cta" tone="center" />
+
       <Container>
         <div className="mx-auto max-w-[44rem] text-center">
           <Reveal>

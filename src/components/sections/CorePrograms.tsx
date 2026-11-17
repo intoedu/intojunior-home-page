@@ -8,6 +8,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { Icon } from "@/components/ui/Icon";
 import { YouTubePlayer } from "@/components/ui/YouTubePlayer";
+import { PhotoBackdrop } from "@/components/ui/PhotoBackdrop";
 
 /** 핵심 프로그램 두 가지 — 소개 영상과 함께 크게 보여줍니다 */
 export function CorePrograms({ lang }: { lang: Lang }) {
@@ -16,7 +17,12 @@ export function CorePrograms({ lang }: { lang: Lang }) {
   const [active, setActive] = useState<number[]>(c.items.map(() => 0));
 
   return (
-    <Section id="core" size="wide" className="bg-navy-950 text-white">
+    <Section
+      id="core"
+      size="wide"
+      className="relative isolate overflow-hidden bg-navy-950 text-white"
+      backdrop={<PhotoBackdrop photo="b-core" tone="top" />}
+    >
       <SectionHeading
         eyebrow={c.eyebrow}
         title={c.title}

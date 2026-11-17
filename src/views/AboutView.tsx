@@ -8,6 +8,7 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { Section, SectionHeading, Eyebrow } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { PhotoSlot } from "@/components/ui/PhotoSlot";
+import { PhotoBackdrop } from "@/components/ui/PhotoBackdrop";
 import { Icon, type IconName } from "@/components/ui/Icon";
 
 export function AboutView({ lang }: { lang: Lang }) {
@@ -133,7 +134,11 @@ export function AboutView({ lang }: { lang: Lang }) {
       </Section>
 
       {/* ── 브랜드 슬로건 ── */}
-      <Section size="wide" className="bg-navy-950 text-white">
+      <Section
+        size="wide"
+        className="relative isolate overflow-hidden bg-navy-950 text-white"
+        backdrop={<PhotoBackdrop photo="b-motto" tone="center" />}
+      >
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <Icon
