@@ -17,5 +17,10 @@ export const PHOTO_FILES: readonly string[] = [
   "g-library.jpg",
   "g-reception.jpg",
   "g-speech.jpg",
-  "hero.jpg"
+  "hero.jpg",
+  "p-brix.jpg",
+  "p-clearfluency.jpg",
+  "p-coaching.jpg",
+  "p-fastforward.jpg",
+  "p-reading.jpg"
 ];

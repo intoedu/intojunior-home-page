@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import type { Dict } from "@/content";
+import { asset, photo } from "@/config/site";
 import { Icon, type IconName } from "@/components/ui/Icon";
 
 type Program = Dict["programs"]["items"][number];
@@ -20,6 +21,19 @@ export function ProgramCard({
         className,
       )}
     >
+      {/* 수업 사진 — 준비된 과정에만 들어갑니다 */}
+      {photo(program.photo) && (
+        <div className="-mx-7 -mt-7 mb-7 sm:-mx-8 sm:-mt-8">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={asset(photo(program.photo))}
+            alt=""
+            loading="lazy"
+            className="aspect-16/10 w-full object-cover"
+          />
+        </div>
+      )}
+
       <div className="flex items-start justify-between gap-4">
         <span className="inline-flex size-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
           <Icon name={program.icon as IconName} size={22} />

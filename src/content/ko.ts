@@ -536,6 +536,7 @@ export const ko = {
       {
         no: "01",
         icon: "sparkle",
+        photo: "p-fastforward",
         tag: "인지 · 듣기",
         title: "패스트포워드",
         subtitle: "Fast ForWord · 뇌과학 영어",
@@ -551,6 +552,7 @@ export const ko = {
       {
         no: "02",
         icon: "mic",
+        photo: "p-clearfluency",
         tag: "유창성",
         title: "클리어 플루언시",
         subtitle: "ClearFluency · 영어낭독도서관",
@@ -566,6 +568,7 @@ export const ko = {
       {
         no: "03",
         icon: "grammar",
+        photo: "p-brix",
         tag: "독해 · 문법",
         title: "BRIX 리딩",
         subtitle: "Reading & Grammar",
@@ -581,6 +584,7 @@ export const ko = {
       {
         no: "04",
         icon: "book",
+        photo: "p-reading",
         tag: "전 레벨",
         title: "원서 집중듣기",
         subtitle: "Reading Input",
@@ -596,6 +600,7 @@ export const ko = {
       {
         no: "05",
         icon: "target",
+        photo: "p-coaching",
         tag: "전 레벨",
         title: "학습코칭",
         subtitle: "Learning Coaching",
@@ -611,6 +616,7 @@ export const ko = {
       {
         no: "06",
         icon: "globe",
+        photo: "",
         tag: "방학 · 연수",
         title: "어학연수 · 캠프",
         subtitle: "Camps & Study Abroad",

@@ -479,6 +479,7 @@ export const en: Dict = {
       {
         no: "01",
         icon: "sparkle",
+        photo: "p-fastforward",
         tag: "Cognition · Listening",
         title: "Fast ForWord",
         subtitle: "Brain-science English",
@@ -494,6 +495,7 @@ export const en: Dict = {
       {
         no: "02",
         icon: "mic",
+        photo: "p-clearfluency",
         tag: "Fluency",
         title: "ClearFluency",
         subtitle: "AI oral reading library",
@@ -509,6 +511,7 @@ export const en: Dict = {
       {
         no: "03",
         icon: "grammar",
+        photo: "p-brix",
         tag: "Reading · Grammar",
         title: "BRIX Reading",
         subtitle: "Reading & Grammar",
@@ -524,6 +527,7 @@ export const en: Dict = {
       {
         no: "04",
         icon: "book",
+        photo: "p-reading",
         tag: "All levels",
         title: "Focused reading input",
         subtitle: "Reading Input",
@@ -539,6 +543,7 @@ export const en: Dict = {
       {
         no: "05",
         icon: "target",
+        photo: "p-coaching",
         tag: "All levels",
         title: "Learning coaching",
         subtitle: "Learning Coaching",
@@ -554,6 +559,7 @@ export const en: Dict = {
       {
         no: "06",
         icon: "globe",
+        photo: "",
         tag: "Vacation · Abroad",
         title: "Camps & study abroad",
         subtitle: "Camps & Study Abroad",
