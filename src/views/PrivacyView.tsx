@@ -11,6 +11,7 @@ export function PrivacyView({ lang }: { lang: Lang }) {
     <>
       <PageHero
         lang={lang}
+        photo="h-privacy"
         title={p.title}
         description={p.updated}
         crumbLabel={t.footer.privacy}

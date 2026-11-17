@@ -14,6 +14,7 @@ export function FaqView({ lang }: { lang: Lang }) {
     <>
       <PageHero
         lang={lang}
+        photo="h-faq"
         eyebrow={t.faq.hero.eyebrow}
         title={t.faq.hero.title}
         description={t.faq.hero.description}

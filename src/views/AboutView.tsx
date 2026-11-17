@@ -18,6 +18,7 @@ export function AboutView({ lang }: { lang: Lang }) {
     <>
       <PageHero
         lang={lang}
+        photo="h-about"
         eyebrow={a.hero.eyebrow}
         title={a.hero.title}
         description={a.hero.description}

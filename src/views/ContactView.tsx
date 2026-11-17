@@ -21,6 +21,7 @@ export function ContactView({ lang }: { lang: Lang }) {
     <>
       <PageHero
         lang={lang}
+        photo="h-contact"
         eyebrow={c.hero.eyebrow}
         title={c.hero.title}
         description={c.hero.description}

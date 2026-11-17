@@ -21,6 +21,7 @@ export function ProgramsView({ lang }: { lang: Lang }) {
     <>
       <PageHero
         lang={lang}
+        photo="h-programs"
         eyebrow={p.hero.eyebrow}
         title={p.hero.title}
         description={p.hero.description}

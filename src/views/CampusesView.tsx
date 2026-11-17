@@ -173,6 +173,7 @@ export function CampusesView({ lang }: { lang: Lang }) {
     <>
       <PageHero
         lang={lang}
+        photo="h-campuses"
         eyebrow={c.hero.eyebrow}
         title={c.hero.title}
         description={c.hero.description}
