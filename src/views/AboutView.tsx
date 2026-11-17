@@ -1,7 +1,7 @@
 import { SITE, photo, telHref } from "@/config/site";
 
 /** 학원 공간 사진 (public/photos/) — 문구 순서와 같습니다 */
-const FACILITY_PHOTOS = ["daejeon-doan", "room7", "room1", "room3"];
+const FACILITY_PHOTOS = ["f-reception", "f-classroom", "f-library", "f-ailab"];
 import { getDict, type Lang } from "@/content";
 import { PageHero } from "@/components/sections/PageHero";
 import { CtaBand } from "@/components/sections/CtaBand";

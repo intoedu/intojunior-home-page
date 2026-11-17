@@ -89,7 +89,7 @@ export const CAMPUSES: Campus[] = [
     phone: "042-822-0509",
     mobile: "010-3454-9482",
     isHq: true,
-    photo: photo("daejeon-doan"),
+    photo: photo("entrance"),
     hours: HOURS,
     comingSoon: false,
   },

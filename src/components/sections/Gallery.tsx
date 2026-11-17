@@ -13,28 +13,25 @@ const ICONS: IconName[] = ["building", "book", "mic", "target", "speech", "star"
  * public/photos/ 에 room1 ~ room6 이름으로 사진을 올리면 자동으로 표시됩니다.
  * (확장자는 jpg / png / webp 아무거나 상관없습니다)
  */
-const PHOTOS = ["room1", "room2", "room3", "room4", "room5", "room6"].map(
-  (name) => photo(name) || undefined,
-);
+const PHOTOS = [
+  "g-library",
+  "g-classroom",
+  "g-ailab",
+  "g-group",
+  "g-booth",
+  "g-class",
+  "g-reception",
+  "g-books",
+  "g-speech",
+].map((name) => photo(name) || undefined);
 
-/* 첫 번째 사진만 크게(2×2) 배치해 3×3 격자를 꽉 채웁니다. */
-const CELL = [
-  "col-span-2 lg:col-span-2 lg:row-span-2",
-  "col-span-1",
-  "col-span-1",
-  "col-span-1",
-  "col-span-1",
-  "col-span-2 lg:col-span-1",
-];
-
-const RATIO = [
-  "aspect-16/10 lg:aspect-auto lg:h-full",
-  "aspect-square",
-  "aspect-square",
-  "aspect-square",
-  "aspect-square",
-  "aspect-16/10 lg:aspect-square",
-];
+/*
+ * 큰 화면은 4열. 첫 사진만 2×2 로 두면 남는 8칸을 나머지가 정확히 채웁니다.
+ * (2×2 + 8 = 4열 × 3행)
+ */
+const FEATURE = "col-span-2 row-span-2";
+const RATIO_FEATURE = "aspect-square lg:aspect-auto lg:h-full";
+const RATIO_CELL = "aspect-square";
 
 export function Gallery({ lang }: { lang: Lang }) {
   const t = getDict(lang);
@@ -49,16 +46,23 @@ export function Gallery({ lang }: { lang: Lang }) {
         align="center"
       />
 
-      <div className="mt-14 grid auto-rows-fr grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+      <div className="mt-14 grid auto-rows-fr grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {g.captions.map((caption, i) => (
-          <Reveal key={caption} delay={i * 60} className={CELL[i]}>
+          <Reveal
+            key={caption}
+            delay={i * 60}
+            className={i === 0 ? FEATURE : undefined}
+          >
             <PhotoSlot
               src={PHOTOS[i]}
               alt={caption}
               caption={caption}
               label={PHOTOS[i] ? undefined : t.common.photoPlaceholder}
               icon={ICONS[i % ICONS.length]}
-              className={cn("w-full rounded ring-1 ring-ink-200", RATIO[i])}
+              className={cn(
+                "w-full rounded ring-1 ring-ink-200",
+                i === 0 ? RATIO_FEATURE : RATIO_CELL,
+              )}
             />
           </Reveal>
         ))}

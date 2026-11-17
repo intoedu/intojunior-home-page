@@ -347,6 +347,9 @@ export const en: Dict = {
         "Small-group classroom",
         "Individual study booths",
         "In class",
+        "Reception",
+        "Book display",
+        "Presentation class",
       ],
     },
 
