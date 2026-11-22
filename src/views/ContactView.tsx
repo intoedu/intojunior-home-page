@@ -8,6 +8,7 @@ import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { PhotoBackdrop } from "@/components/ui/PhotoBackdrop";
 import { OpeningHours } from "@/components/site/OpeningHours";
 import { SocialLinks, socialEntries } from "@/components/site/SocialLinks";
 
@@ -65,8 +66,9 @@ export function ContactView({ lang }: { lang: Lang }) {
           <Reveal className="lg:col-span-7">
             <a
               href={telHref(SITE.phone.main)}
-              className="group relative flex h-full flex-col justify-between overflow-hidden rounded bg-navy-950 p-8 text-white transition-transform hover:-translate-y-0.5 sm:p-10"
+              className="group relative isolate flex h-full flex-col justify-between overflow-hidden rounded bg-navy-950 p-8 text-white transition-transform hover:-translate-y-0.5 sm:p-10"
             >
+              <PhotoBackdrop photo="c-call" tone="even" />
               <span
                 aria-hidden
                 className="pointer-events-none absolute -top-20 -right-16 size-64 rounded-full bg-brand-500/25 blur-3xl transition-all duration-500 group-hover:bg-brand-500/40"
@@ -87,7 +89,7 @@ export function ContactView({ lang }: { lang: Lang }) {
                 <span className="text-[2rem] leading-none font-extrabold tabular-nums sm:text-[2.5rem]">
                   {SITE.phone.main}
                 </span>
-                <span className="text-[1rem] leading-none font-semibold tabular-nums text-white/45">
+                <span className="text-[1rem] leading-none font-semibold tabular-nums text-white/60">
                   {SITE.phone.mobile}
                 </span>
               </span>
