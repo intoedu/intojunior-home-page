@@ -4,6 +4,7 @@
 export const PHOTO_FILES: readonly string[] = [
   "b-core.jpg",
   "b-cta.jpg",
+  "b-fitfor.jpg",
   "b-motto.jpg",
   "director.jpg",
   "entrance.jpg",

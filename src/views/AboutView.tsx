@@ -192,7 +192,11 @@ export function AboutView({ lang }: { lang: Lang }) {
 
       {/* ── 이런 고민이 있으셨다면 (내용이 있을 때만 표시) ── */}
       {a.fitFor.items.length > 0 && (
-      <Section size="wide" className="bg-navy-950 text-white">
+      <Section
+        size="wide"
+        className="relative isolate overflow-hidden bg-navy-950 text-white"
+        backdrop={<PhotoBackdrop photo="b-fitfor" tone="even" />}
+      >
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeading

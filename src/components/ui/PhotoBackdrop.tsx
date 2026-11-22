@@ -16,6 +16,8 @@ const TONES = {
    */
   center:
     "bg-linear-to-r from-navy-950/70 via-navy-950/88 to-navy-950/70 sm:from-navy-950/40 sm:via-navy-950/85 sm:to-navy-950/40",
+  /** 글씨가 좌우로 꽉 차는 2단 구성 — 어느 쪽도 밝아지지 않게 고르게 덮습니다 */
+  even: "bg-navy-950/45",
   /** 제목 아래로 카드가 이어지는 섹션 — 위는 옅고 아래로 진해집니다 */
   top: "bg-linear-to-b from-navy-950/55 via-navy-950/75 to-navy-950/95",
 } as const;
