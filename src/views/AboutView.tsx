@@ -104,12 +104,6 @@ export function AboutView({ lang }: { lang: Lang }) {
                       >
                         {SITE.phone.main}
                       </a>
-                      <a
-                        href={telHref(SITE.phone.mobile)}
-                        className="-my-1.5 inline-flex items-center py-1.5 text-[0.8125rem] tabular-nums text-ink-500 transition-colors hover:text-brand-700"
-                      >
-                        {SITE.phone.mobile}
-                      </a>
                     </dd>
                   </div>
                   <div className="flex items-center gap-2">

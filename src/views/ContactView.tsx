@@ -85,13 +85,8 @@ export function ContactView({ lang }: { lang: Lang }) {
                 </span>
               </span>
 
-              <span className="relative mt-8 flex flex-wrap items-end gap-x-6 gap-y-2">
-                <span className="text-[2rem] leading-none font-extrabold tabular-nums sm:text-[2.5rem]">
-                  {SITE.phone.main}
-                </span>
-                <span className="text-[1rem] leading-none font-semibold tabular-nums text-white/60">
-                  {SITE.phone.mobile}
-                </span>
+              <span className="relative mt-8 block text-[2rem] leading-none font-extrabold tabular-nums sm:text-[2.5rem]">
+                {SITE.phone.main}
               </span>
             </a>
           </Reveal>

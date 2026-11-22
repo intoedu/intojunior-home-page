@@ -59,7 +59,6 @@ export type Campus = {
   /** 지도 검색어 */
   query: string;
   phone: string;
-  mobile: string;
   /** 이 캠퍼스가 본사인지 */
   isHq: boolean;
   /** 캠퍼스 사진 (public/photos/… 경로). 비우면 자리 표시가 나옵니다 */
@@ -87,7 +86,6 @@ export const CAMPUSES: Campus[] = [
       "3F #302, Heungdo Bldg, 691 Dongseo-daero, Yuseong-gu, Daejeon, Korea",
     query: "대전광역시 유성구 동서대로 691",
     phone: "042-822-0509",
-    mobile: "010-3454-9482",
     isHq: true,
     photo: photo("entrance"),
     hours: HOURS,
@@ -128,7 +126,6 @@ export const SITE = {
    */
   phone: {
     main: HQ_CAMPUS.phone,
-    mobile: HQ_CAMPUS.mobile,
   },
 
   email: "angelpark3401@gmail.com",

@@ -131,21 +131,6 @@ function CampusBlock({
                     </a>
                   </dd>
                 </div>
-                {campus.mobile && (
-                  <div className="flex items-center justify-between border-t border-ink-200 pt-3">
-                    <dt className="text-[0.8125rem] font-semibold text-ink-500">
-                      {L.mobileLine}
-                    </dt>
-                    <dd>
-                      <a
-                        href={telHref(campus.mobile)}
-                        className="-my-1.5 inline-flex items-center py-1.5 text-[0.9375rem] font-bold tabular-nums text-navy-800 transition-colors hover:text-brand-700"
-                      >
-                        {campus.mobile}
-                      </a>
-                    </dd>
-                  </div>
-                )}
               </dl>
             </div>
 

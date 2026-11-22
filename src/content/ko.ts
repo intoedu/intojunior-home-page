@@ -31,7 +31,7 @@ export const ko = {
     contact: {
       title: "문의하기 | 인투주니어학원",
       description:
-        "궁금한 점을 남겨주시면 빠르게 연락드리겠습니다. 전화 042-822-0509 / 010-3454-9482",
+        "궁금한 점을 남겨주시면 빠르게 연락드리겠습니다. 전화 042-822-0509",
     },
     faq: {
       title: "자주 묻는 질문 | 인투주니어학원",
@@ -652,7 +652,6 @@ export const ko = {
       mapKakao: "카카오맵",
       mapGoogle: "구글지도",
       mainLine: "대표번호",
-      mobileLine: "휴대전화",
       viewOnMap: "지도에서 보기",
       callCampus: "전화 걸기",
       preparing: "정보 준비 중",

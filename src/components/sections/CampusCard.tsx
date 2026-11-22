@@ -90,14 +90,6 @@ export function CampusCard({
               >
                 {campus.phone}
               </a>
-              {campus.mobile && (
-                <a
-                  href={telHref(campus.mobile)}
-                  className="-my-1.5 inline-flex items-center py-1.5 text-[0.8125rem] tabular-nums text-ink-500 transition-colors hover:text-brand-700"
-                >
-                  {campus.mobile}
-                </a>
-              )}
             </dd>
           </div>
         </dl>

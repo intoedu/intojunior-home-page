@@ -25,12 +25,6 @@ export function Footer({ lang }: { lang: Lang }) {
             <p className="mt-3 text-[0.875rem] text-ink-500">
               {t.footer.holidayNote}
             </p>
-            <a
-              href={telHref(SITE.phone.mobile)}
-              className="mt-1 inline-block text-[0.875rem] tabular-nums text-ink-500 transition-colors hover:text-navy-900"
-            >
-              {SITE.phone.mobile}
-            </a>
           </div>
 
           <div className="flex flex-col items-start gap-4 sm:items-end">

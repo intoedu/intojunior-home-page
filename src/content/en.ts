@@ -31,7 +31,7 @@ export const en: Dict = {
     contact: {
       title: "Contact | INTO JUNIOR",
       description:
-        "Leave us a message and we'll get back to you quickly. Call +82-42-822-0509 or +82-10-3454-9482.",
+        "Leave us a message and we'll get back to you quickly. Call +82-42-822-0509.",
     },
     faq: {
       title: "FAQ | INTO JUNIOR",
@@ -595,7 +595,6 @@ export const en: Dict = {
       mapKakao: "Kakao Map",
       mapGoogle: "Google Maps",
       mainLine: "Main line",
-      mobileLine: "Mobile",
       viewOnMap: "View on map",
       callCampus: "Call us",
       preparing: "Details coming soon",
